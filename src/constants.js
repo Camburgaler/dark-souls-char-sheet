@@ -227,5 +227,5 @@ export const ORIGINS = ["", "The Brute", "The Fencer", "Jack of All Trades", "Ca
 export const CLASSES = ["", "Knight", "Mercenary", "Assassin", "Warrior", "Thief", "Herald", "Cleric", "Sorcerer", "Pyromancer", "Deprived"];
 export const DEFAULT_CUSTOM_INFO = {backstory: false, memory: false, drive: false};
 
-export const DEFAULT_SCORES = {STR: 10, DEX: 10, CON: 10, INT: 10, WIS: 10, CHA: 10};
-export const DEFAULT_MODIFIERS = {STR: 0, DEX: 0, CON: 0, INT: 0, WIS: 0, CHA: 0};
+export const DEFAULT_SCORES = {strScore: 10, dexScore: 10, conScore: 10, intScore: 10, wisScore: 10, chaScore: 10};
+export const DEFAULT_MODIFIERS = {strMod: 0, dexMod: 0, conMod: 0, intMod: 0, wisMod: 0, chaMod: 0};

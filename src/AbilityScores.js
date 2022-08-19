@@ -10,33 +10,37 @@ import {
   DEFAULT_SCORES
 }
 from './constants';
+import { characterContext } from './characterContext';
 
 function AbilityScores() {
   const [abilityScores, setAbilityScores] = React.useState(DEFAULT_SCORES);
   const [helperText, setHelperText] = React.useState(DEFAULT_MODIFIERS);
   const handleScoreChange = (event) => {
-    const ability = event.target.labels[0].innerText;
+    const ability = event.target.name;
     const score = event.target.value;
     setAbilityScores({
       ...abilityScores,
-      [ability]: score,
+      [ability + "Score"]: score,
     });
     const modifier = Math.floor((score - 10) / 2);
     setHelperText({
       ...helperText,
-      [ability]: modifier>=0 ? "+" + modifier : modifier
+      [ability + "Mod"]: modifier>=0 ? "+" + modifier : modifier
     });
-  };
+    characterContext._currentValue[ability + "Score"] = score;
+    characterContext._currentValue[ability + "Mod"] = Math.floor((score - 10) / 2);
+    console.log(characterContext);
+    };
   return (
     <>
       <Grid container direction="column">
         <Item>
-          <TextField label="STR" helperText={helperText.STR} defaultValue={abilityScores.STR} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
-          <TextField label="DEX" helperText={helperText.DEX} defaultValue={abilityScores.DEX} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
-          <TextField label="CON" helperText={helperText.CON} defaultValue={abilityScores.CON} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
-          <TextField label="INT" helperText={helperText.INT} defaultValue={abilityScores.INT} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
-          <TextField label="WIS" helperText={helperText.WIS} defaultValue={abilityScores.WIS} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
-          <TextField label="CHA" helperText={helperText.CHA} defaultValue={abilityScores.CHA} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
+          <TextField name="str" helperText={helperText.strMod} defaultValue={abilityScores.strMod} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
+          <TextField name="dex" helperText={helperText.dexMod} defaultValue={abilityScores.dexMod} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
+          <TextField name="con" helperText={helperText.conMod} defaultValue={abilityScores.conMod} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
+          <TextField name="int" helperText={helperText.intMod} defaultValue={abilityScores.intMod} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
+          <TextField name="wis" helperText={helperText.wisMod} defaultValue={abilityScores.wisMod} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
+          <TextField name="cha" helperText={helperText.chaMod} defaultValue={abilityScores.chaMod} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
         </Item>
       </Grid>
     </>
