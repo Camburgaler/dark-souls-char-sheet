@@ -1,9 +1,158 @@
-import {
-    TextField,
-  }
-    from "@mui/material";
+export const DEFAULT_CHARACTER = {
+    characterName: "",
+    selectedClass: "",
+    level: "",
+    backstory: "",
+    origin: "",
+    memory: "",
+    playerName: "",
+    drive: "",
+
+    strScore: 10,
+    strMod: 0,
+    dexScore: 10,
+    dexMod: 0,
+    conScore: 10,
+    conMod: 0,
+    intScore: 10,
+    intMod: 0,
+    wisScore: 10,
+    wisMod: 0,
+    chaScore: 10,
+    chaMod: 0,
+
+    inpiration: false,
+    proficiencyBonus: 2,
+    passivePerception: 10,
+
+    strSavingThrowProficiency: false,
+    strSavingThrow: 0,
+    dexSavingThrowProficiency: false,
+    dexSavingThrow: 0,
+    conSavingThrowProficiency: false,
+    conSavingThrow: 0,
+    intSavingThrowProficiency: false,
+    intSavingThrow: 0,
+    wisSavingThrowProficiency: false,
+    wisSavingThrow: 0,
+    chaSavingThrowProficiency: false,
+    chaSavingThrow: 0,
+
+    acrobaticsProficiency: false,
+    acrobaticsExpertise: false,
+    acrobatics: 0,
+
+    animalHandlingProficiency: false,
+    animalHandlingExpertise: false,
+    animalHandling: 0,
+
+    arcanaProficiency: false,
+    arcanaExpertise: false,
+    arcana: 0,
+
+    athleticsProficiency: false,
+    athleticsExpertise: false,
+    athletics: 0,
+
+    deceptionProficiency: false,
+    deceptionExpertise: false,
+    deception: 0,
+
+    historyProficiency: false,
+    historyExpertise: false,
+    history: 0,
+
+    insightProficiency: false,
+    insightExpertise: false,
+    insight: 0,
+
+    intimidationProficiency: false,
+    intimidationExpertise: false,
+    intimidation: 0,
+
+    investigationProficiency: false,
+    investigationExpertise: false,
+    investigation: 0,
+
+    medicineProficiency: false,
+    medicineExpertise: false,
+    medicine: 0,
+
+    natureProficiency: false,
+    natureExpertise: false,
+    nature: 0,
+
+    perceptionProficiency: false,
+    perceptionExpertise: false,
+    perception: 0,
+
+    performanceProficiency: false,
+    performanceExpertise: false,
+    performance: 0,
+
+    persuasionProficiency: false,
+    persuasionExpertise: false,
+    persuasion: 0,
+
+    religionProficiency: false,
+    religionExpertise: false,
+    religion: 0,
+
+    sleightOfHandProficiency: false,
+    sleightOfHandExpertise: false,
+    sleightOfHand: 0,
+
+    stealthProficiency: false,
+    stealthExpertise: false,
+    stealth: 0,
+
+    survivalProficiency: false,
+    survivalExpertise: false,
+    survival: 0,
+
+    specialAbilityTitle: "",
+    specialAbilityUses: 0,
+    specialAbilityExpended: 0,
+
+    bloodiedAbility: "",
+
+    notes: "",
+
+    armorClass: 0,
+    initiative: 0,
+    speed: 0,
+
+    basePosition: 0,
+    combatPositionPool: 0,
+    currentPosition: 0,
+    totalPositionDice: "",
+    currentPositionDice: "",
+    currentSouls: 0,
+    spentSouls: 0,
+
+    weapon1: {},
+    weapon2: {},
+    armor: {},
+    shield: {},
+
+    equipment: [],
+
+    featuresAndTraits: "",
+
+    spells: [],
+
+    consumbleItems: [],
+    maxExtusFlaskUses: 3,
+    currentEstusFlaskUses: 3,
+    healersKit: 0,
+    greenBlossom: 0,
+    purpleMoss: 0,
+    bugPillType: "",
+    bugPills: 0
+}
 
 export const BACKSTORIES = [
+    "",
     "You sought to become a lord by any means. You failed.", 
     "You're a lowly murderer, hanged in ages past and forgotten about.", 
     "You were a poet, writing the tales of knights and damsels, singing them to the court.", 
@@ -24,9 +173,10 @@ export const BACKSTORIES = [
     "You preached the message to the faithful; gathering your flock, and reassuring them of salvation. Did you believe any of it?",
     "You were a brutal master, working your servants to death. Can you ever be redeemed?",
     "A knight. You're certain. One of those who rode steeds and sought quests to prove your virtue. Definitely. That was you.",
-    <TextField fullWidth autoFocus defaultValue="For custom backstory, select me then tab into me."></TextField>
+    // <TextField fullWidth autoFocus defaultValue="For custom backstory, select me then tab into me."></TextField>
 ];
 export const MEMORIES = [
+    "",
     "A man stands over you with a bloody knife, laughing. Laughing and laughing.",
     "The scent of earth in your nose as it fell onto your face. Were you buried alive?",
     "The grasping, clawing hands of hollows everywhere.",
@@ -42,14 +192,15 @@ export const MEMORIES = [
     "The beating of wings, and the sudden darkening of the sky.",
     "Applause. A crowd, gathered to watch you die, and were pleased as you did.",
     "Touching that treasure chest.",
-    "The roguness of a rope around your neck, the stifling interior of a hemp sack over your head, the feeling of nothing beneath your feet for a moment.",
+    "The roughness of a rope around your neck, the stifling interior of a hemp sack over your head, the feeling of nothing beneath your feet for a moment.",
     "Someone shouting in your face, and a punch. No worse than you'd received before, but this time...",
     "A thud. A second thud. No pain. Not initially. Amd then you glanced down to see arrows protruding from your chest.",
     "You knew you shouldn't have read those words aloud.",
     "A pain in your chest. Searing, your left arm aching and useless.",
-    <TextField fullWidth autoFocus defaultValue="For custom memory, select me then tab into me."></TextField>
+    // <TextField fullWidth autoFocus defaultValue="For custom memory, select me then tab into me."></TextField>
 ];
 export const DRIVES = [
+    "",
     "To become a lord--no matter the cost to you, or the world.",
     "To return the sun to this stygian world.",
     "To know everything. Everything. No matter how obscure.",
@@ -70,10 +221,10 @@ export const DRIVES = [
     "To discover the lost tome, containing the true history of the world.",
     "To heal this blasted world, and make it anew.",
     "To achieve redempton; you know the darkness in your past lives. Perhaps you can cleanse yourslef.",
-    <TextField fullWidth autoFocus defaultValue="For custom drive, select me then tab into me."></TextField>
+    // <TextField fullWidth autoFocus defaultValue="For custom drive, select me then tab into me."></TextField>
 ];
-export const ORIGINS = ["The Brute", "The Fencer", "Jack of All Trades", "Caster"];
-export const CLASSES = ["Knight", "Mercenary", "Assassin", "Warrior", "Thief", "Herald", "Cleric", "Sorcerer", "Pyromancer", "Deprived"];
+export const ORIGINS = ["", "The Brute", "The Fencer", "Jack of All Trades", "Caster"];
+export const CLASSES = ["", "Knight", "Mercenary", "Assassin", "Warrior", "Thief", "Herald", "Cleric", "Sorcerer", "Pyromancer", "Deprived"];
 export const DEFAULT_CUSTOM_INFO = {backstory: false, memory: false, drive: false};
 
 export const DEFAULT_SCORES = {STR: 10, DEX: 10, CON: 10, INT: 10, WIS: 10, CHA: 10};

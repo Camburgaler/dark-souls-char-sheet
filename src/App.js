@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Grid container="true" direction="row">
-        <BasicInformation />
+        <BasicInformation id="basicInformation" name="basicInformation" />
       </Grid>
 
       <Grid container="true" direction="row">
