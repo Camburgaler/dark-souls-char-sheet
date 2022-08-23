@@ -8,14 +8,14 @@ import Consumables from "./Consumables";
 
 function RightColumn() {
     return(
-        <Grid container="true" direction="column" xs="12">
-            <Grid container="true" direction="row">
+        <Grid container direction="column">
+            <Grid item xs={12}>
                 <FeaturesAndTraits />
             </Grid>
-            <Grid container="true" direction="row">
+            <Grid item xs={12}>
                 <Spells />
             </Grid>
-            <Grid container="true" direction="row">
+            <Grid item xs={12}>
                 <Consumables />
             </Grid>
         </Grid>

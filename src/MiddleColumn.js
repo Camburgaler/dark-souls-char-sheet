@@ -11,20 +11,20 @@ import Equipment from "./Equipment";
 function MiddleColumn() {
     return(
         <>
-            <Grid container="true" direction="column" xs="12">
-                <Grid container="true" direction="row">
+            <Grid container direction="column">
+                <Grid item xs={12}>
                     <CombatStats />
                 </Grid>
-                <Grid container="true" direction="row">
+                <Grid item xs={12}>
                     <Position />
                 </Grid>
-                <Grid container="true" direction="row">
+                <Grid item xs={12}>
                     <PosDiceAndSouls />
                 </Grid>
-                <Grid container="true" direction="row">
+                <Grid item xs={12}>
                     <WeaponsArmorAndShields />
                 </Grid>
-                <Grid container="true" direction="row">
+                <Grid item xs={12}>
                     <Equipment />
                 </Grid>
             </Grid>

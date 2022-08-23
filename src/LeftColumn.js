@@ -10,34 +10,42 @@ import SpecialAbility from "./SpecialAbility"
 import BloodiedAbility from "./BloodiedAbility"
 import Notes from "./Notes"
 
-function LeftColumn() {
+function LeftColumn(props) {
     return (
         <>
-            <Grid container="true" direction="column" xs="12">
-                <Grid container="true" direction="row" xs="6">
-                    <Grid container="true" direction="column" xs="3">
-                        <AbilityScores />
+            <Grid container direction="column">
+                <Grid container direction="row">
+                    <Grid item xs={3}>
+                        <AbilityScores character={props.character} />
                     </Grid>
-                    <Grid container="true" direction="column" xs="9">
-                        <Grid container="true" direction="row">
-                            <SecondaryInfo />
-                        </Grid>
-                        <Grid container="true" direction="row">
-                            <SavingThrows />
-                        </Grid>
-                        <Grid container="true" direction="row">
-                            <SkillsList />
+                    <Grid item xs={9}>
+                        <Grid container direction="column">
+                            <Grid item xs={12}>
+                                <SecondaryInfo />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <SavingThrows />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <SkillsList />
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid container="true" direction="row" xs="1">
-                    <SpecialAbility />
+                <Grid container direction="row">
+                    <Grid item xs={12}>
+                        <SpecialAbility />
+                    </Grid>
                 </Grid>
-                <Grid container="true" direction="row" xs="2">
-                    <BloodiedAbility />
+                <Grid container direction="row">
+                    <Grid item xs={12}>
+                        <BloodiedAbility />
+                    </Grid>
                 </Grid>
-                <Grid container="true" direction="row" xs="3">
-                    <Notes />
+                <Grid container direction="row">
+                    <Grid item xs={12}>
+                        <Notes />
+                    </Grid>
                 </Grid>
             </Grid>
         </>

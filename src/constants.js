@@ -1,7 +1,7 @@
 export const DEFAULT_CHARACTER = {
     characterName: "",
     selectedClass: "",
-    level: "",
+    level: 1,
     backstory: "",
     origin: "",
     memory: "",
@@ -21,7 +21,7 @@ export const DEFAULT_CHARACTER = {
     chaScore: 10,
     chaMod: 0,
 
-    inpiration: false,
+    inspiration: false,
     proficiencyBonus: 2,
     passivePerception: 10,
 
@@ -151,6 +151,7 @@ export const DEFAULT_CHARACTER = {
     bugPills: 0
 }
 
+export const CLASSES = ["", "Knight", "Mercenary", "Assassin", "Warrior", "Thief", "Herald", "Cleric", "Sorcerer", "Pyromancer", "Deprived"];
 export const BACKSTORIES = [
     "",
     "You sought to become a lord by any means. You failed.", 
@@ -175,6 +176,7 @@ export const BACKSTORIES = [
     "A knight. You're certain. One of those who rode steeds and sought quests to prove your virtue. Definitely. That was you.",
     // <TextField fullWidth autoFocus defaultValue="For custom backstory, select me then tab into me."></TextField>
 ];
+export const ORIGINS = ["", "Brute", "Fencer", "Jack of All Trades", "Caster"];
 export const MEMORIES = [
     "",
     "A man stands over you with a bloody knife, laughing. Laughing and laughing.",
@@ -223,9 +225,8 @@ export const DRIVES = [
     "To achieve redempton; you know the darkness in your past lives. Perhaps you can cleanse yourslef.",
     // <TextField fullWidth autoFocus defaultValue="For custom drive, select me then tab into me."></TextField>
 ];
-export const ORIGINS = ["", "The Brute", "The Fencer", "Jack of All Trades", "Caster"];
-export const CLASSES = ["", "Knight", "Mercenary", "Assassin", "Warrior", "Thief", "Herald", "Cleric", "Sorcerer", "Pyromancer", "Deprived"];
-export const DEFAULT_CUSTOM_INFO = {backstory: false, memory: false, drive: false};
 
-export const DEFAULT_SCORES = {strScore: 10, dexScore: 10, conScore: 10, intScore: 10, wisScore: 10, chaScore: 10};
-export const DEFAULT_MODIFIERS = {strMod: 0, dexMod: 0, conMod: 0, intMod: 0, wisMod: 0, chaMod: 0};
+export const BRUTE_SCORES = { strScore: 15, strMod: 2, dexScore: 10, dexMod: 0, conScore: 14, conMod: 2, intScore: 10, intMod: 0, wisScore: 12, wisMod: 1, chaScore: 13, chaMod: 1 };
+export const FENCER_SCORES = { strScore: 12, strMod: 1, dexScore: 15, dexMod: 2, conScore: 14, conMod: 2, intScore: 13, intMod: 1, wisScore: 10, wisMod: 0, chaScore: 10, chaMod: 0 };
+export const JACK_OF_ALL_TRADES_SCORES = { strScore: 13, strMod: 1, dexScore: 13, dexMod: 1, conScore: 12, conMod: 1, intScore: 12, intMod: 1, wisScore: 13, wisMod: 1, chaScore: 12, chaMod: 1 };
+export const CASTER_SCORES = { strScore: 10, strMod: 0, dexScore: 12, dexMod: 1, conScore: 10, conMod: 0, intScore: 14, intMod: 2, wisScore: 13, wisMod: 1, chaScore: 15, chaMod: 2 };
