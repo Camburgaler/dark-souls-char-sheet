@@ -1,6 +1,11 @@
+import { TextField } from "@mui/material";
+import { Item } from "./styles";
+
 function Notes() {
     return(
-<>notes</>
+        <Item>
+            <TextField label={"Notes"} fullWidth multiline variant={"outlined"}></TextField>
+        </Item>
     );
 }
 

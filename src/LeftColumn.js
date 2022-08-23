@@ -16,7 +16,7 @@ function LeftColumn(props) {
             <Grid container direction="column">
                 <Grid container direction="row">
                     <Grid item xs={3}>
-                        <AbilityScores character={props.character} />
+                        <AbilityScores character={props.character} onChange={props.changeHandler} />
                     </Grid>
                     <Grid item xs={9}>
                         <Grid container direction="column">

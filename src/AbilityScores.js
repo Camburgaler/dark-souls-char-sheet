@@ -8,21 +8,14 @@ import { Item } from './styles';
 
 function AbilityScores(props) {
 
-  const [helperTextState, setHelperTextState] = React.useState({
-    strMod: props.character.strMod,
-    dexMod: props.character.dexMod,
-    conMod: props.character.conMod,
-    intMod: props.character.intMod,
-    wisMod: props.character.wisMod,
-    chaMod: props.character.chaMod,
-  })
-  const handleScoreChange = (event) => {
+  const [abilityState, setAbilityState] = React.useState(props.character.abilities);
+  const handleChange = (event) => {
     const ability = event.target.name;
     const score = event.target.value;
     props.character[ability + "Score"] = score;
     props.character[ability + "Mod"] = Math.floor((score - 10) / 2);
-    setHelperTextState({
-      ...helperTextState,
+    setAbilityState({
+      ...abilityState,
       [ability + "Mod"]: props.character[ability + "Mod"] >= 0 ? "+" + props.character[ability + "Mod"] : props.character[ability + "Mod"]
     })
     console.log(props.character);
@@ -31,12 +24,12 @@ function AbilityScores(props) {
     <>
       <Grid container direction="column">
         <Item>
-          <TextField name="str" label="STR" helperText={helperTextState.strMod} defaultValue={props.character.strMod} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
-          <TextField name="dex" label="DEX" helperText={helperTextState.dexMod} defaultValue={props.character.dexMod} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
-          <TextField name="con" label="CON" helperText={helperTextState.conMod} defaultValue={props.character.conMod} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
-          <TextField name="int" label="INT" helperText={helperTextState.intMod} defaultValue={props.character.intMod} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
-          <TextField name="wis" label="WIS" helperText={helperTextState.wisMod} defaultValue={props.character.wisMod} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
-          <TextField name="cha" label="CHA" helperText={helperTextState.chaMod} defaultValue={props.character.chaMod} fullWidth margin="dense" type="number" variant="standard" onChange={handleScoreChange} />
+          <TextField name="str" label="STR" helperText={props.character.abilities.strMod >= 0 ? "+" + props.character.abilities.strMod : props.character.abilities.strMod} value={props.character.abilities.strScore} fullWidth margin="dense" type="number" variant="standard" onChange={handleChange} />
+          <TextField name="dex" label="DEX" helperText={props.character.abilities.dexMod >= 0 ? "+" + props.character.abilities.dexMod : props.character.abilities.dexMod} value={props.character.abilities.dexScore} fullWidth margin="dense" type="number" variant="standard" onChange={handleChange} />
+          <TextField name="con" label="CON" helperText={props.character.abilities.conMod >= 0 ? "+" + props.character.abilities.conMod : props.character.abilities.conMod} value={props.character.abilities.conScore} fullWidth margin="dense" type="number" variant="standard" onChange={handleChange} />
+          <TextField name="int" label="INT" helperText={props.character.abilities.intMod >= 0 ? "+" + props.character.abilities.intMod : props.character.abilities.intMod} value={props.character.abilities.intScore} fullWidth margin="dense" type="number" variant="standard" onChange={handleChange} />
+          <TextField name="wis" label="WIS" helperText={props.character.abilities.wisMod >= 0 ? "+" + props.character.abilities.wisMod : props.character.abilities.wisMod} value={props.character.abilities.wisScore} fullWidth margin="dense" type="number" variant="standard" onChange={handleChange} />
+          <TextField name="cha" label="CHA" helperText={props.character.abilities.chaMod >= 0 ? "+" + props.character.abilities.chaMod : props.character.abilities.chaMod} value={props.character.abilities.chaScore} fullWidth margin="dense" type="number" variant="standard" onChange={handleChange} />
         </Item>
       </Grid>
     </>

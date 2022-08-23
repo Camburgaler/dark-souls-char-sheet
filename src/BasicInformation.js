@@ -11,8 +11,12 @@ import {
 import { Item } from './styles';
 import { 
   BACKSTORIES, 
+  BRUTE_SCORES, 
+  CASTER_SCORES, 
   CLASSES, 
   DRIVES, 
+  FENCER_SCORES, 
+  JACK_OF_ALL_TRADES_SCORES, 
   MEMORIES, 
   ORIGINS
 }
@@ -30,7 +34,7 @@ function BasicInformation(props) {
   const classes = useStyles();
 
   const handleChange = (event) => {
-    props.changeHandler(event);
+    props.onChange(event);
   }
 
   return (

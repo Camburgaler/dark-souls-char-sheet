@@ -22,63 +22,50 @@ function App() {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setCharacter({
-      ...character,
-      [name]: value
-    });
 
+    character[name] = value;
     if (name === "origin") {
       switch (value) {
         case "Brute":
-          Object.entries(BRUTE_SCORES).forEach(([key, value]) => {
-            setCharacter({
-              ...character,
-              [key]: value
-            });
+          setCharacter({
+            ...character,
+            abilities: BRUTE_SCORES
           });
           break;
         case "Fencer":
-          Object.entries(FENCER_SCORES).forEach(([key, value]) => {
-            setCharacter({
-              ...character,
-              [key]: value
-            });
+          setCharacter({
+            ...character,
+            abilities: FENCER_SCORES
           });
           break;
         case "Jack of All Trades":
-          Object.entries(JACK_OF_ALL_TRADES_SCORES).forEach(([key, value]) => {
-            setCharacter({
-              ...character,
-              [key]: value
-            });
+          setCharacter({
+            ...character,
+            abilities: JACK_OF_ALL_TRADES_SCORES
           });
           break;
         case "Caster":
-          Object.entries(CASTER_SCORES).forEach(([key, value]) => {
-            setCharacter({
-              ...character,
-              [key]: value
-            });
+          setCharacter({
+            ...character,
+            abilities: CASTER_SCORES
           });
           break;
         default:
           break;
       }
     }
-
-    console.log(event);
     console.log(character);
   }
 
   return (
     <>
       <Grid container direction="row">
-        <BasicInformation character={character} changeHandler={handleChange} setCharacter={setCharacter} />
+        <BasicInformation character={character} onChange={handleChange} />
       </Grid>
 
       <Grid container direction="row">
         <Grid item xs={4} minHeight="100%">
-          <LeftColumn character={character} />
+          <LeftColumn character={character} onChange={handleChange} />
         </Grid>
         <Grid item xs={4}>
           <MiddleColumn character={character}/>
