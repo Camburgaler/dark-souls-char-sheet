@@ -21,7 +21,7 @@ function LeftColumn(props) {
                     <Grid item xs={9}>
                         <Grid container direction="column">
                             <Grid item xs={12}>
-                                <SecondaryInfo />
+                                <SecondaryInfo character={props.character} onChange={props.changeHandler} />
                             </Grid>
                             <Grid item xs={12}>
                                 <SavingThrows />
