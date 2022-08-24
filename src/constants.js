@@ -23,6 +23,15 @@ export const DEFAULT_CHARACTER = {
         chaMod: 0
     },
 
+    abilitiesNames: {
+        str: "Strength",
+        dex: "Dexterity",
+        con: "Constitution",
+        int: "Intelligence",
+        wis: "Wisdom",
+        cha: "Charisma"
+    },
+
     inspiration: false,
     proficiencyBonus: 2,
     passivePerception: 10,
@@ -46,6 +55,27 @@ export const DEFAULT_CHARACTER = {
         sleightOfHand: 0,
         stealth: 0,
         survival: 0,
+    },
+
+    skillsNames: {
+        acrobatics: "Acrobatics",
+        animalHandling: "Animal Handling",
+        arcana: "Arcana",
+        athletics: "Athletics",
+        deception: "Deception",
+        history: "History",
+        insight: "Insight",
+        intimidation: "Intimidation",
+        investigation: "Investigation",
+        medicine: "Medicine",
+        nature: "Nature",
+        perception: "Perception",
+        performance: "Performance",
+        persuasion: "Persuasion",
+        religion: "Religion",
+        sleightOfHand: "Sleight of Hand",
+        stealth: "Stealth",
+        survival: "Survival",
     },
 
     proficiencies: {

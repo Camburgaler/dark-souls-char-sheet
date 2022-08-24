@@ -1,5 +1,14 @@
 import React from 'react';
 import {
+  Button,
+  Checkbox,
+  Dialog,
+  DialogActions,
+  DialogTitle,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormLabel,
   Grid,
 }
 from "@mui/material";
@@ -18,6 +27,58 @@ import {
 
 function App() {
   const [character, setCharacter] = React.useState(DEFAULT_CHARACTER);
+  const [deprivedDialogOpen, setDeprivedDialogOpen] = React.useState(false);
+  const [deprivedSavingThrows, setDeprivedSavingThrows] = React.useState({
+    deprivedStrSavingThrow: false,
+    deprivedDexSavingThrow: false,
+    deprivedConSavingThrow: false,
+    deprivedIntSavingThrow: false,
+    deprivedWisSavingThrow: false,
+    deprivedChaSavingThrow: false
+  })
+  const deprivedDialogError = Object.values(deprivedSavingThrows).filter((v) => v).length !== 2;
+
+  const handleDeprivedDialogClose = () => {
+    setCharacter({
+      ...character,
+      proficiencies: {
+        ...character.proficiencies,
+        strSavingThrow: false,
+        dexSavingThrow: false,
+        conSavingThrow: false,
+        intSavingThrow: false,
+        wisSavingThrow: false,
+        chaSavingThrow: false
+      }
+    });
+  }
+
+  const handleClick = (event) => {
+    setDeprivedSavingThrows({
+      ...deprivedSavingThrows,
+      [event.target.name]: event.target.checked
+    })
+  }
+
+  const handleSubmit = () => {
+    if(deprivedDialogError) {
+
+    } else {
+      setCharacter({
+        ...character,
+        proficiencies: {
+          ...character.proficiencies,
+          strSavingThrow: deprivedSavingThrows.deprivedStrSavingThrow,
+          dexSavingThrow: deprivedSavingThrows.deprivedDexSavingThrow,
+          conSavingThrow: deprivedSavingThrows.deprivedConSavingThrow,
+          intSavingThrow: deprivedSavingThrows.deprivedIntSavingThrow,
+          wisSavingThrow: deprivedSavingThrows.deprivedWisSavingThrow,
+          chaSavingThrow: deprivedSavingThrows.deprivedChaSavingThrow
+        }
+      });
+      setDeprivedDialogOpen(false);
+    }
+  }
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -53,12 +114,206 @@ function App() {
         default:
           break;
       }
+    } else if (name === "selectedClass") {
+      switch (value) {
+        case "Knight":
+          setCharacter({
+            ...character,
+            proficiencies: {
+              ...character.proficiencies,
+              strSavingThrow: true,
+              dexSavingThrow: false,
+              conSavingThrow: true,
+              intSavingThrow: false,
+              wisSavingThrow: false,
+              chaSavingThrow: false
+            }
+          });
+          break;
+        case "Mercenary":
+          setCharacter({
+            ...character,
+            proficiencies: {
+              ...character.proficiencies,
+              strSavingThrow: true,
+              dexSavingThrow: true,
+              conSavingThrow: false,
+              intSavingThrow: false,
+              wisSavingThrow: false,
+              chaSavingThrow: false
+            }
+          });
+          break;
+        case "Assassin":
+          setCharacter({
+            ...character,
+            proficiencies: {
+              ...character.proficiencies,
+              strSavingThrow: true,
+              dexSavingThrow: true,
+              conSavingThrow: false,
+              intSavingThrow: false,
+              wisSavingThrow: false,
+              chaSavingThrow: false
+            }
+          });
+          break;
+        case "Warrior":
+          setCharacter({
+            ...character,
+            proficiencies: {
+              ...character.proficiencies,
+              strSavingThrow: true,
+              dexSavingThrow: false,
+              conSavingThrow: true,
+              intSavingThrow: false,
+              wisSavingThrow: false,
+              chaSavingThrow: false
+            }
+          });
+          break;
+        case "Thief":
+          setCharacter({
+            ...character,
+            proficiencies: {
+              ...character.proficiencies,
+              strSavingThrow: false,
+              dexSavingThrow: true,
+              conSavingThrow: false,
+              intSavingThrow: true,
+              wisSavingThrow: false,
+              chaSavingThrow: false
+            }
+          });
+          break;
+        case "Herald":
+          setCharacter({
+            ...character,
+            proficiencies: {
+              ...character.proficiencies,
+              strSavingThrow: false,
+              dexSavingThrow: false,
+              conSavingThrow: false,
+              intSavingThrow: false,
+              wisSavingThrow: true,
+              chaSavingThrow: true
+            }
+          });
+          break;
+        case "Cleric":
+          setCharacter({
+            ...character,
+            proficiencies: {
+              ...character.proficiencies,
+              strSavingThrow: false,
+              dexSavingThrow: false,
+              conSavingThrow: false,
+              intSavingThrow: false,
+              wisSavingThrow: true,
+              chaSavingThrow: true
+            }
+          });
+          break;
+        case "Sorcerer":
+          setCharacter({
+            ...character,
+            proficiencies: {
+              ...character.proficiencies,
+              strSavingThrow: false,
+              dexSavingThrow: false,
+              conSavingThrow: false,
+              intSavingThrow: true,
+              wisSavingThrow: true,
+              chaSavingThrow: false
+            }
+          });
+          break;
+        case "Pyromancer":
+          setCharacter({
+            ...character,
+            proficiencies: {
+              ...character.proficiencies,
+              strSavingThrow: false,
+              dexSavingThrow: false,
+              conSavingThrow: true,
+              intSavingThrow: false,
+              wisSavingThrow: false,
+              chaSavingThrow: true
+            }
+          });
+          break;
+        case "Deprived":
+          setDeprivedSavingThrows({
+            deprivedStrSavingThrow: false,
+            deprivedDexSavingThrow: false,
+            deprivedConSavingThrow: false,
+            deprivedIntSavingThrow: false,
+            deprivedWisSavingThrow: false,
+            deprivedChaSavingThrow: false
+          })
+          setDeprivedDialogOpen(true);
+          break;
+        default:
+          break;
+      }
     }
+
     console.log(character);
   }
 
   return (
     <>
+      <Dialog onClose={handleDeprivedDialogClose} open={deprivedDialogOpen}>
+        <DialogTitle>Select Two Saving Throws</DialogTitle>
+        <FormControl
+          required
+          error={deprivedDialogError}
+          component="fieldset"
+        >
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox checked={deprivedSavingThrows.str} onClick={handleClick} name="deprivedStrSavingThrow" />
+              }
+              label="Strength"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox checked={deprivedSavingThrows.dex} onClick={handleClick} name="deprivedDexSavingThrow" />
+              }
+              label="Dexterity"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox checked={deprivedSavingThrows.con} onClick={handleClick} name="deprivedConSavingThrow" />
+              }
+              label="Constitution"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox checked={deprivedSavingThrows.int} onClick={handleClick} name="deprivedIntSavingThrow" />
+              }
+              label="Intelligence"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox checked={deprivedSavingThrows.wis} onClick={handleClick} name="deprivedWisSavingThrow" />
+              }
+              label="Wisdom"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox checked={deprivedSavingThrows.cha} onClick={handleClick} name="deprivedChaSavingThrow" />
+              }
+              label="Charisma"
+            />
+          </FormGroup>
+        </FormControl>
+        <DialogActions>
+          <Button fullWidth onClick={handleSubmit}>Submit</Button>
+        </DialogActions>
+      </Dialog>
+
       <Grid container direction="row">
         <BasicInformation character={character} onChange={handleChange} />
       </Grid>

@@ -27,7 +27,7 @@ function LeftColumn(props) {
                                 <SavingThrows character={props.character} onChange={props.changeHandler} />
                             </Grid>
                             <Grid item xs={12}>
-                                <SkillsList />
+                                <SkillsList character={props.character} onChange={props.changeHandler} />
                             </Grid>
                         </Grid>
                     </Grid>

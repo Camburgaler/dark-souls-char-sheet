@@ -1,10 +1,11 @@
+import { SportsEsportsSharp } from "@material-ui/icons";
 import {
+    Box,
     Container,
-    FormControl,
-    FormControlLabel,
     Grid,
     Switch,
     TextField,
+    Typography,
 }
     from "@mui/material";
 import { Item } from "./styles";
@@ -29,102 +30,23 @@ function SavingThrows(props) {
     return (
         <>
             <Grid container direction={"column"}>
-                <Item>
-                    <Grid container direction={"row"}>
-                        <Grid item xs={3}>
-                            <Switch checked={props.character.proficiencies.strSavingThrow} />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                value={calcSavingThrow(props.character.proficiencies.strSavingThrow, props.character.abilities.strMod)}
-                                variant={"standard"}
-                            />
-                        </Grid>
-                        <Grid item xs={5}>
-                            <Container>Strength</Container>
-                        </Grid>
-                    </Grid>
-                </Item>
-                <Item>
-                    <Grid container direction={"row"}>
-                        <Grid item xs={3}>
-                            <Switch checked={props.character.proficiencies.dexSavingThrow} />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                value={calcSavingThrow(props.character.proficiencies.dexSavingThrow, props.character.abilities.dexMod)}
-                                variant={"standard"}
-                            />
-                        </Grid>
-                        <Grid item xs={5}>
-                            <Container>Dexterity</Container>
-                        </Grid>
-                    </Grid>
-                </Item>
-                <Item>
-                    <Grid container direction={"row"}>
-                        <Grid item xs={3}>
-                            <Switch checked={props.character.proficiencies.conSavingThrow} />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                value={calcSavingThrow(props.character.proficiencies.conSavingThrow, props.character.abilities.conMod)}
-                                variant={"standard"}
-                            />
-                        </Grid>
-                        <Grid item xs={5}>
-                            <Container>Constitution</Container>
-                        </Grid>
-                    </Grid>
-                </Item>
-                <Item>
-                    <Grid container direction={"row"}>
-                        <Grid item xs={3}>
-                            <Switch checked={props.character.proficiencies.intSavingThrow} />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                value={calcSavingThrow(props.character.proficiencies.intSavingThrow, props.character.abilities.intMod)}
-                                variant={"standard"}
-                            />
-                        </Grid>
-                        <Grid item xs={5}>
-                            <Container>Intelligence</Container>
-                        </Grid>
-                    </Grid>
-                </Item>
-                <Item>
-                    <Grid container direction={"row"}>
-                        <Grid item xs={3}>
-                            <Switch checked={props.character.proficiencies.wisSavingThrow} />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                value={calcSavingThrow(props.character.proficiencies.wisSavingThrow, props.character.abilities.wisMod)}
-                                variant={"standard"}
-                            />
-                        </Grid>
-                        <Grid item xs={5}>
-                            <Container>Wisdom</Container>
-                        </Grid>
-                    </Grid>
-                </Item>
-                <Item>
-                    <Grid container direction={"row"}>
-                        <Grid item xs={3}>
-                            <Switch checked={props.character.proficiencies.chaSavingThrow} />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                value={calcSavingThrow(props.character.proficiencies.chaSavingThrow, props.character.abilities.chaMod)}
-                                variant={"standard"}
-                            />
-                        </Grid>
-                        <Grid item xs={5}>
-                            <Container>Charisma</Container>
-                        </Grid>
-                    </Grid>
-                </Item>
+                {Object.entries(props.character.savingThrows).map((savingThrow) => {
+                    return (
+                        <Item key={savingThrow[0]} sx={{ maxHeight: "15px" }}>
+                            <Grid container direction={"row"}>
+                                <Grid item xs={4}>
+                                    <Switch sx={{ marginY: -1 }} checked={props.character.proficiencies[savingThrow[0] + "SavingThrow"]} />
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Typography sx={{ fontSize: 15, borderBottom: "1px solid rgba(0, 0, 0, 0.42)" }}>{calcSavingThrow(props.character.proficiencies[savingThrow[0] + "SavingThrow"], props.character.abilities[savingThrow[0] + "Mod"])}</Typography>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Typography sx={{ fontSize: 15 }}>{props.character.abilitiesNames[savingThrow[0]]}</Typography>
+                                </Grid>
+                            </Grid>
+                        </Item>
+                    )
+                })}
             </Grid>
         </>
     );

@@ -11,12 +11,8 @@ import {
 import { Item } from './styles';
 import { 
   BACKSTORIES, 
-  BRUTE_SCORES, 
-  CASTER_SCORES, 
   CLASSES, 
   DRIVES, 
-  FENCER_SCORES, 
-  JACK_OF_ALL_TRADES_SCORES, 
   MEMORIES, 
   ORIGINS
 }

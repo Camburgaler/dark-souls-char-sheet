@@ -1,10 +1,8 @@
 import React from 'react';
 import {
   Grid, 
-  FormControlLabel, 
   Switch,
   FormControl,
-  FormLabel,
   FormHelperText,
   TextField
 }
