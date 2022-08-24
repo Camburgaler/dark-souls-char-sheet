@@ -38,7 +38,7 @@ function BasicInformation(props) {
   }
 
   return (
-    <Grid container direction="row" spacing="2">
+    <Grid container direction="row" spacing="2" columnSpacing={"5"}>
       <Grid item xs={6}>
           <Item>
             <TextField fullWidth name="characterName" helperText="Character Name" variant="standard" onChange={handleChange} />
