@@ -8,6 +8,7 @@ import {
     Typography,
 }
     from "@mui/material";
+import { ABILITY_NAMES } from "./constants";
 import { Item } from "./styles";
 
 function SavingThrows(props) {
@@ -41,7 +42,7 @@ function SavingThrows(props) {
                                     <Typography sx={{ fontSize: 15, borderBottom: "1px solid rgba(0, 0, 0, 0.42)" }}>{calcSavingThrow(props.character.proficiencies[savingThrow[0] + "SavingThrow"], props.character.abilities[savingThrow[0] + "Mod"])}</Typography>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Typography sx={{ fontSize: 15 }}>{props.character.abilitiesNames[savingThrow[0]]}</Typography>
+                                    <Typography sx={{ fontSize: 15 }}>{ABILITY_NAMES[savingThrow[0]]}</Typography>
                                 </Grid>
                             </Grid>
                         </Item>

@@ -20,48 +20,102 @@ import RightColumn from './RightColumn';
 import { 
   BRUTE_SCORES, 
   CASTER_SCORES, 
+  CLASSES, 
   DEFAULT_CHARACTER, 
   FENCER_SCORES, 
-  JACK_OF_ALL_TRADES_SCORES 
+  JACK_OF_ALL_TRADES_SCORES, 
+  PROFICIENCY_SELECTION,
+  SKILL_NAMES,
+  DEFAULT_PROFICIENCY_SELECTIONS,
+  CLASS_PROFICIENCIES
 } from './constants';
 
 function App() {
   const [character, setCharacter] = React.useState(DEFAULT_CHARACTER);
-  const [deprivedDialogOpen, setDeprivedDialogOpen] = React.useState(false);
+  const [proficiencySelectionDialogOpen, setProficiencySelectionDialogOpen] = React.useState(false);
+  const [deprivedSavingThrowsDialogOpen, setDeprivedSavingThrowsDialogOpen] = React.useState(false);
+  const [proficiencySelections, setProficiencySelections] = React.useState(DEFAULT_PROFICIENCY_SELECTIONS);
   const [deprivedSavingThrows, setDeprivedSavingThrows] = React.useState({
-    deprivedStrSavingThrow: false,
-    deprivedDexSavingThrow: false,
-    deprivedConSavingThrow: false,
-    deprivedIntSavingThrow: false,
-    deprivedWisSavingThrow: false,
-    deprivedChaSavingThrow: false
+    strSavingThrow: false,
+    dexSavingThrow: false,
+    conSavingThrow: false,
+    intSavingThrow: false,
+    wisSavingThrow: false,
+    chaSavingThrow: false
   })
-  const deprivedDialogError = Object.values(deprivedSavingThrows).filter((v) => v).length !== 2;
+  const proficiencySelectionDialogError = Object.values(proficiencySelections).filter((v) => v).length !== PROFICIENCY_SELECTION[character.selectedClass];
+  const deprivedSavingThrowDialogError = Object.values(deprivedSavingThrows).filter((v) => v).length !== 2;
 
-  const handleDeprivedDialogClose = () => {
-    setCharacter({
-      ...character,
-      proficiencies: {
-        ...character.proficiencies,
-        strSavingThrow: false,
-        dexSavingThrow: false,
-        conSavingThrow: false,
-        intSavingThrow: false,
-        wisSavingThrow: false,
-        chaSavingThrow: false
-      }
-    });
+  const handleProficiencySelectionDialogClose = () => {
+    setProficiencySelectionDialogOpen(false);
   }
 
-  const handleClick = (event) => {
+  const handleProficiencySelectionClick = (event) => {
+    console.log(event.target.name);
+    setProficiencySelections({
+      ...proficiencySelections,
+      [event.target.name]: event.target.checked
+    })
+  }
+
+  const handleProficiencySelectionSubmit = () => {
+    if (proficiencySelectionDialogError) {
+
+    } else {
+      setCharacter({
+        ...character,
+        proficiencies: {
+          ...character.proficiencies,
+          acrobatics: proficiencySelections.acrobatics,
+          animalHandling: proficiencySelections.animalHandling,
+          arcana: proficiencySelections.arcana,
+          athletics: proficiencySelections.athletics,
+          deception: proficiencySelections.deception,
+          history: proficiencySelections.history,
+          insight: proficiencySelections.insight,
+          intimidation: proficiencySelections.intimidation,
+          investigation: proficiencySelections.investigation,
+          medicine: proficiencySelections.medicine,
+          nature: proficiencySelections.nature,
+          perception: proficiencySelections.perception,
+          performance: proficiencySelections.performance,
+          persuasion: proficiencySelections.persuasion,
+          religion: proficiencySelections.religion,
+          sleightOfHand: proficiencySelections.sleightOfHand,
+          stealth: proficiencySelections.stealth,
+          survival: proficiencySelections.survival,
+        }
+      });
+      setProficiencySelectionDialogOpen(false);
+    }
+    console.log(character);
+  }
+
+  const handleDeprivedDialogClose = () => {
+    setDeprivedSavingThrowsDialogOpen(false);
+    // setCharacter({
+    //   ...character,
+    //   proficiencies: {
+    //     ...character.proficiencies,
+    //     strSavingThrow: false,
+    //     dexSavingThrow: false,
+    //     conSavingThrow: false,
+    //     intSavingThrow: false,
+    //     wisSavingThrow: false,
+    //     chaSavingThrow: false
+    //   }
+    // });
+  }
+
+  const handleDeprivedSavingThrowClick = (event) => {
     setDeprivedSavingThrows({
       ...deprivedSavingThrows,
       [event.target.name]: event.target.checked
     })
   }
 
-  const handleSubmit = () => {
-    if(deprivedDialogError) {
+  const handleDeprivedSavingThrowSubmit = () => {
+    if(deprivedSavingThrowDialogError) {
 
     } else {
       setCharacter({
@@ -76,7 +130,7 @@ function App() {
           chaSavingThrow: deprivedSavingThrows.deprivedChaSavingThrow
         }
       });
-      setDeprivedDialogOpen(false);
+      setDeprivedSavingThrowsDialogOpen(false);
     }
   }
 
@@ -115,6 +169,7 @@ function App() {
           break;
       }
     } else if (name === "selectedClass") {
+      setProficiencySelections(DEFAULT_PROFICIENCY_SELECTIONS);
       switch (value) {
         case "Knight":
           setCharacter({
@@ -251,11 +306,12 @@ function App() {
             deprivedWisSavingThrow: false,
             deprivedChaSavingThrow: false
           })
-          setDeprivedDialogOpen(true);
+          setDeprivedSavingThrowsDialogOpen(true);
           break;
         default:
           break;
       }
+      setProficiencySelectionDialogOpen(true);
     }
 
     console.log(character);
@@ -263,54 +319,78 @@ function App() {
 
   return (
     <>
-      <Dialog onClose={handleDeprivedDialogClose} open={deprivedDialogOpen}>
+      <Dialog onClose={handleProficiencySelectionDialogClose} open={proficiencySelectionDialogOpen}>
+        <DialogTitle>Select {PROFICIENCY_SELECTION[character.selectedClass]} Proficiencies</DialogTitle>
+        <FormControl
+          required
+          error={proficiencySelectionDialogError}
+          component={"fieldset"}
+        >
+          <FormGroup>
+            {(CLASS_PROFICIENCIES[character.selectedClass]).map((proficiency) => {
+              return(<FormControlLabel
+                key={proficiency}
+                control={
+                  <Checkbox checked={proficiencySelections.proficiency} onClick={handleProficiencySelectionClick} name={proficiency} />
+                }
+                label={SKILL_NAMES[proficiency]}
+              />)
+            })}
+          </FormGroup>
+        </FormControl>
+        <DialogActions>
+          <Button fullWidth onClick={handleProficiencySelectionSubmit}>Submit</Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog onClose={handleDeprivedDialogClose} open={deprivedSavingThrowsDialogOpen}>
         <DialogTitle>Select Two Saving Throws</DialogTitle>
         <FormControl
           required
-          error={deprivedDialogError}
+          error={deprivedSavingThrowDialogError}
           component="fieldset"
         >
           <FormGroup>
             <FormControlLabel
               control={
-                <Checkbox checked={deprivedSavingThrows.str} onClick={handleClick} name="deprivedStrSavingThrow" />
+                <Checkbox checked={deprivedSavingThrows.str} onClick={handleDeprivedSavingThrowClick} name="deprivedStrSavingThrow" />
               }
               label="Strength"
             />
             <FormControlLabel
               control={
-                <Checkbox checked={deprivedSavingThrows.dex} onClick={handleClick} name="deprivedDexSavingThrow" />
+                <Checkbox checked={deprivedSavingThrows.dex} onClick={handleDeprivedSavingThrowClick} name="deprivedDexSavingThrow" />
               }
               label="Dexterity"
             />
             <FormControlLabel
               control={
-                <Checkbox checked={deprivedSavingThrows.con} onClick={handleClick} name="deprivedConSavingThrow" />
+                <Checkbox checked={deprivedSavingThrows.con} onClick={handleDeprivedSavingThrowClick} name="deprivedConSavingThrow" />
               }
               label="Constitution"
             />
             <FormControlLabel
               control={
-                <Checkbox checked={deprivedSavingThrows.int} onClick={handleClick} name="deprivedIntSavingThrow" />
+                <Checkbox checked={deprivedSavingThrows.int} onClick={handleDeprivedSavingThrowClick} name="deprivedIntSavingThrow" />
               }
               label="Intelligence"
             />
             <FormControlLabel
               control={
-                <Checkbox checked={deprivedSavingThrows.wis} onClick={handleClick} name="deprivedWisSavingThrow" />
+                <Checkbox checked={deprivedSavingThrows.wis} onClick={handleDeprivedSavingThrowClick} name="deprivedWisSavingThrow" />
               }
               label="Wisdom"
             />
             <FormControlLabel
               control={
-                <Checkbox checked={deprivedSavingThrows.cha} onClick={handleClick} name="deprivedChaSavingThrow" />
+                <Checkbox checked={deprivedSavingThrows.cha} onClick={handleDeprivedSavingThrowClick} name="deprivedChaSavingThrow" />
               }
               label="Charisma"
             />
           </FormGroup>
         </FormControl>
         <DialogActions>
-          <Button fullWidth onClick={handleSubmit}>Submit</Button>
+          <Button fullWidth onClick={handleDeprivedSavingThrowSubmit}>Submit</Button>
         </DialogActions>
       </Dialog>
 

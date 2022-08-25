@@ -1,22 +1,23 @@
 import { Grid, Switch, TextField, Typography } from "@mui/material";
 import { Container } from "@mui/system";
+import { SKILL_NAMES } from "./constants";
 import { Item } from "./styles";
 
 function SkillsList(props) {
 
-    const calcSkill = (proficiency, mod) => {
+    const calcSkill = (proficiency, expertise, mod) => {
+        let skillMod = mod;
+        if (proficiency) {
+            skillMod += props.character.proficiencyBonus;
+        }
+        if (expertise) {
+            skillMod += props.character.proficiencyBonus;
+        }
         return (
-            proficiency ?
-                (
-                    mod + props.character.proficiencyBonus >= 0 ?
-                        "+" + mod + props.character.proficiencyBonus :
-                        mod + props.character.proficiencyBonus
-                ) : (
-                    mod >= 0 ?
-                        "+" + mod :
-                        mod
-                )
-        )
+            skillMod >= 0 ?
+            "+" + skillMod :
+            skillMod
+            );
     }
 
     return(
@@ -27,16 +28,16 @@ function SkillsList(props) {
                         <Item key={skill[0]} sx={{ maxHeight: "12px" }}>
                             <Grid container direction={"row"}>
                                 <Grid item xs={2}>
-                                    <Switch sx={{ marginY: -1 }} size="small" checked={props.character.proficiencies[skill[1]]} />
+                                    <Switch sx={{ marginY: -1 }} size="small" checked={props.character.proficiencies[skill[0]]} />
                                 </Grid>
                                 <Grid item xs={2}>
-                                    <Switch sx={{ marginY: -1 }} size="small" checked={props.character.expertise[skill[1]]} />
+                                    <Switch sx={{ marginY: -1 }} size="small" checked={props.character.expertise[skill[0]]} />
                                 </Grid>
                                 <Grid item xs={2}>
-                                    <Typography sx={{ fontSize: 12, borderBottom: "1px solid rgba(0, 0, 0, 0.42)" }}>+0</Typography>
+                                    <Typography sx={{ fontSize: 12, borderBottom: "1px solid rgba(0, 0, 0, 0.42)" }}>{calcSkill(props.character.proficiencies[skill[0]], props.character.expertise[skill[0]], props.character.abilities[props.character.skills[skill[0]] + "Mod"])}</Typography>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Typography noWrap={true} sx={{ fontSize: 14 }}>{props.character.skillsNames[skill[0]]}</Typography>
+                                    <Typography noWrap={true} sx={{ fontSize: 14 }}>{SKILL_NAMES[skill[0]]}</Typography>
                                 </Grid>
                             </Grid>
                         </Item>

@@ -23,59 +23,29 @@ export const DEFAULT_CHARACTER = {
         chaMod: 0
     },
 
-    abilitiesNames: {
-        str: "Strength",
-        dex: "Dexterity",
-        con: "Constitution",
-        int: "Intelligence",
-        wis: "Wisdom",
-        cha: "Charisma"
-    },
-
     inspiration: false,
     proficiencyBonus: 2,
     passivePerception: 10,
 
     skills: {
-        acrobatics: 0,
-        animalHandling: 0,
-        arcana: 0,
-        athletics: 0,
-        deception: 0,
-        history: 0,
-        insight: 0,
-        intimidation: 0,
-        investigation: 0,
-        medicine: 0,
-        nature: 0,
-        perception: 0,
-        performance: 0,
-        persuasion: 0,
-        religion: 0,
-        sleightOfHand: 0,
-        stealth: 0,
-        survival: 0,
-    },
-
-    skillsNames: {
-        acrobatics: "Acrobatics",
-        animalHandling: "Animal Handling",
-        arcana: "Arcana",
-        athletics: "Athletics",
-        deception: "Deception",
-        history: "History",
-        insight: "Insight",
-        intimidation: "Intimidation",
-        investigation: "Investigation",
-        medicine: "Medicine",
-        nature: "Nature",
-        perception: "Perception",
-        performance: "Performance",
-        persuasion: "Persuasion",
-        religion: "Religion",
-        sleightOfHand: "Sleight of Hand",
-        stealth: "Stealth",
-        survival: "Survival",
+        acrobatics: "dex",
+        animalHandling: "wis",
+        arcana: "int",
+        athletics: "str",
+        deception: "cha",
+        history: "int",
+        insight: "wis",
+        intimidation: "cha",
+        investigation: "int",
+        medicine: "wis",
+        nature: "int",
+        perception: "wis",
+        performance: "cha",
+        persuasion: "cha",
+        religion: "int",
+        sleightOfHand: "dex",
+        stealth: "dex",
+        survival: "wis",
     },
 
     proficiencies: {
@@ -266,3 +236,79 @@ export const BRUTE_SCORES = { strScore: 15, strMod: 2, dexScore: 10, dexMod: 0, 
 export const FENCER_SCORES = { strScore: 12, strMod: 1, dexScore: 15, dexMod: 2, conScore: 14, conMod: 2, intScore: 13, intMod: 1, wisScore: 10, wisMod: 0, chaScore: 10, chaMod: 0 };
 export const JACK_OF_ALL_TRADES_SCORES = { strScore: 13, strMod: 1, dexScore: 13, dexMod: 1, conScore: 12, conMod: 1, intScore: 12, intMod: 1, wisScore: 13, wisMod: 1, chaScore: 12, chaMod: 1 };
 export const CASTER_SCORES = { strScore: 10, strMod: 0, dexScore: 12, dexMod: 1, conScore: 10, conMod: 0, intScore: 14, intMod: 2, wisScore: 13, wisMod: 1, chaScore: 15, chaMod: 2 };
+
+export const SKILL_NAMES = {
+    acrobatics: "Acrobatics",
+    animalHandling: "Animal Handling",
+    arcana: "Arcana",
+    athletics: "Athletics",
+    deception: "Deception",
+    history: "History",
+    insight: "Insight",
+    intimidation: "Intimidation",
+    investigation: "Investigation",
+    medicine: "Medicine",
+    nature: "Nature",
+    perception: "Perception",
+    performance: "Performance",
+    persuasion: "Persuasion",
+    religion: "Religion",
+    sleightOfHand: "Sleight of Hand",
+    stealth: "Stealth",
+    survival: "Survival",
+}
+
+export const ABILITY_NAMES = {
+    str: "Strength",
+    dex: "Dexterity",
+    con: "Constitution",
+    int: "Intelligence",
+    wis: "Wisdom",
+    cha: "Charisma"
+}
+
+export const PROFICIENCY_SELECTION = {
+    Knight: 2,
+    Mercenary: 3,
+    Assassin: 4,
+    Warrior: 2,
+    Thief: 4,
+    Herald: 2,
+    Cleric: 2,
+    Sorcerer: 2,
+    Pyromancer: 2,
+    Deprived: 2
+};
+export const CLASS_PROFICIENCIES ={
+    "": [],
+    Knight: ["acrobatics", "animalHandling", "athletics", "history", "insight", "investigation", "perception", "survival"],
+    Mercenary: ["animalHandling", "athletics", "insight", "investigation", "nature", "perception", "stealth", "survival"],
+    Assassin: ["acrobatics", "athletics", "deception", "insight", "intimidation", "investigation", "perception", "performance", "persuasion", "sleightOfHand", "stealth"],
+    Warrior: ["animalHandling", "athletics", "intimidation", "nature", "perception", "survival"],
+    Thief: ["acrobatics", "athletics", "deception", "insight", "intimidation", "investigation", "perception", "performance", "persuasion", "sleightOfHand", "stealth"],
+    Herald: ["athletics", "insight", "intimidation", "medicine", "persuasion", "religion"],
+    Cleric: ["history", "insight", "medicine", "persuasion", "religion"],
+    Sorcerer: ["arcana", "history", "insight", "investigation", "medicine", "religion"],
+    Pyromancer: ["deception", "insight", "intimidation", "persuasion", "religion"],
+    Deprived: ["acrobatics", "animalHandling", "athletics", "arcana", "history", "insight", "intimidation", "investigation", "medicine", "nature", "perception", "performance", "religion", "sleightOfHand", "stealth", "survival"]
+};
+export const DEFAULT_PROFICIENCY_SELECTIONS = {
+    acrobatics: false,
+    animalHandling: false,
+    arcana: false,
+    athletics: false,
+    deception: false,
+    history: false,
+    insight: false,
+    intimidation: false,
+    investigation: false,
+    medicine: false,
+    nature: false,
+    perception: false,
+    performance: false,
+    persuasion: false,
+    religion: false,
+    sleightOfHand: false,
+    stealth: false,
+    survival: false,
+};
