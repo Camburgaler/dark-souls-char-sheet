@@ -1,5 +1,8 @@
-import { Grid, Switch, TextField, Typography } from "@mui/material";
-import { Container } from "@mui/system";
+import { 
+    Grid, 
+    Switch, 
+    Typography 
+} from "@mui/material";
 import { SKILL_NAMES } from "./constants";
 import { Item } from "./styles";
 
@@ -22,7 +25,7 @@ function SkillsList(props) {
 
     return(
         <>
-            <Grid container direction={"column"}>
+            <Grid container direction={"column"} sx={{ border: "1px solid black" }}>
                 {Object.entries(props.character.skills).map((skill) => {
                     return (
                         <Item key={skill[0]} sx={{ maxHeight: "12px" }}>
@@ -43,6 +46,9 @@ function SkillsList(props) {
                         </Item>
                     )
                 })}
+                <Item>
+                    <Typography sx={{ maxHeight: "15px", fontSize: 15 }}>Skills</Typography>
+                </Item>
             </Grid>
         </>
     );

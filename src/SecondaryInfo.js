@@ -11,7 +11,7 @@ import { Item } from './styles';
 
 function SecondaryInfo(props) {
     return(
-        <Grid container direction="row">
+        <Grid container direction="row" sx={{ border: "1px solid black" }}>
             <Grid item xs={4}>
                 <Item>
                     <FormControl fullWidth>

@@ -8,7 +8,6 @@ import {
   FormControl,
   FormControlLabel,
   FormGroup,
-  FormLabel,
   Grid,
 }
 from "@mui/material";
@@ -20,14 +19,17 @@ import RightColumn from './RightColumn';
 import { 
   BRUTE_SCORES, 
   CASTER_SCORES, 
-  CLASSES, 
   DEFAULT_CHARACTER, 
   FENCER_SCORES, 
   JACK_OF_ALL_TRADES_SCORES, 
   PROFICIENCY_SELECTION,
   SKILL_NAMES,
   DEFAULT_PROFICIENCY_SELECTIONS,
-  CLASS_PROFICIENCIES
+  CLASS_PROFICIENCIES,
+  BRUTE_BLOODIED_ABILITY,
+  FENCER_BLOODIED_ABILITY,
+  JACK_OF_ALL_TRADES_BLOODIED_ABILITY,
+  CASTER_BLOODIED_ABILITY
 } from './constants';
 
 function App() {
@@ -51,7 +53,6 @@ function App() {
   }
 
   const handleProficiencySelectionClick = (event) => {
-    console.log(event.target.name);
     setProficiencySelections({
       ...proficiencySelections,
       [event.target.name]: event.target.checked
@@ -93,18 +94,6 @@ function App() {
 
   const handleDeprivedDialogClose = () => {
     setDeprivedSavingThrowsDialogOpen(false);
-    // setCharacter({
-    //   ...character,
-    //   proficiencies: {
-    //     ...character.proficiencies,
-    //     strSavingThrow: false,
-    //     dexSavingThrow: false,
-    //     conSavingThrow: false,
-    //     intSavingThrow: false,
-    //     wisSavingThrow: false,
-    //     chaSavingThrow: false
-    //   }
-    // });
   }
 
   const handleDeprivedSavingThrowClick = (event) => {
@@ -144,25 +133,29 @@ function App() {
         case "Brute":
           setCharacter({
             ...character,
-            abilities: BRUTE_SCORES
+            abilities: BRUTE_SCORES,
+            bloodiedAbility:BRUTE_BLOODIED_ABILITY
           });
           break;
         case "Fencer":
           setCharacter({
             ...character,
-            abilities: FENCER_SCORES
+            abilities: FENCER_SCORES,
+            bloodiedAbility: FENCER_BLOODIED_ABILITY
           });
           break;
         case "Jack of All Trades":
           setCharacter({
             ...character,
-            abilities: JACK_OF_ALL_TRADES_SCORES
+            abilities: JACK_OF_ALL_TRADES_SCORES,
+            bloodiedAbility: JACK_OF_ALL_TRADES_BLOODIED_ABILITY,
           });
           break;
         case "Caster":
           setCharacter({
             ...character,
-            abilities: CASTER_SCORES
+            abilities: CASTER_SCORES,
+            bloodiedAbility: CASTER_BLOODIED_ABILITY
           });
           break;
         default:

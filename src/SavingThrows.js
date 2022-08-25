@@ -1,10 +1,6 @@
-import { SportsEsportsSharp } from "@material-ui/icons";
 import {
-    Box,
-    Container,
     Grid,
     Switch,
-    TextField,
     Typography,
 }
     from "@mui/material";
@@ -14,23 +10,20 @@ import { Item } from "./styles";
 function SavingThrows(props) {
 
     const calcSavingThrow = (proficiency, mod) => {
+        let skillMod = mod;
+        if (proficiency) {
+            skillMod += props.character.proficiencyBonus;
+        }
         return (
-            proficiency ?
-                (
-                    mod + props.character.proficiencyBonus >= 0 ?
-                        "+" + mod + props.character.proficiencyBonus :
-                        mod + props.character.proficiencyBonus
-                ) : (
-                    mod >= 0 ?
-                        "+" + mod :
-                        mod
-                )
-        )
+            skillMod >= 0 ?
+            "+" + skillMod :
+            skillMod
+            );
     }
 
     return (
         <>
-            <Grid container direction={"column"}>
+            <Grid container direction={"column"} sx={{ border: "1px solid black" }}>
                 {Object.entries(props.character.savingThrows).map((savingThrow) => {
                     return (
                         <Item key={savingThrow[0]} sx={{ maxHeight: "15px" }}>
@@ -48,6 +41,9 @@ function SavingThrows(props) {
                         </Item>
                     )
                 })}
+                <Item sx={{ maxHeight: "15px" }}>
+                    <Typography sx={{ fontSize: 15 }}>Saving Throws</Typography>
+                </Item>
             </Grid>
         </>
     );

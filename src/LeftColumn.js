@@ -6,7 +6,7 @@ import AbilityScores from "./AbilityScores";
 import SecondaryInfo from "./SecondaryInfo";
 import SavingThrows from "./SavingThrows"
 import SkillsList from "./SkillsList"
-import SpecialAbility from "./SpecialAbility"
+// import SpecialAbility from "./SpecialAbility"
 import BloodiedAbility from "./BloodiedAbility"
 import Notes from "./Notes"
 
@@ -32,19 +32,19 @@ function LeftColumn(props) {
                         </Grid>
                     </Grid>
                 </Grid>
+                {/* <Grid container direction="row">
+                    <Grid item xs={12}>
+                        <SpecialAbility character={props.character} onChange={props.changeHandler} />
+                    </Grid>
+                </Grid> */}
                 <Grid container direction="row">
                     <Grid item xs={12}>
-                        <SpecialAbility />
+                        <BloodiedAbility character={props.character} onChange={props.changeHandler} />
                     </Grid>
                 </Grid>
                 <Grid container direction="row">
                     <Grid item xs={12}>
-                        <BloodiedAbility />
-                    </Grid>
-                </Grid>
-                <Grid container direction="row">
-                    <Grid item xs={12}>
-                        <Notes />
+                        <Notes character={props.character} onChange={props.changeHandler} />
                     </Grid>
                 </Grid>
             </Grid>

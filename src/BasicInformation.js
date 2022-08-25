@@ -35,12 +35,12 @@ function BasicInformation(props) {
 
   return (
     <Grid container direction="row" spacing="2" columnSpacing={"5"}>
-      <Grid item xs={6}>
+      <Grid item xs={6} sx={{ border: "1px solid black" }}>
           <Item>
             <TextField fullWidth name="characterName" helperText="Character Name" variant="standard" onChange={handleChange} />
           </Item>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={2} sx={{ borderBottom: "1px solid black", borderLeft: "1px solid black", borderTop: "1px solid black" }}>
         <Grid container direction="row">
           <Grid item xs={7}>
             <Item>
@@ -80,7 +80,7 @@ function BasicInformation(props) {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={2} sx={{ borderBottom: "1px solid black", borderTop: "1px solid black" }}>
         <Item>
           <FormControl fullWidth>
             <Select name="origin" defaultValue={""} fullWidth style={{ overflow: "hidden", textOverflow: "ellipsis", maxWidth: "15vw" }} onChange={handleChange}>
@@ -100,7 +100,7 @@ function BasicInformation(props) {
           </FormControl>
         </Item>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={2} sx={{ borderBottom: "1px solid black", borderRight: "1px solid black", borderTop: "1px solid black" }}>
         <Item>
           <TextField name="playerName" fullWidth helperText="Player Name" variant="standard" onChange={handleChange} />
           <FormControl fullWidth>

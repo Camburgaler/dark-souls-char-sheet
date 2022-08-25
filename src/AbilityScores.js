@@ -10,7 +10,7 @@ function AbilityScores(props) {
 
   return (
     <>
-      <Grid container direction="column">
+      <Grid container direction="column" sx={{ border: "1px solid black" }}>
         <Item>
           <TextField name="str" label="STR" helperText={props.character.abilities.strMod >= 0 ? "+" + props.character.abilities.strMod : props.character.abilities.strMod} value={props.character.abilities.strScore} fullWidth margin="dense" type="number" variant="standard" />
           <TextField name="dex" label="DEX" helperText={props.character.abilities.dexMod >= 0 ? "+" + props.character.abilities.dexMod : props.character.abilities.dexMod} value={props.character.abilities.dexScore} fullWidth margin="dense" type="number" variant="standard" />

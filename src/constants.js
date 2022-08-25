@@ -312,3 +312,8 @@ export const DEFAULT_PROFICIENCY_SELECTIONS = {
     stealth: false,
     survival: false,
 };
+
+export const BRUTE_BLOODIED_ABILITY = "During combat, when reduced to 50% of their starting Position pool, a brute gains the following benefits:\n\nThey may add an additional +3 to their AC.\nThey gain advantage on all Strength-related checks and saving throws.\nThey reduce all damage they take by 2 points.";
+export const FENCER_BLOODIED_ABILITY = "During combat, when reduced to 50% of their starting Position pool, a fencer gains the following benefits:\n\nThey may add an additional +2 to their Dexterity.\nThey may make one additional reaction on their turn.\nThey reduce all melee-weapon position spend costs by 1.";
+export const JACK_OF_ALL_TRADES_BLOODIED_ABILITY = "During combat, when reduced to 50% of their starting Position pool, a jack of all trades gains the following benefits:\n\nThey may add an additional +2 to their Wisdom, and their AC.\nGain advantage on all saving throws against magical attacks and effects.\nRemove any one negative condition of their choice.";
+export const CASTER_BLOODIED_ABILITY = "During combat, when reduced to 50% if their starting Position pool, a caster gains the following benefits:\n\nThey may add +2 to their Intelligence and Charisma, and to their AC.\nThey may use the special ability of an equipped weapon without spending Position.\nWhile bloodied, a caster does not trigger any attacks of opportunity."
