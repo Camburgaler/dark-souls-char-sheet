@@ -1,4 +1,7 @@
-import { FormControl, Grid, TextField } from "@mui/material";
+import { 
+    Grid, 
+    TextField 
+} from "@mui/material";
 import { Item } from "./styles";
 
 function CombatStats(props) {
