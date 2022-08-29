@@ -29,7 +29,8 @@ import {
   BRUTE_BLOODIED_ABILITY,
   FENCER_BLOODIED_ABILITY,
   JACK_OF_ALL_TRADES_BLOODIED_ABILITY,
-  CASTER_BLOODIED_ABILITY
+  CASTER_BLOODIED_ABILITY,
+  ABILITY_NAMES
 } from './constants';
 
 function App() {
@@ -134,14 +135,24 @@ function App() {
           setCharacter({
             ...character,
             abilities: BRUTE_SCORES,
-            bloodiedAbility:BRUTE_BLOODIED_ABILITY
+            bloodiedAbility:BRUTE_BLOODIED_ABILITY,
+            posDice: {
+              diceType: 10,
+              total: character.level,
+              current: character.level,
+            },
           });
           break;
         case "Fencer":
           setCharacter({
             ...character,
             abilities: FENCER_SCORES,
-            bloodiedAbility: FENCER_BLOODIED_ABILITY
+            bloodiedAbility: FENCER_BLOODIED_ABILITY,
+            posDice: {
+              diceType: 8,
+              total: character.level,
+              current: character.level,
+            }
           });
           break;
         case "Jack of All Trades":
@@ -149,18 +160,36 @@ function App() {
             ...character,
             abilities: JACK_OF_ALL_TRADES_SCORES,
             bloodiedAbility: JACK_OF_ALL_TRADES_BLOODIED_ABILITY,
+            posDice: {
+              diceType: 8,
+              total: character.level,
+              current: character.level,
+            }
           });
           break;
         case "Caster":
           setCharacter({
             ...character,
             abilities: CASTER_SCORES,
-            bloodiedAbility: CASTER_BLOODIED_ABILITY
+            bloodiedAbility: CASTER_BLOODIED_ABILITY,
+            posDice: {
+              diceType: 6,
+              total: character.level,
+              current: character.level,
+            }
           });
           break;
         default:
           break;
       }
+      setCharacter({
+        ...character,
+        position: {
+          base: character.positionDice.diceType + character.abilities.conMod,
+          combatPool: character.positionDice.diceType + character.abilities.conMod,
+          current: character.positionDice.diceType + character.abilities.conMod
+        }
+      });
     } else if (name === "selectedClass") {
       setProficiencySelections(DEFAULT_PROFICIENCY_SELECTIONS);
       switch (value) {
@@ -175,7 +204,7 @@ function App() {
               intSavingThrow: false,
               wisSavingThrow: false,
               chaSavingThrow: false
-            }
+            },
           });
           break;
         case "Mercenary":
@@ -344,42 +373,15 @@ function App() {
           component="fieldset"
         >
           <FormGroup>
-            <FormControlLabel
-              control={
-                <Checkbox checked={deprivedSavingThrows.str} onClick={handleDeprivedSavingThrowClick} name="deprivedStrSavingThrow" />
-              }
-              label="Strength"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox checked={deprivedSavingThrows.dex} onClick={handleDeprivedSavingThrowClick} name="deprivedDexSavingThrow" />
-              }
-              label="Dexterity"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox checked={deprivedSavingThrows.con} onClick={handleDeprivedSavingThrowClick} name="deprivedConSavingThrow" />
-              }
-              label="Constitution"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox checked={deprivedSavingThrows.int} onClick={handleDeprivedSavingThrowClick} name="deprivedIntSavingThrow" />
-              }
-              label="Intelligence"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox checked={deprivedSavingThrows.wis} onClick={handleDeprivedSavingThrowClick} name="deprivedWisSavingThrow" />
-              }
-              label="Wisdom"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox checked={deprivedSavingThrows.cha} onClick={handleDeprivedSavingThrowClick} name="deprivedChaSavingThrow" />
-              }
-              label="Charisma"
-            />
+            {Object.entries(ABILITY_NAMES).map((ability) => {
+              return(<FormControlLabel
+                key={ability[0]}
+                control={
+                  <Checkbox checked={deprivedSavingThrows[ability[0]]} onClick={handleDeprivedSavingThrowClick} name={"deprived" + ability[1].substr(0, 3) + "SavingThrow"} />
+                }
+                label={ability[1]}
+              />)
+            })}
           </FormGroup>
         </FormControl>
         <DialogActions>
@@ -388,7 +390,7 @@ function App() {
       </Dialog>
 
       <Grid container direction="row">
-        <BasicInformation character={character} onChange={handleChange} />
+        <BasicInformation character={character} onChange={handleChange} setCharacter={setCharacter} />
       </Grid>
 
       <Grid container direction="row">
@@ -396,10 +398,10 @@ function App() {
           <LeftColumn character={character} onChange={handleChange} />
         </Grid>
         <Grid item xs={4}>
-          <MiddleColumn character={character}/>
+          <MiddleColumn character={character} onChange={handleChange} setCharacter={setCharacter} />
         </Grid>
         <Grid item xs={4}>
-          <RightColumn character={character}/>
+          <RightColumn character={character} onChange={handleChange} />
         </Grid>
       </Grid>
     </>

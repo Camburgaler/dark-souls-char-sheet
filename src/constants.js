@@ -118,7 +118,7 @@ export const DEFAULT_CHARACTER = {
 
     armorClass: 0,
     initiative: 0,
-    speed: 0,
+    speed: 30,
 
     position: {
         base: 0,
@@ -127,8 +127,9 @@ export const DEFAULT_CHARACTER = {
     },
 
     positionDice: {
-        total: "",
-        current: ""
+        diceType: 0,
+        total: 0,
+        current: 0
     },
 
     souls: {

@@ -6,6 +6,8 @@ import {
   FormControl,
   FormHelperText,
   Select,
+  Button,
+  Typography,
 }
   from "@mui/material";
 import { Item } from './styles';
@@ -33,19 +35,37 @@ function BasicInformation(props) {
     props.onChange(event);
   }
 
+  const handleLevelButton = (event) => {
+    let newLevel = props.character.level;
+    if (event.target.name === "lvlUp") {
+      if (props.character.level < 20) {
+        newLevel++;
+      }
+    } else if (event.target.name === "lvlDown") {
+      if (props.character.level > 1){
+        newLevel--;
+      }
+    }
+
+    props.setCharacter({
+      ...props.character,
+      level: newLevel
+    })
+  }
+
   return (
     <Grid container direction="row" spacing="2" columnSpacing={"5"}>
-      <Grid item xs={6} sx={{ border: "1px solid black" }}>
+      <Grid item xs={4} sx={{ border: "1px solid black" }}>
           <Item>
             <TextField fullWidth name="characterName" helperText="Character Name" variant="standard" onChange={handleChange} />
           </Item>
       </Grid>
-      <Grid item xs={2} sx={{ borderBottom: "1px solid black", borderLeft: "1px solid black", borderTop: "1px solid black" }}>
+      <Grid item xs={4} sx={{ borderBottom: "1px solid black", borderLeft: "1px solid black", borderTop: "1px solid black" }}>
         <Grid container direction="row">
           <Grid item xs={7}>
             <Item>
               <FormControl fullWidth>
-                <Select name="selectedClass" defaultValue={""} fullWidth style={{ overflow: "hidden", textOverflow: "ellipsis", maxWidth: "8vw" }} onChange={handleChange}>
+                <Select name="selectedClass" defaultValue={""} disabled={props.character.level > 1} fullWidth style={{ overflow: "hidden", textOverflow: "ellipsis" }} onChange={handleChange}>
                   {CLASSES.map((story) => {
                     return <MenuItem classes={{ root: classes.root }} key={story} value={story} divider>{story}</MenuItem>
                   })}
@@ -54,22 +74,32 @@ function BasicInformation(props) {
               </FormControl>
             </Item>
           </Grid>
-          <Grid item xs={5}>
+          <Grid item xs={3}>
             <Item>
-              <Select name="level" defaultValue={"1"} fullWidth onChange={handleChange}>
-                {Array.from(new Array(20), (x,i) => i+1).map((level) => {
-                  return <MenuItem key={level} value={level} divider>{level}</MenuItem>
-                })}
-              </Select>
+              <Typography name="level" sx={{ fontSize: 40 }}>{props.character.level}</Typography>
               <FormHelperText>Level</FormHelperText>
             </Item>
+          </Grid>
+          <Grid item xs={2}>
+            <Grid container direction="column">
+              <Grid item xs={12}>
+                <Item>
+                  <Button onClick={handleLevelButton} name="lvlUp" disabled={props.character.selectedClass === "" || props.character.origin === ""}>LV. Up</Button>
+                </Item>
+              </Grid>
+              <Grid item xs={12}>
+                <Item>
+                  <Button onClick={handleLevelButton} name="lvlDown" disabled={props.character.selectedClass === "" || props.character.origin === ""}>LV. DN</Button>
+                </Item>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
         <Grid container direction="row">
           <Grid item xs={12}>
             <Item>
               <FormControl fullWidth>
-                <Select fullWidth defaultValue={""} name="backstory" style={{ overflow: "hidden", textOverflow: "ellipsis", maxWidth: "15vw" }} onChange={handleChange}>
+                <Select fullWidth defaultValue={""} name="backstory" style={{ overflow: "hidden", textOverflow: "ellipsis" }} onChange={handleChange}>
                   {BACKSTORIES.map((story) => {
                     return <MenuItem classes={{ root: classes.root }} key={story} value={story} divider>{story}</MenuItem>
                   })}
@@ -83,7 +113,7 @@ function BasicInformation(props) {
       <Grid item xs={2} sx={{ borderBottom: "1px solid black", borderTop: "1px solid black" }}>
         <Item>
           <FormControl fullWidth>
-            <Select name="origin" defaultValue={""} fullWidth style={{ overflow: "hidden", textOverflow: "ellipsis", maxWidth: "15vw" }} onChange={handleChange}>
+            <Select name="origin" defaultValue={""} disabled={props.character.level > 1} fullWidth style={{ overflow: "hidden", textOverflow: "ellipsis", maxWidth: "15vw" }} onChange={handleChange}>
               {ORIGINS.map((story) => {
                 return <MenuItem classes={{ root: classes.root }} key={story} value={story} divider>{story}</MenuItem>
               })}

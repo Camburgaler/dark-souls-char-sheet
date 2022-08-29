@@ -8,24 +8,24 @@ import PosDiceAndSouls from "./PosDiceAndSouls";
 import WeaponsArmorAndShields from "./WeaponsArmorAndShields";
 import Equipment from "./Equipment";
 
-function MiddleColumn() {
+function MiddleColumn(props) {
     return(
         <>
             <Grid container direction="column">
                 <Grid item xs={12}>
-                    <CombatStats />
+                    <CombatStats character={props.character} onChange={props.changeHandler} />
                 </Grid>
                 <Grid item xs={12}>
-                    <Position />
+                    <Position character={props.character} onChange={props.changeHandler} setCharacter={props.setCharacter} />
                 </Grid>
                 <Grid item xs={12}>
-                    <PosDiceAndSouls />
+                    <PosDiceAndSouls character={props.character} onChange={props.changeHandler} />
                 </Grid>
                 <Grid item xs={12}>
-                    <WeaponsArmorAndShields />
+                    <WeaponsArmorAndShields character={props.character} onChange={props.changeHandler} />
                 </Grid>
                 <Grid item xs={12}>
-                    <Equipment />
+                    <Equipment character={props.character} onChange={props.changeHandler} />
                 </Grid>
             </Grid>
         </>
