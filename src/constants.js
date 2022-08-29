@@ -120,6 +120,8 @@ export const DEFAULT_CHARACTER = {
     initiative: 0,
     speed: 30,
 
+    inCombat: false,
+
     position: {
         base: 0,
         combatPool: 0,
@@ -155,7 +157,9 @@ export const DEFAULT_CHARACTER = {
     greenBlossom: 0,
     purpleMoss: 0,
     bugPillType: "",
-    bugPills: 0
+    bugPills: 0,
+
+    stateChange: false
 }
 
 export const CLASSES = ["", "Knight", "Mercenary", "Assassin", "Warrior", "Thief", "Herald", "Cleric", "Sorcerer", "Pyromancer", "Deprived"];

@@ -19,14 +19,18 @@ function Position(props) {
         let newPosition = props.character.position.current;
         let positionChangeNumber = Number.parseInt(positionChange);
         if (event.target.name === "heal") {
-            if (props.character.position.current + positionChangeNumber > props.character.combatPool) {
+            if (props.character.position.current + positionChangeNumber > props.character.position.combatPool) {
                 newPosition = props.character.position.combatPool;
+            } else if (props.character.position.current + positionChangeNumber < 0) {
+                newPosition = 0;
             } else {
                 newPosition += positionChangeNumber;
             }
         } else if (event.target.name === "damage") {
             if (props.character.position.current - positionChangeNumber < 0) {
                 newPosition = 0;
+            } else if (props.character.position.current - positionChangeNumber > props.character.position.combatPool) {
+                newPosition = props.character.position.combatPool;
             } else {
                 newPosition -= positionChangeNumber;
             }
@@ -40,6 +44,10 @@ function Position(props) {
             }
         })
         console.log(props.character);
+    }
+
+    const handleCombatClick = (event) => {
+        props.onChange(event);
     }
 
     return (
@@ -78,6 +86,18 @@ function Position(props) {
                 <Grid item xs={2}>
                     <Item>
                         <TextField type="number" defaultValue={positionChange} onChange={handlePositionChangeUpdate} fullWidth margin="dense" variant="standard" />
+                    </Item>
+                </Grid>
+            </Grid>
+            <Grid container direction="row">
+                <Grid item xs={6}>
+                    <Item>
+                        <Button name="enterCombat" disabled={props.character.inCombat || props.character.origin === ""} onClick={handleCombatClick}>Enter Combat</Button>
+                    </Item>
+                </Grid>
+                <Grid item xs={6}>
+                    <Item>
+                        <Button name="exitCombat" disabled={!props.character.inCombat || props.character.origin === ""} onClick={handleCombatClick}>Exit Combat</Button>
                     </Item>
                 </Grid>
             </Grid>

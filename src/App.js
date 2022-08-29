@@ -9,6 +9,8 @@ import {
   FormControlLabel,
   FormGroup,
   Grid,
+  TextField,
+  Typography,
 }
 from "@mui/material";
 import './App.css';
@@ -45,17 +47,36 @@ function App() {
     intSavingThrow: false,
     wisSavingThrow: false,
     chaSavingThrow: false
-  })
+  });
+  const [combatPositionDialogOpen, setCombatPositionDialogOpen] = React.useState(false);
+  const [combatPositionText, setCombatPositionText] = React.useState(0);
   const proficiencySelectionDialogError = Object.values(proficiencySelections).filter((v) => v).length !== PROFICIENCY_SELECTION[character.selectedClass];
   const deprivedSavingThrowDialogError = Object.values(deprivedSavingThrows).filter((v) => v).length !== 2;
+
+  // React.useEffect(() => {console.log("State changed.")});
 
   const handleProficiencySelectionDialogClose = () => {
     setProficiencySelectionDialogOpen(false);
   }
 
+  const handleCombatPositionDialogClose = () => {
+    setCombatPositionDialogOpen(false);
+  }
+
+  const handleDeprivedDialogClose = () => {
+    setDeprivedSavingThrowsDialogOpen(false);
+  }
+
   const handleProficiencySelectionClick = (event) => {
     setProficiencySelections({
       ...proficiencySelections,
+      [event.target.name]: event.target.checked
+    })
+  }
+
+  const handleDeprivedSavingThrowClick = (event) => {
+    setDeprivedSavingThrows({
+      ...deprivedSavingThrows,
       [event.target.name]: event.target.checked
     })
   }
@@ -93,17 +114,6 @@ function App() {
     console.log(character);
   }
 
-  const handleDeprivedDialogClose = () => {
-    setDeprivedSavingThrowsDialogOpen(false);
-  }
-
-  const handleDeprivedSavingThrowClick = (event) => {
-    setDeprivedSavingThrows({
-      ...deprivedSavingThrows,
-      [event.target.name]: event.target.checked
-    })
-  }
-
   const handleDeprivedSavingThrowSubmit = () => {
     if(deprivedSavingThrowDialogError) {
 
@@ -124,200 +134,158 @@ function App() {
     }
   }
 
+  const handleCombatPositionSubmitButtonClick = () => {
+    if(combatPositionText < character.level || combatPositionText > character.level * character.positionDice.diceType) {
+      //do nothing
+    } else {
+      setCharacter({
+        ...character,
+        position: {
+          ...character.position,
+          combatPool: character.position.base + combatPositionText,
+          current: character.position.current + combatPositionText
+        }
+      });
+      setCombatPositionDialogOpen(false);
+    }
+  }
+
+  const handleCombatPositionAutoRollButtonClick = () => {
+    const max = character.level * character.positionDice.diceType;
+    const min = character.level;
+    const combatPosition = Math.floor(Math.random() * (max - min)) + min;
+    setCharacter({
+      ...character,
+      position: {
+        ...character.position,
+        combatPool: character.position.base + combatPosition,
+        current: character.position.current + combatPosition
+      }
+    });
+
+    setCombatPositionDialogOpen(false);
+  }
+
+  const handleCombatPositionTextChange = (event) => {
+    setCombatPositionText(Number.parseInt(event.target.value));
+  }
+
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
 
-    character[name] = value;
     if (name === "origin") {
+      character[name] = value;
       switch (value) {
         case "Brute":
-          setCharacter({
-            ...character,
-            abilities: BRUTE_SCORES,
-            bloodiedAbility:BRUTE_BLOODIED_ABILITY,
-            posDice: {
-              diceType: 10,
-              total: character.level,
-              current: character.level,
-            },
-          });
+          character.abilities = BRUTE_SCORES;
+          character.bloodiedAbility = BRUTE_BLOODIED_ABILITY;
+          character.positionDice.diceType = 10;
+          character.positionDice.total = character.level;
+          character.positionDice.current = character.level;
           break;
         case "Fencer":
-          setCharacter({
-            ...character,
-            abilities: FENCER_SCORES,
-            bloodiedAbility: FENCER_BLOODIED_ABILITY,
-            posDice: {
-              diceType: 8,
-              total: character.level,
-              current: character.level,
-            }
-          });
+          character.abilities = FENCER_SCORES;
+          character.bloodiedAbility = FENCER_BLOODIED_ABILITY;
+          character.positionDice.diceType = 8;
+          character.positionDice.total = character.level;
+          character.positionDice.current = character.level;
           break;
         case "Jack of All Trades":
-          setCharacter({
-            ...character,
-            abilities: JACK_OF_ALL_TRADES_SCORES,
-            bloodiedAbility: JACK_OF_ALL_TRADES_BLOODIED_ABILITY,
-            posDice: {
-              diceType: 8,
-              total: character.level,
-              current: character.level,
-            }
-          });
+          character.abilities = JACK_OF_ALL_TRADES_SCORES;
+          character.bloodiedAbility = JACK_OF_ALL_TRADES_BLOODIED_ABILITY;
+          character.positionDice.diceType = 8;
+          character.positionDice.total = character.level;
+          character.positionDice.current = character.level;
           break;
         case "Caster":
-          setCharacter({
-            ...character,
-            abilities: CASTER_SCORES,
-            bloodiedAbility: CASTER_BLOODIED_ABILITY,
-            posDice: {
-              diceType: 6,
-              total: character.level,
-              current: character.level,
-            }
-          });
+          character.abilities = CASTER_SCORES;
+          character.bloodiedAbility = CASTER_BLOODIED_ABILITY;
+          character.positionDice.diceType = 6;
+          character.positionDice.total = character.level;
+          character.positionDice.current = character.level;
           break;
         default:
           break;
       }
-      setCharacter({
-        ...character,
-        position: {
-          base: character.positionDice.diceType + character.abilities.conMod,
-          combatPool: character.positionDice.diceType + character.abilities.conMod,
-          current: character.positionDice.diceType + character.abilities.conMod
-        }
-      });
+      character.position.base = character.positionDice.diceType + character.abilities.conMod + character.level;
+      character.position.combatPool = character.positionDice.diceType + character.abilities.conMod + character.level;
+      character.position.current = character.positionDice.diceType + character.abilities.conMod + character.level;
     } else if (name === "selectedClass") {
+      character[name] = value;
       setProficiencySelections(DEFAULT_PROFICIENCY_SELECTIONS);
       switch (value) {
         case "Knight":
-          setCharacter({
-            ...character,
-            proficiencies: {
-              ...character.proficiencies,
-              strSavingThrow: true,
-              dexSavingThrow: false,
-              conSavingThrow: true,
-              intSavingThrow: false,
-              wisSavingThrow: false,
-              chaSavingThrow: false
-            },
-          });
+          character.proficiencies.strSavingThrow = true;
+          character.proficiencies.dexSavingThrow = false;
+          character.proficiencies.conSavingThrow = true;
+          character.proficiencies.intSavingThrow = false;
+          character.proficiencies.wisSavingThrow = false;
+          character.proficiencies.chaSavingThrow = false;
           break;
         case "Mercenary":
-          setCharacter({
-            ...character,
-            proficiencies: {
-              ...character.proficiencies,
-              strSavingThrow: true,
-              dexSavingThrow: true,
-              conSavingThrow: false,
-              intSavingThrow: false,
-              wisSavingThrow: false,
-              chaSavingThrow: false
-            }
-          });
+          character.proficiencies.strSavingThrow = true;
+          character.proficiencies.dexSavingThrow = true;
+          character.proficiencies.conSavingThrow = false;
+          character.proficiencies.intSavingThrow = false;
+          character.proficiencies.wisSavingThrow = false;
+          character.proficiencies.chaSavingThrow = false;
           break;
         case "Assassin":
-          setCharacter({
-            ...character,
-            proficiencies: {
-              ...character.proficiencies,
-              strSavingThrow: true,
-              dexSavingThrow: true,
-              conSavingThrow: false,
-              intSavingThrow: false,
-              wisSavingThrow: false,
-              chaSavingThrow: false
-            }
-          });
+          character.proficiencies.strSavingThrow = true;
+          character.proficiencies.dexSavingThrow = true;
+          character.proficiencies.conSavingThrow = false;
+          character.proficiencies.intSavingThrow = false;
+          character.proficiencies.wisSavingThrow = false;
+          character.proficiencies.chaSavingThrow = false;
           break;
         case "Warrior":
-          setCharacter({
-            ...character,
-            proficiencies: {
-              ...character.proficiencies,
-              strSavingThrow: true,
-              dexSavingThrow: false,
-              conSavingThrow: true,
-              intSavingThrow: false,
-              wisSavingThrow: false,
-              chaSavingThrow: false
-            }
-          });
+          character.proficiencies.strSavingThrow = true;
+          character.proficiencies.dexSavingThrow = false;
+          character.proficiencies.conSavingThrow = true;
+          character.proficiencies.intSavingThrow = false;
+          character.proficiencies.wisSavingThrow = false;
+          character.proficiencies.chaSavingThrow = false;
           break;
         case "Thief":
-          setCharacter({
-            ...character,
-            proficiencies: {
-              ...character.proficiencies,
-              strSavingThrow: false,
-              dexSavingThrow: true,
-              conSavingThrow: false,
-              intSavingThrow: true,
-              wisSavingThrow: false,
-              chaSavingThrow: false
-            }
-          });
+          character.proficiencies.strSavingThrow = false;
+          character.proficiencies.dexSavingThrow = true;
+          character.proficiencies.conSavingThrow = false;
+          character.proficiencies.intSavingThrow = true;
+          character.proficiencies.wisSavingThrow = false;
+          character.proficiencies.chaSavingThrow = false;
           break;
         case "Herald":
-          setCharacter({
-            ...character,
-            proficiencies: {
-              ...character.proficiencies,
-              strSavingThrow: false,
-              dexSavingThrow: false,
-              conSavingThrow: false,
-              intSavingThrow: false,
-              wisSavingThrow: true,
-              chaSavingThrow: true
-            }
-          });
+          character.proficiencies.strSavingThrow = false;
+          character.proficiencies.dexSavingThrow = false;
+          character.proficiencies.conSavingThrow = false;
+          character.proficiencies.intSavingThrow = false;
+          character.proficiencies.wisSavingThrow = true;
+          character.proficiencies.chaSavingThrow = true;
           break;
         case "Cleric":
-          setCharacter({
-            ...character,
-            proficiencies: {
-              ...character.proficiencies,
-              strSavingThrow: false,
-              dexSavingThrow: false,
-              conSavingThrow: false,
-              intSavingThrow: false,
-              wisSavingThrow: true,
-              chaSavingThrow: true
-            }
-          });
+          character.proficiencies.strSavingThrow = false;
+          character.proficiencies.dexSavingThrow = false;
+          character.proficiencies.conSavingThrow = false;
+          character.proficiencies.intSavingThrow = false;
+          character.proficiencies.wisSavingThrow = true;
+          character.proficiencies.chaSavingThrow = true;
           break;
         case "Sorcerer":
-          setCharacter({
-            ...character,
-            proficiencies: {
-              ...character.proficiencies,
-              strSavingThrow: false,
-              dexSavingThrow: false,
-              conSavingThrow: false,
-              intSavingThrow: true,
-              wisSavingThrow: true,
-              chaSavingThrow: false
-            }
-          });
+          character.proficiencies.strSavingThrow = false;
+          character.proficiencies.dexSavingThrow = false;
+          character.proficiencies.conSavingThrow = false;
+          character.proficiencies.intSavingThrow = true;
+          character.proficiencies.wisSavingThrow = true;
+          character.proficiencies.chaSavingThrow = false;
           break;
         case "Pyromancer":
-          setCharacter({
-            ...character,
-            proficiencies: {
-              ...character.proficiencies,
-              strSavingThrow: false,
-              dexSavingThrow: false,
-              conSavingThrow: true,
-              intSavingThrow: false,
-              wisSavingThrow: false,
-              chaSavingThrow: true
-            }
-          });
+          character.proficiencies.strSavingThrow = false;
+          character.proficiencies.dexSavingThrow = false;
+          character.proficiencies.conSavingThrow = true;
+          character.proficiencies.intSavingThrow = false;
+          character.proficiencies.wisSavingThrow = false;
+          character.proficiencies.chaSavingThrow = true;
           break;
         case "Deprived":
           setDeprivedSavingThrows({
@@ -334,8 +302,24 @@ function App() {
           break;
       }
       setProficiencySelectionDialogOpen(true);
+    } else if (name === "enterCombat") {
+      character.inCombat = true;
+      setCombatPositionDialogOpen(true);
+    } else if (name === "exitCombat") {
+      let diff = character.position.combatPool - character.position.base;
+      character.inCombat = false;
+      character.position.combatPool = character.position.base;
+      if (character.position.current <= character.position.base) {
+        //do nothing
+      } else {
+        character.position.current = character.position.base;
+      }
     }
 
+    setCharacter({
+      ...character,
+      stateChange: !character.stateChange
+    });
     console.log(character);
   }
 
@@ -387,6 +371,26 @@ function App() {
         <DialogActions>
           <Button fullWidth onClick={handleDeprivedSavingThrowSubmit}>Submit</Button>
         </DialogActions>
+      </Dialog>
+
+      <Dialog open={combatPositionDialogOpen} onClose={handleCombatPositionDialogClose}>
+        <DialogTitle>Roll for Combat Position Pool!</DialogTitle>
+        <Grid container direction="column">
+          <Grid item xs={12}>
+            <Typography>Roll {character.level}d{character.positionDice.diceType} position dice and enter the result below.</Typography>
+          </Grid>
+          <Grid container direction="row">
+            <Grid item xs={9}>
+              <TextField fullWidth name="combatPositionInput" type="number" onChange={handleCombatPositionTextChange}></TextField>
+            </Grid>
+            <Grid item xs={3}>
+              <Button name="combatPositionSubmitButton" onClick={handleCombatPositionSubmitButtonClick} fullWidth>Submit</Button>
+            </Grid>
+          </Grid>
+          <Grid item xs={12}>
+            <Button name="combatPositionAutoRollButton" onClick={handleCombatPositionAutoRollButtonClick} fullWidth>Roll for me!</Button>
+          </Grid>
+        </Grid>
       </Dialog>
 
       <Grid container direction="row">

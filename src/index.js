@@ -6,12 +6,12 @@ import './index.css';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
 ReactDOM.render(
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-      </Routes>
-    </HashRouter>,
-  // <App />,
+    // <HashRouter>
+    //   <Routes>
+    //     <Route path="/" element={<App />} />
+    //   </Routes>
+    // </HashRouter>,
+  <App />,
   document.getElementById('root')
 );
 
