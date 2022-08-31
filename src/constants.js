@@ -136,7 +136,8 @@ export const DEFAULT_CHARACTER = {
 
     souls: {
         current: 0,
-        spent: 0
+        spent: 0,
+        recoverable: 0
     },
 
     weapon1: {},
