@@ -13,19 +13,19 @@ function MiddleColumn(props) {
         <>
             <Grid container direction="column">
                 <Grid item xs={12}>
-                    <CombatStats character={props.character} onChange={props.changeHandler} />
+                    <CombatStats character={props.character} changeHandler={props.onChange} />
                 </Grid>
                 <Grid item xs={12}>
-                    <Position character={props.character} onChange={props.onChange} setCharacter={props.setCharacter} />
+                    <Position character={props.character} changeHandler={props.onChange} setCharacter={props.setCharacter} />
                 </Grid>
                 <Grid item xs={12}>
-                    <PosDiceAndSouls character={props.character} onChange={props.onChange} />
+                    <PosDiceAndSouls character={props.character} changeHandler={props.onChange} />
                 </Grid>
                 <Grid item xs={12}>
-                    <WeaponsArmorAndShields character={props.character} onChange={props.changeHandler} />
+                    <WeaponsArmorAndShields character={props.character} changeHandler={props.onChange} />
                 </Grid>
                 <Grid item xs={12}>
-                    <Equipment character={props.character} onChange={props.changeHandler} />
+                    <Equipment character={props.character} changeHandler={props.onChange} />
                 </Grid>
             </Grid>
         </>

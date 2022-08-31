@@ -47,7 +47,7 @@ function Position(props) {
     }
 
     const handleCombatClick = (event) => {
-        props.onChange(event);
+        props.changeHandler(event);
     }
 
     return (
