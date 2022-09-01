@@ -1,14 +1,64 @@
 import { Button, FormControl, FormHelperText, Grid, TextField, Typography } from "@mui/material";
+import React from "react";
 import { Item } from "./styles";
 
 function PosDiceAndSouls(props) {
+
+    const [soulsChange, setSoulsChange] = React.useState(0);
+
+    const handleSoulsTextChange = (event) => {
+        setSoulsChange(Number.parseInt(event.target.value));
+    }
 
     const handlePosDiceUseClick = (event) => {
         props.changeHandler(event);
     }
 
     const handleSoulsChangeButtonClick = (event) => {
-        props.changeHandler(event);
+        if (event.target.name === "soulsGainButton") {
+            if (soulsChange < 0) {
+                //do nothing
+            } else {
+                props.setCharacter({
+                    ...props.character,
+                    souls: {
+                        ...props.character.souls,
+                        current: props.character.souls.current + soulsChange
+                    }
+                })
+            }
+        } else if (event.target.name === "soulsSpendButton") {
+            if (soulsChange < 0 || props.character.souls.current - soulsChange < 0) {
+                //do nothing
+            } else {
+                props.setCharacter({
+                    ...props.character,
+                    souls: {
+                        ...props.character.souls,
+                        current: props.character.souls.current - soulsChange,
+                        spent: props.character.souls.spent + soulsChange
+                    }
+                })
+            }
+        } else if (event.target.name === "soulsDeathButton") {
+            props.setCharacter({
+                ...props.character,
+                souls: {
+                    ...props.character.souls,
+                    recoverable: props.character.souls.current,
+                    current: 0
+                }
+            })
+        } else if (event.target.name === "soulsRecoveryButton") {
+            props.setCharacter({
+                ...props.character,
+                souls: {
+                    ...props.character.souls,
+                    current: props.character.souls.current + props.character.souls.recoverable,
+                    recoverable: 0
+                }
+            })
+        }
     }
 
     return (
@@ -23,7 +73,7 @@ function PosDiceAndSouls(props) {
                                         <Typography>Total: {props.character.positionDice.current}/{props.character.positionDice.total}</Typography>
                                     </Grid>
                                     <Grid item xs={3}>
-                                        <Button name="posDiceUseButton" onClick={handlePosDiceUseClick} fullWidth style={{ fontSize: "15", maxHeight: "15px" }}>Use</Button>
+                                        <Button name="posDiceUseButton" onClick={handlePosDiceUseClick} fullWidth style={{ fontSize: "15", maxHeight: "30px", minWidth: "50px" }}>Use</Button>
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -56,7 +106,7 @@ function PosDiceAndSouls(props) {
                                 </Grid>
                                 <Grid container direction="row">
                                     <Grid item xs={6}>
-                                        <TextField name="soulChangeText" type="number" defaultValue={0} />
+                                        <TextField name="soulChangeText" onChange={handleSoulsTextChange} type="number" defaultValue={0} />
                                     </Grid>
                                     <Grid item xs={3}>
                                         <Button name="soulsGainButton" onClick={handleSoulsChangeButtonClick} fullWidth sx={{ fontSize: "15", minHeight: "55px", minWidth: "0px" }}>Gain</Button>
