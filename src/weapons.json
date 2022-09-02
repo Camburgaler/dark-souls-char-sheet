@@ -1,0 +1,930 @@
+{
+    "none": {
+        "type": "Empty",
+        "weapons": [
+            {
+                "name": "--None--",
+                "strength": 0,
+                "damageDiceCount": 0,
+                "damageDiceType": 0,
+                "damageType": "",
+                "properties": [],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "",
+                "cost": 0
+            }
+        ]
+    },
+    "daggers": {
+        "type": "Daggers",
+        "weapons": [
+            {
+                "name": "Aquamarine Dagger",
+                "strength": 11,
+                "damageDiceCount": 1,
+                "damageDiceType": 4,
+                "damageType": "Piercing",
+                "properties": [
+                    "Finesse",
+                    "Light",
+                    "Thrown"
+                ],
+                "thrownStandard": 20,
+                "thrownLong": 60,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 2 Position before making an attack roll to give this weapon the reach property for the duration of the attack.",
+                "cost": 350
+            },
+            {
+                "name": "Bandit's Knife",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 4,
+                "damageType": "Piercing",
+                "properties": [
+                    "Light"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 2 Position to move 10 feet in any direction after a successful attack.",
+                "cost": 250
+            }
+        ]
+    },
+    "straightSwords": {
+        "type": "Straight Swords",
+        "weapons": [
+            {
+                "name": "Anri's Straight Sword",
+                "strength": 12,
+                "damageDiceCount": 1,
+                "damageDiceType": 10,
+                "damageType": "Slashing",
+                "properties": [
+                    "Reach"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "If you miss with an attack, spend 3 Position to gain advantage on your next attack.",
+                "cost": 300
+            },
+            {
+                "name": "Astora Straight Sword",
+                "strength": 12,
+                "damageDiceCount": 1,
+                "damageDiceType": 10,
+                "damageType": "Slashing",
+                "properties": [],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 1 Position to deal +2 damage on a successful attack.",
+                "cost": 400
+            }
+        ]
+    },
+    "greatswords": {
+        "type": "Greatswords",
+        "weapons": [
+            {
+                "name": "Bastard Sword",
+                "strength": 14,
+                "damageDiceCount": 2,
+                "damageDiceType": 6,
+                "damageType": "Slashing",
+                "properties": [
+                    "Heavy",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 2 Position to move 10 feet in any direction after a successful attack.",
+                "cost": 700
+            },
+            {
+                "name": "Black Knight Sword",
+                "strength": 14,
+                "damageDiceCount": 2,
+                "damageDiceType": 6,
+                "damageType": "Slashing",
+                "properties": [
+                    "Heavy",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 3 Position after a successful attack to force your target to succeed on a DC15 Constitution saving throw or make their next attack at disadvantage.",
+                "cost": 700
+            }
+        ]
+    },
+    "ultraGreatswords": {
+        "type": "Ultra Greatswords",
+        "weapons": [
+            {
+                "name": "Astora Greatsword",
+                "strength": 17,
+                "damageDiceCount": 2,
+                "damageDiceType": 6,
+                "damageType": "Slashing",
+                "properties": [
+                    "Heavy",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 2 Position when unengaged to move up to 20 feet towards one enemy creature, and gain advantage on your first attack against it.",
+                "cost": 700
+            },
+            {
+                "name": "Black Knight Greatsword",
+                "strength": 20,
+                "damageDiceCount": 2,
+                "damageDiceType": 10,
+                "damageType": "Slashing",
+                "properties": [
+                    "Heavy",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 1 Position after a successful attack to push the targeted creature 5ft in any direction.",
+                "cost": 900
+            }
+        ]
+    },
+    "curvedSwords": {
+        "type": "Curved Swords",
+        "weapons": [
+            {
+                "name": "Carthus Curved Sword",
+                "strength": 12,
+                "damageDiceCount": 1,
+                "damageDiceType": 8,
+                "damageType": "Slashing",
+                "properties": [
+                    "Finesse",
+                    "Light"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 2 Position after a successful attack to make a second attack as a bonus action. The bonus attack is made with disadvantage.",
+                "cost": 650
+            },
+            {
+                "name": "Carthus Shotel",
+                "strength": 11,
+                "damageDiceCount": 1,
+                "damageDiceType": 6,
+                "damageType": "Slashing",
+                "properties": [
+                    "Finesse",
+                    "Light"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 4 Position after a successful attack to make a second attack as a bonus action.",
+                "cost": 400
+            }
+        ]
+    },
+    "curvedGreatswords": {
+        "type": "Curved Greatswords",
+        "weapons": [
+            {
+                "name": "Carthus Curved Greatsword",
+                "strength": 14,
+                "damageDiceCount": 1,
+                "damageDiceType": 8,
+                "damageType": "Slashing",
+                "properties": [
+                    "Finesse",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 2 Position after a successful attack to make a second attack as a bonus action. The bonus attack is made with disadvantage.",
+                "cost": 650
+            },
+            {
+                "name": "Exile Greatsword",
+                "strength": 16,
+                "damageDiceCount": 1,
+                "damageDiceType": 10,
+                "damageType": "Slashing",
+                "properties": [
+                    "Finesse",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 5 Position after a successful attack to make a second attack as a bonus action. The second attack is made with advantage.",
+                "cost": 700
+            }
+        ]
+    },
+    "thrustingSwords": {
+        "type": "Thrusting Swords",
+        "weapons": [
+            {
+                "name": "Crow Quills",
+                "strength": 10,
+                "damageDiceCount": 1,
+                "damageDiceType": 8,
+                "damageType": "Piercing",
+                "properties": [
+                    "Finesse"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 3 Position after killing an enemy creature to immediately make a ranged attack, dealing 1d4 piercing damage to any enemy within 40ft of you.",
+                "cost": 650
+            },
+            {
+                "name": "Crystal Sage's Rapier",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 6,
+                "damageType": "Piercing",
+                "properties": [
+                    "Finesse"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 1 Position to deal +1d4 damage on your next attack.",
+                "cost": 600
+            }
+        ]
+    },
+    "katanas": {
+        "type": "Katanas",
+        "weapons": [
+            {
+                "name": "Black Blade",
+                "strength": 14,
+                "damageDiceCount": 1,
+                "damageDiceType": 10,
+                "damageType": "Slashing",
+                "properties": [
+                    "Finesse",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 3 Position to make your next attack with advantage if your target is bloodied.",
+                "cost": 700
+            },
+            {
+                "name": "Bloodlust",
+                "strength": 14,
+                "damageDiceCount": 1,
+                "damageDiceType": 10,
+                "damageType": "Slashing",
+                "properties": [
+                    "Finesse",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 2 Position to make your next attack with advantage if your target is bloodied.",
+                "cost": 800
+            }
+        ]
+    },
+    "axes": {
+        "type": "Axes",
+        "weapons": [
+            {
+                "name": "Battle Axe",
+                "strength": 11,
+                "damageDiceCount": 1,
+                "damageDiceType": 8,
+                "damageType": "Slashing",
+                "properties": [
+                    "Versatile"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 1,
+                "versatileDamageDiceType": 10,
+                "special": "Spend 3 Position after a successful attack to unleash a war cry. Your opponent must make a DC14 Wisdom saving throw or be stunned until the end of your next turn.",
+                "cost": 600
+            },
+            {
+                "name": "Brigand Axe",
+                "strength": 10,
+                "damageDiceCount": 1,
+                "damageDiceType": 8,
+                "damageType": "Slashing",
+                "properties": [
+                    "Versatile"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 1,
+                "versatileDamageDiceType": 10,
+                "special": "Spend 4 Position after a successful attack to unleash a war cry. Your opponent must make a DC16 Wisdom saving throw or be stunned until the end of your next turn.",
+                "cost": 650
+            }
+        ]
+    },
+    "greatAxes": {
+        "type": "Great Axes",
+        "weapons": [
+            {
+                "name": "Black Knight Great Axe",
+                "strength": 18,
+                "damageDiceCount": 1,
+                "damageDiceType": 12,
+                "damageType": "Slashing",
+                "properties": [
+                    "Heavy",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 4 Position after a successful attack to unleash a war cry. Your opponent must make a DC18 Wisdom saving throw or be stunned until the end of your next turn.",
+                "cost": 1000
+            },
+            {
+                "name": "Demon's Great Axe",
+                "strength": 14,
+                "damageDiceCount": 1,
+                "damageDiceType": 10,
+                "damageType": "Slashing",
+                "properties": [
+                    "Heavy",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 5 Position after killing an enemy yo deal 1d8 fire damage to all creatures within 20ft of you.",
+                "cost": 850
+            }
+        ]
+    },
+    "hammers": {
+        "type": "Hammers",
+        "weapons": [
+            {
+                "name": "Blacksmith Hammer",
+                "strength": 12,
+                "damageDiceCount": 1,
+                "damageDiceType": 4,
+                "damageType": "Bludgeoning",
+                "properties": [],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 2 Position after a successful attack to increase your AC by +2 until the end of your next turn.",
+                "cost": 550
+            },
+            {
+                "name": "Club",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 4,
+                "damageType": "Bludgeoning",
+                "properties": [
+                    "Light"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 3 Position after a successful attack to unleash a war cry. Your opponent must make a DC12 Wisdom saving throw or be stunned until the end of your next turn.",
+                "cost": 50
+            }
+        ]
+    },
+    "greatHammers": {
+        "type": "Great Hammers",
+        "weapons": [
+            {
+                "name": "Dragon Tooth",
+                "strength": 14,
+                "damageDiceCount": 1,
+                "damageDiceType": 10,
+                "damageType": "Bludgeoning",
+                "properties": [
+                    "Heavy",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 2 Position after a successful attack to increase your AC by +4 until the end of your next turn.",
+                "cost": 900
+            },
+            {
+                "name": "Gagroyle Flame Hammer",
+                "strength": 15,
+                "damageDiceCount": 1,
+                "damageDiceType": 8,
+                "damageType": "Bludgeoning",
+                "properties": [
+                    "Heavy",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 5 Position after a successful attack to unleash a cone of fire 15 feet in length from your position. All creatures caught in the cone suffer 1d8 fire damage, or half damage if they succeed on a DC15 Dexterity saving throw.",
+                "cost": 600
+            }
+        ]
+    },
+    "spearsAndPikes": {
+        "type": "Spears and Pikes",
+        "weapons": [
+            {
+                "name": "Arstor's Spear",
+                "strength": 14,
+                "damageDiceCount": 1,
+                "damageDiceType": 8,
+                "damageType": "Piercing",
+                "properties": [
+                    "Thrown",
+                    "Versatile"
+                ],
+                "thrownStandard": 20,
+                "thrownLong": 60,
+                "versatileDamageDiceCount": 1,
+                "versatileDamageDiceType": 10,
+                "special": "Spend 2 Position after a successful attack to reduce your opponent's AC by 2 until the start of your next turn.",
+                "cost": 500
+            },
+            {
+                "name": "Dragonslayer Spear",
+                "strength": 14,
+                "damageDiceCount": 1,
+                "damageDiceType": 8,
+                "damageType": "Piercing",
+                "properties": [
+                    "Thrown",
+                    "Versatile"
+                ],
+                "thrownStandard": 20,
+                "thrownLong": 60,
+                "versatileDamageDiceCount": 1,
+                "versatileDamageDiceType": 10,
+                "special": "Spend 5 Position after killing an enemy to deal 1d10 force damage to all enemies within 10 feet of you.",
+                "cost": 450
+            }
+        ]
+    },
+    "halberds": {
+        "type": "Halberds",
+        "weapons": [
+            {
+                "name": "Black Knight Glaive",
+                "strength": 16,
+                "damageDiceCount": 1,
+                "damageDiceType": 12,
+                "damageType": "Slashing",
+                "properties": [
+                    "Heavy",
+                    "Reach",
+                    "Two-Handed"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 3 Position to deal +1d6 bludgeoning damage on your next attack. Your opponent must make a DC12 Dexterity saving throw or be knocked prone if they are of Medium size or smaller.",
+                "cost": 1000
+            },
+            {
+                "name": "Crescent Axe",
+                "strength": 14,
+                "damageDiceCount": 1,
+                "damageDiceType": 8,
+                "damageType": "Slashing",
+                "properties": [],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 3 Position after a successful attack to unleash a war cry. Your opponent must make a DC13 Wisdom saving throw or be stunned until the end of your next turn.",
+                "cost": 700
+            }
+        ]
+    },
+    "scythes": {
+        "type": "Scythes",
+        "weapons": [
+            {
+                "name": "Friede's Great Scythe",
+                "strength": 12,
+                "damageDiceCount": 1,
+                "damageDiceType": 8,
+                "damageType": "Slashing",
+                "properties": [],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 5 Position on a critical hit to deliver a free bonus attack.",
+                "cost": 500
+            },
+            {
+                "name": "Great Corvian Scythe",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 6,
+                "damageType": "Slashing",
+                "properties": [],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 4 Position on a critical hit to triple your damage.",
+                "cost": 450
+            }
+        ]
+    },
+    "whips": {
+        "type": "Whips",
+        "weapons": [
+            {
+                "name": "Notched Whip",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 6,
+                "damageType": "Slashing",
+                "properties": [
+                    "Finesse",
+                    "Reach"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 2 Position after a successful attack to reduce your opponent's AC by 3 until the start of your next turn.",
+                "cost": 350
+            },
+            {
+                "name": "Rose of Ariandel",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 6,
+                "damageType": "Slashing",
+                "properties": [
+                    "Finesse",
+                    "Reach"
+                ],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 1d6 Position after a successful attack to deal that much damage to an enemy creature within 10ft of you.",
+                "cost": 400
+            }
+        ]
+    },
+    "fistsAndClaws": {
+        "type": "Fists and Claws",
+        "weapons": [
+            {
+                "name": "Caestus",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 4,
+                "damageType": "Bludgeoning",
+                "properties": [],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 2 Position after a successful attack to increase your AC by +2 until the end of your next turn.",
+                "cost": 300
+            },
+            {
+                "name": "Claw",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 4,
+                "damageType": "Slashing",
+                "properties": [],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 3 Position after a successful attack to deal +2 damage and knock your opponent back by 5ft directly away from you.",
+                "cost": 350
+            }
+        ]
+    },
+    "bows": {
+        "type": "Bows",
+        "weapons": [
+            {
+                "name": "Black Bow of Pharis",
+                "strength": 11,
+                "damageDiceCount": 1,
+                "damageDiceType": 4,
+                "damageType": "Piercing",
+                "properties": [
+                    "Ammunition"
+                ],
+                "ammunitionStandard": 80,
+                "ammunitionLong": 320,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 4 Position after making a successful attack to make a second free attack. Should this also be successful, you may then spend 2 Position to make a final free attack.",
+                "cost": 450
+            },
+            {
+                "name": "Composite Bow",
+                "strength": 10,
+                "damageDiceCount": 1,
+                "damageDiceType": 6,
+                "damageType": "Piercing",
+                "properties": ["Ammunition"],
+                "ammunitionStandard": 120,
+                "ammunitionLong": 480,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 3 Position after killing an enemy with a ranged attack to make a second free ranged attack.",
+                "cost": 500
+            }
+        ]
+    },
+    "greatbows": {
+        "type": "Great Bows",
+        "weapons": [
+            {
+                "name": "Dragonslayer Great Bow",
+                "strength": 15,
+                "damageDiceCount": 1,
+                "damageDiceType": 12,
+                "damageType": "Piercing",
+                "properties": ["Ammunition", "Heavy", "Two-Handed"],
+                "ammunitionStandard": 150,
+                "ammunitionLong": 600,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 3 Position after making a successful ranged attack to make a second ranged attack against a second enemy within 15ft of, and in a straight line from, the original target, dealing 1d6 piercing damage.",
+                "cost": 900
+            },
+            {
+                "name": "Millwood Greatbow",
+                "strength": 16,
+                "damageDiceCount": 1,
+                "damageDiceType": 12,
+                "damageType": "Piercing",
+                "properties": ["Ammunition", "Heavy", "Two-Handed"],
+                "ammunitionStandard": 150,
+                "ammunitionLong": 600,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 5 Position after making a successful ranged attack to deal 1d6 force damage to all enemies within 10ft of the original target.",
+                "cost": 1000
+            }
+        ]
+    },
+    "crossbows": {
+        "type": "Crossbows",
+        "weapons": [
+            {
+                "name": "Arbalest",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 6,
+                "damageType": "Piercing",
+                "properties": ["Ammunition", "Loading", "Two-Handed"],
+                "ammunitionStandard": 100,
+                "ammunitionLong": 400,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 3 Position as a bonus action in melee combat to knock your opponent back 15ft from you. ",
+                "cost": 1000
+            },
+            {
+                "name": "Avelyn",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 6,
+                "damageType": "Piercing",
+                "properties": ["Ammunition", "Heavy", "Loading", "Two-Handed"],
+                "ammunitionStandard": 80,
+                "ammunitionLong": 320,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 2 Position after making a successful attack to make a second free attack. Should this also be successful, you may then spend 1 additional Position to make a final free attack. Each additional attack deals 1d6 piercing damage.",
+                "cost": 550
+            }
+        ]
+    },
+    "staves": {
+        "type": "Staves",
+        "weapons": [
+            {
+                "name": "Archdeacon Great Staff",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 6,
+                "damageType": "Bludgeoning",
+                "properties": ["Versatile"],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 1,
+                "versatileDamageDiceType": 8,
+                "special": "Spend 3 Position after failing a spell attack roll to gain advantage on your next attack.",
+                "cost": 300
+            },
+            {
+                "name": "Court Sorcerer's Staff",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 6,
+                "damageType": "Bludgeoning",
+                "properties": ["Versatile"],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 1,
+                "versatileDamageDiceType": 8,
+                "special": "Spend 3 Position to deal +1d8 damage on your next spell attack.",
+                "cost": 300
+            }
+        ]
+    },
+    "chimesFlamesAndTalismans": {
+        "type": "Chimes, Flames, and Talismans",
+        "weapons": [
+            {
+                "name": "Caitha's Chime",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 6,
+                "damageType": "Bludgeoning",
+                "properties": ["Light"],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 4 Posiition to restore 10 Position to three friendly creatures within 5ft of you.",
+                "cost": 300
+            },
+            {
+                "name": "Cleric's Sacred Chime",
+                "strength": 0,
+                "damageDiceCount": 1,
+                "damageDiceType": 4,
+                "damageType": "Bludgeoning",
+                "properties": ["Light"],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "Spend 1 Position to restore 5 Position to one friendly creature adjacent to you.",
+                "cost": 250
+            }
+        ]
+    },
+    "custom": {
+        "type": "Custom",
+        "weapons": [
+            {
+                "name": "Custom weapon...",
+                "strength": 0,
+                "damageDiceCount": 0,
+                "damageDiceType": 0,
+                "damageType": "",
+                "properties": [],
+                "ammunitionStandard": 0,
+                "ammunitionLong": 0,
+                "thrownStandard": 0,
+                "thrownLong": 0,
+                "versatileDamageDiceCount": 0,
+                "versatileDamageDiceType": 0,
+                "special": "",
+                "cost": 0
+            }
+        ]
+    }
+}

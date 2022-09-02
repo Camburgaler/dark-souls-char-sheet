@@ -73,7 +73,7 @@ function PosDiceAndSouls(props) {
                                         <Typography>Total: {props.character.positionDice.current}/{props.character.positionDice.total}</Typography>
                                     </Grid>
                                     <Grid item xs={3}>
-                                        <Button name="posDiceUseButton" onClick={handlePosDiceUseClick} fullWidth style={{ fontSize: "15", maxHeight: "30px", minWidth: "50px" }}>Use</Button>
+                                        <Button name="posDiceUseButton" onClick={handlePosDiceUseClick} disabled={props.character.origin === ""} fullWidth style={{ fontSize: "15", maxHeight: "30px", minWidth: "50px" }}>Use</Button>
                                     </Grid>
                                 </Grid>
                             </Grid>

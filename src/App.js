@@ -3,19 +3,19 @@ import {
   Grid,
   Typography,
 }
-from "@mui/material";
+  from "@mui/material";
 import './App.css';
 import BasicInformation from './BasicInformation';
 import LeftColumn from './LeftColumn';
 import MiddleColumn from './MiddleColumn';
 import RightColumn from './RightColumn';
 import Dialogs from './Dialogs';
-import { 
-  BRUTE_SCORES, 
-  CASTER_SCORES, 
-  DEFAULT_CHARACTER, 
-  FENCER_SCORES, 
-  JACK_OF_ALL_TRADES_SCORES, 
+import {
+  BRUTE_SCORES,
+  CASTER_SCORES,
+  DEFAULT_CHARACTER,
+  FENCER_SCORES,
+  JACK_OF_ALL_TRADES_SCORES,
   DEFAULT_PROFICIENCY_SELECTIONS,
   BRUTE_BLOODIED_ABILITY,
   FENCER_BLOODIED_ABILITY,
@@ -201,10 +201,10 @@ function App() {
 
   return (
     <>
-      <Dialogs 
+      <Dialogs
         character={character}
         setCharacter={setCharacter}
-        onChange={handleChange} 
+        onChange={handleChange}
         proficiencySelections={proficiencySelections}
         setProficiencySelections={setProficiencySelections}
         proficiencySelectionDialogOpen={proficiencySelectionDialogOpen}

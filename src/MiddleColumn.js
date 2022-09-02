@@ -1,7 +1,7 @@
 import {
     Grid
 }
-from "@mui/material";
+    from "@mui/material";
 import CombatStats from "./CombatStats";
 import Position from "./Position";
 import PosDiceAndSouls from "./PosDiceAndSouls";
@@ -9,7 +9,7 @@ import WeaponsArmorAndShields from "./WeaponsArmorAndShields";
 import Equipment from "./Equipment";
 
 function MiddleColumn(props) {
-    return(
+    return (
         <>
             <Grid container direction="column">
                 <Grid item xs={12}>

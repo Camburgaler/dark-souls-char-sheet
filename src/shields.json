@@ -1,0 +1,78 @@
+{
+    "none": {
+        "type": "Empty",
+        "shields": [
+            {
+                "name": "--None--",
+                "description": "",
+                "strength": 0,
+                "ac": 0,
+                "special": "",
+                "cost": 0
+            }
+        ]
+    },
+    "smallShields": {
+        "type": "Small Shields",
+        "shields": [
+            {
+                "name": "Buckler",
+                "description": "Small, compact, and designed to allow a skilled fighter to turn aside an attack, the buckler is a common choice for duelists.",
+                "strength": 0,
+                "ac": 1,
+                "special": "When using the Buckler, you may make an additional reaction once per Short rest.",
+                "cost": 200
+            },
+            {
+                "name": "Caduceus Round Shield",
+                "description": "Painted with a design on twin snakes, each rearing up; one of the ancient symbols of those dwelled in the swamp.",
+                "strength": 10,
+                "ac": 1,
+                "special": "When using the Caduceus Round Shield, once per Long rest you may spend 1 Position to reroll one failed Dexterity saving throw.",
+                "cost": 200
+            }
+        ]
+    },
+    "standardShields": {
+        "type": "Standard Shields",
+        "shields": [
+            {
+                "name": "Black Knight Shield",
+                "description": "The nomadic warriors known as the Black Knights were famed for their battles; their shields became highly effective against fire.",
+                "strength": 14,
+                "ac": 2,
+                "special": "When using the Black Knight shield, once per Short rest you may spend 2 Position to reduce the fire damage suffered from one attack by half.",
+                "cost": 300
+            },
+            {
+                "name": "Blue Wooden Shield",
+                "description": "Wooden shield used from ancient times. Inferior to metal shields in terms of stability and physical damage reduction, but easy to use and weighing so little that it hardly requires any strength to bear.",
+                "strength": 11,
+                "ac": 2,
+                "special": "When using the Blue Wooden Shield, once per Short rest you may spend 2 Position to gain advantage on a Constitution saving throw.",
+                "cost": 300
+            }
+        ]
+    },
+    "greatshields": {
+        "type": "Greatshields",
+        "shields": [
+            {
+                "name": "Ancient Dragon Greatshield",
+                "description": "With a beautiful painting set into the steel of the shield, it is impossible to gaze upon this and not feel the loss of the majestic creatures.",
+                "strength": 18,
+                "ac": 3,
+                "special": "When using the Ancient Dragon Greatshield, once per Long rest you may spend 3 Position to regain 2 position dice worth of Position.",
+                "cost": 400
+            },
+            {
+                "name": "Black Iron Greatshield",
+                "description": "Forever associated with the dreaded Giantslayer Tsorig, the black iron of this greatshield is beautifully decorated.",
+                "strength": 18,
+                "ac": 3,
+                "special": "When using the Black Iron greatshield, once per Short rest you may spend 2 Position to avoid being knocked prone.",
+                "cost": 400
+            }
+        ]
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "none": {
+        "name": "--None--",
+        "description": "",
+        "ac": 10,
+        "addDexModToAC": true,
+        "strength": 0,
+        "special": "",
+        "value": 0
+    },
+    "alvaArmor": {
+        "name": "Alva Armor",
+        "description": "Alva, the seeker of the spurned, wore this armor in the past.",
+        "ac": 18,
+        "addDexModToAC": false,
+        "strength": 12,
+        "special": "Whenever wearing the Alva armor, you have disadvantage on all Wisdom saving throws.",
+        "value": 1800
+    },
+    "archdeaconRobes": {
+        "name": "Archdeacon Robes",
+        "description": "It is said there were three Archdeacons in the Cathderal of the Deep, all considered delegates of the gods.",
+        "ac": 13,
+        "addDexModToAC": true,
+        "strength": 11,
+        "special": "Whenever wearing the Archdeacon Robes, you may choose to regain all casts of one miracle without Long resting. The miracle must be of a level equal to half of your character level, rounded down, to a minimum of 1st level. This ability can only be used once per Long rest.",
+        "value": 900
+    },
+    "custom": {
+        "name": "Custom armor...",
+        "description": "Create a custom armor set.",
+        "ac": 10,
+        "addDexModToAC": true,
+        "strength": 0,
+        "special": "",
+        "value": 0
+    }
+}
