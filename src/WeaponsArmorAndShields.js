@@ -11,7 +11,8 @@ function WeaponsArmorAndShields(props) {
         weapon1: "none,0",
         weapon2: "none,0",
         armor: "none",
-        shield: "none,0"
+        shield: "none,0",
+        stateChange: false
     })
     const selectionData = {
         weapon1: weapons[selection.weapon1.split(",")[0]].weapons[selection.weapon1.split(",")[1]],
@@ -21,10 +22,32 @@ function WeaponsArmorAndShields(props) {
     }
 
     const handleChange = (event) => {
+        selection[event.target.name] = event.target.value
         setSelection({
             ...selection,
             [event.target.name]: event.target.value
         })
+        const type = event.target.value.split(",")[0];
+        const index = event.target.value.split(",")[1];
+        switch (event.target.name){
+            case "weapon1": 
+            case "weapon2":
+                props.character[event.target.name] = weapons[type].weapons[index];
+                break;
+            case "armor": 
+                props.character.armor = armors[type];
+                props.character.armorClass = props.character.armor.ac + (props.character.abilities.dexMod * props.character.armor.addDexModToAC) + props.character.shield.ac
+                break;
+            case "shield": 
+                props.character.shield = shields[type].shields[index];
+                props.character.armorClass = props.character.armor.ac + (props.character.abilities.dexMod * props.character.armor.addDexModToAC) + props.character.shield.ac
+                break;
+        }
+        props.setCharacter({
+            ...props.character,
+            stateChange: !props.character.stateChange
+
+        }) 
     }
 
     return (

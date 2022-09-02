@@ -53,6 +53,7 @@ function App() {
           character.positionDice.diceType = 10;
           character.positionDice.total = character.level;
           character.positionDice.current = character.level;
+          character.armorClass = character.armor.ac + (character.abilities.dexMod * character.armor.addDexModToAC) + character.shield.ac
           break;
         case "Fencer":
           character.abilities = FENCER_SCORES;

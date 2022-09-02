@@ -1,3 +1,7 @@
+const weapons = require('./weapons.json');
+const armors = require('./armors.json');
+const shields = require('./shields.json');
+
 export const DEFAULT_CHARACTER = {
     characterName: "",
     selectedClass: "",
@@ -116,7 +120,7 @@ export const DEFAULT_CHARACTER = {
 
     notes: "",
 
-    armorClass: 0,
+    armorClass: 10,
     initiative: 0,
     speed: 30,
 
@@ -140,10 +144,10 @@ export const DEFAULT_CHARACTER = {
         recoverable: 0
     },
 
-    weapon1: {},
-    weapon2: {},
-    armor: {},
-    shield: {},
+    weapon1: weapons.none.weapons[0],
+    weapon2: weapons.none.weapons[0],
+    armor: armors.none,
+    shield: shields.none.shields[0],
 
     equipment: [],
 

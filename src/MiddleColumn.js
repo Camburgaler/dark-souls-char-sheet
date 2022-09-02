@@ -22,7 +22,7 @@ function MiddleColumn(props) {
                     <PosDiceAndSouls character={props.character} changeHandler={props.onChange} setCharacter={props.setCharacter} />
                 </Grid>
                 <Grid item xs={12}>
-                    <WeaponsArmorAndShields character={props.character} changeHandler={props.onChange} />
+                    <WeaponsArmorAndShields character={props.character} changeHandler={props.onChange} setCharacter={props.setCharacter} />
                 </Grid>
                 <Grid item xs={12}>
                     <Equipment character={props.character} changeHandler={props.onChange} />
