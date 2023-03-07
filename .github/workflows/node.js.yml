@@ -34,8 +34,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: deploy
       - uses: actions/checkout@v3
+      - name: Deploy
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
