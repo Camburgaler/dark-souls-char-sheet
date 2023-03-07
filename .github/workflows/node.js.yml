@@ -33,6 +33,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - uses: actions/checkout@v3
       - name: Deploy
@@ -40,6 +41,5 @@ jobs:
         with:
           node-version: '16'
           cache: 'npm'
-      - uses: actions/deploy@v3
       - run: npm run predeploy
       - run: npm run deploy
