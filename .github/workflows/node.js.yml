@@ -30,5 +30,10 @@ jobs:
     - run: npm i
     - run: npm run build
     - run: npm test
-    - run: npm predeploy
-    - run: npm deploy
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+      - run: npm run predeploy
+      - run: npm run deploy
