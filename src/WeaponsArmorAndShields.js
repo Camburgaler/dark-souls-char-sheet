@@ -1,4 +1,4 @@
-import { FormControl, FormHelperText, FormLabel, Grid, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { FormControl, FormLabel, Grid, InputLabel, Select, Typography } from "@mui/material";
 import React from "react";
 import { Item } from "./styles";
 const weapons = require('./weapons.json');
@@ -29,25 +29,27 @@ function WeaponsArmorAndShields(props) {
         })
         const type = event.target.value.split(",")[0];
         const index = event.target.value.split(",")[1];
-        switch (event.target.name){
-            case "weapon1": 
+        switch (event.target.name) {
+            case "weapon1":
             case "weapon2":
                 props.character[event.target.name] = weapons[type].weapons[index];
                 break;
-            case "armor": 
+            case "armor":
                 props.character.armor = armors[type];
                 props.character.armorClass = props.character.armor.ac + (props.character.abilities.dexMod * props.character.armor.addDexModToAC) + props.character.shield.ac
                 break;
-            case "shield": 
+            case "shield":
                 props.character.shield = shields[type].shields[index];
                 props.character.armorClass = props.character.armor.ac + (props.character.abilities.dexMod * props.character.armor.addDexModToAC) + props.character.shield.ac
+                break;
+            default:
                 break;
         }
         props.setCharacter({
             ...props.character,
             stateChange: !props.character.stateChange
 
-        }) 
+        })
     }
 
     return (
