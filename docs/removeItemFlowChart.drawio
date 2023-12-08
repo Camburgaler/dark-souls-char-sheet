@@ -1,9 +1,112 @@
-<mxfile host="app.diagrams.net" modified="2023-12-08T19:54:37.419Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" version="22.1.7" etag="zTQdEtJgUQNQtBLSeDFn" type="github">
+<mxfile host="app.diagrams.net" modified="2023-12-08T20:04:45.940Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="Cl9XvVlSUcUjh0NE_LuQ" version="22.1.7" type="github">
   <diagram name="Page-1" id="qFEKoxz8PnauZ9uuXVUX">
-    <mxGraphModel>
+    <mxGraphModel dx="1461" dy="694" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="ETNcb1QT6wqtqon5HosF-1" value="" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;size=80;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="40" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-3" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="ETNcb1QT6wqtqon5HosF-1">
+          <mxGeometry x="15" y="80" width="10" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-2" value="UI" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=80;" vertex="1" parent="1">
+          <mxGeometry x="240" y="40" width="80" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-5" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="ETNcb1QT6wqtqon5HosF-2">
+          <mxGeometry x="35" y="120" width="10" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-4" value="User removes item from a Character&#39;s&lt;br&gt;inventory" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;" edge="1" parent="1" source="ETNcb1QT6wqtqon5HosF-1" target="ETNcb1QT6wqtqon5HosF-2">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="390" y="290" as="sourcePoint" />
+            <mxPoint x="450" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="180" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-6" value="Engine API" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=80;" vertex="1" parent="1">
+          <mxGeometry x="440" y="40" width="80" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-8" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="ETNcb1QT6wqtqon5HosF-6">
+          <mxGeometry x="35" y="160" width="10" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-7" value="UI sends a request to the Engine API&lt;br&gt;with the Character&#39;s UUID and the&lt;br&gt;item&#39;s info" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;" edge="1" parent="1" source="ETNcb1QT6wqtqon5HosF-2" target="ETNcb1QT6wqtqon5HosF-6">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="390" y="290" as="sourcePoint" />
+            <mxPoint x="450" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="380" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-9" value="Inventory API" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=80;" vertex="1" parent="1">
+          <mxGeometry x="640" y="40" width="80" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-12" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="ETNcb1QT6wqtqon5HosF-9">
+          <mxGeometry x="35" y="200" width="10" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-10" value="Engine API sends a request to the&lt;br&gt;Inventory API with the Character&#39;s&lt;br&gt;UUID and the item&#39;s info" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;" edge="1" parent="1" source="ETNcb1QT6wqtqon5HosF-6" target="ETNcb1QT6wqtqon5HosF-9">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="390" y="290" as="sourcePoint" />
+            <mxPoint x="450" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="580" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-11" value="Database" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=80;" vertex="1" parent="1">
+          <mxGeometry x="840" y="40" width="80" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-14" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="ETNcb1QT6wqtqon5HosF-11">
+          <mxGeometry x="35" y="240" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-13" value="Inventory API send a request to the&lt;br&gt;DB to remove the item from the&lt;br&gt;Character&#39;s inventory" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;" edge="1" parent="1" source="ETNcb1QT6wqtqon5HosF-9" target="ETNcb1QT6wqtqon5HosF-11">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="390" y="290" as="sourcePoint" />
+            <mxPoint x="450" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="780" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-15" value="DB returns an OK response to the&lt;br&gt;Inventory API" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1" source="ETNcb1QT6wqtqon5HosF-11" target="ETNcb1QT6wqtqon5HosF-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="880" y="320" as="sourcePoint" />
+            <mxPoint x="800" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="790" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-16" value="Inventory API returns an OK response&lt;br&gt;to the Engine API" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1" source="ETNcb1QT6wqtqon5HosF-9" target="ETNcb1QT6wqtqon5HosF-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="290" as="sourcePoint" />
+            <mxPoint x="380" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="590" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-17" value="Engine API returns an OK response&lt;br&gt;to the UI" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1" source="ETNcb1QT6wqtqon5HosF-6" target="ETNcb1QT6wqtqon5HosF-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="290" as="sourcePoint" />
+            <mxPoint x="380" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="390" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ETNcb1QT6wqtqon5HosF-18" value="UI displays a brief message indicating&lt;br&gt;data was successfully updated" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1" source="ETNcb1QT6wqtqon5HosF-2" target="ETNcb1QT6wqtqon5HosF-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="290" as="sourcePoint" />
+            <mxPoint x="380" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="190" y="440" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
