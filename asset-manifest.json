@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dark-souls-char-sheet/static/css/main.9071bff3.css",
-    "main.js": "/dark-souls-char-sheet/static/js/main.5b441ce1.js",
+    "main.js": "/dark-souls-char-sheet/static/js/main.f191b129.js",
     "static/js/787.567e50d8.chunk.js": "/dark-souls-char-sheet/static/js/787.567e50d8.chunk.js",
     "index.html": "/dark-souls-char-sheet/index.html",
     "main.9071bff3.css.map": "/dark-souls-char-sheet/static/css/main.9071bff3.css.map",
-    "main.5b441ce1.js.map": "/dark-souls-char-sheet/static/js/main.5b441ce1.js.map",
+    "main.f191b129.js.map": "/dark-souls-char-sheet/static/js/main.f191b129.js.map",
     "787.567e50d8.chunk.js.map": "/dark-souls-char-sheet/static/js/787.567e50d8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9071bff3.css",
-    "static/js/main.5b441ce1.js"
+    "static/js/main.f191b129.js"
   ]
 }
