@@ -1,5 +1,5 @@
 import { Button, Grid, Typography } from "@mui/material";
-import { Item } from "./styles";
+import { Item } from "../../styles";
 
 function SpecialAbility(props) {
 

@@ -1,9 +1,9 @@
 import { FormControl, FormLabel, Grid, InputLabel, Select, Typography } from "@mui/material";
 import React from "react";
-import { Item } from "./styles";
-const weapons = require('./weapons.json');
-const armors = require('./armors.json');
-const shields = require('./shields.json');
+import { Item } from "../../styles";
+const weapons = require('../weapons.json');
+const armors = require('../armors.json');
+const shields = require('../shields.json');
 
 function WeaponsArmorAndShields(props) {
 
