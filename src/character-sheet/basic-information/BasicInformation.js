@@ -10,7 +10,7 @@ import {
   Typography,
 }
   from "@mui/material";
-import { Item } from './styles';
+import { Item } from '../../styles';
 import { 
   BACKSTORIES, 
   CLASSES, 
@@ -18,7 +18,7 @@ import {
   MEMORIES, 
   ORIGINS
 }
-from './constants';
+from '../../constants';
 import { makeStyles } from '@material-ui/core/styles';
 
 function BasicInformation(props) {
