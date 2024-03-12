@@ -4,8 +4,8 @@ import {
     Typography,
 }
     from "@mui/material";
-import { ABILITY_NAMES } from "./constants";
-import { Item } from "./styles";
+import { ABILITY_NAMES } from "../../constants";
+import { Item } from "../../styles";
 
 function SavingThrows(props) {
 
