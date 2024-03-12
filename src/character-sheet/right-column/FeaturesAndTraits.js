@@ -1,5 +1,5 @@
 import { TextField } from "@material-ui/core";
-import { Item } from "./styles";
+import { Item } from "../../styles";
 
 function FeaturesAndTraits() {
     return(

@@ -1,6 +1,6 @@
 import { Button, Checkbox, Dialog, DialogActions, DialogTitle, FormControl, FormControlLabel, FormGroup, Grid, TextField, Typography } from "@mui/material";
 import React from "react";
-import { ABILITY_NAMES, CLASS_PROFICIENCIES, PROFICIENCY_SELECTION, SKILL_NAMES } from "./constants";
+import { ABILITY_NAMES, CLASS_PROFICIENCIES, PROFICIENCY_SELECTION, SKILL_NAMES } from "../constants";
 
 function Dialogs(props) {
     const [combatPositionText, setCombatPositionText] = React.useState(0);
