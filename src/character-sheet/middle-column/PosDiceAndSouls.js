@@ -1,6 +1,6 @@
 import { Button, FormControl, FormHelperText, Grid, TextField, Typography } from "@mui/material";
 import React from "react";
-import { Item } from "./styles";
+import { Item } from "../../styles";
 
 function PosDiceAndSouls(props) {
 
