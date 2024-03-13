@@ -1,11 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import App from './App';
+import Home from './Home';
 
-test('renders App', () => {
+test('renders Home', () => {
   const { getByText } = render(
-    <App />
+    <Home />
   );
 
   expect(true).toBeTruthy;

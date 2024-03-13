@@ -1,8 +1,13 @@
-function Login(props) {
+import Button from "@mui/material/Button";
 
+function Login(props) {
     return (
-      <>login</>
+        <>
+            <body>
+                <Button href="/home">LOGIN</Button>
+            </body>
+        </>
     );
-  }
-  
-  export default Login;
+}
+
+export default Login;

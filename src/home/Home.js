@@ -1,8 +1,7 @@
-function Home(props) {
+import Header from "./Header";
 
-    return (
-      <>home</>
-    );
-  }
-  
-  export default Home;
+function Home(props) {
+  return <Header />;
+}
+
+export default Home;

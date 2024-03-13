@@ -1,17 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
+import "./index.css";
+import Login from "./login/Login";
+import Home from "./home/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 ReactDOM.render(
-    // <HashRouter>
-    //   <Routes>
-    //     <Route path="/" element={<App />} />
-    //   </Routes>
-    // </HashRouter>,
-  <App />,
-  document.getElementById('root')
+  <BrowserRouter future={{ v7_startTransition: true }}>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Home />} />
+    </Routes>
+  </BrowserRouter>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
