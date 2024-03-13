@@ -14,6 +14,7 @@ function Header(props) {
                     width={100}
                     height={100}
                     src={require("../../images/clipart_bonfire.png")}
+                    alt=""
                 />
                 <Stack>
                     <Typography

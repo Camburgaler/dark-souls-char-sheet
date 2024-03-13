@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 
 function UserCard(props) {

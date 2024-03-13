@@ -36,7 +36,7 @@ function Searchbox(props) {
             debounceWait={250}
             matchText
             Item={(props) => {
-                if (props.groupId == "users") {
+                if (props.groupId === "users") {
                     return (
                         <UserCard
                             text={
@@ -45,7 +45,7 @@ function Searchbox(props) {
                             }
                         />
                     );
-                } else if (props.groupId == "characters") {
+                } else if (props.groupId === "characters") {
                     return <Typography>character</Typography>;
                 }
             }}
