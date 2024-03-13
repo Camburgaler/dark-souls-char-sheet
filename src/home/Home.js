@@ -1,7 +1,7 @@
-import Header from "./Header";
+import Header from "./header/Header";
 
 function Home(props) {
-  return <Header />;
+    return <Header />;
 }
 
 export default Home;

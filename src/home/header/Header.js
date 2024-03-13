@@ -4,6 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import Searchbox from "./searchbox/Searchbox";
 
 function Header(props) {
     return (
@@ -12,7 +13,7 @@ function Header(props) {
                 <img
                     width={100}
                     height={100}
-                    src={require("../images/clipart_bonfire.png")}
+                    src={require("../../images/clipart_bonfire.png")}
                 />
                 <Stack>
                     <Typography
@@ -26,10 +27,12 @@ function Header(props) {
                         variant="h6"
                         component="div"
                         sx={{ flexGrow: 1 }}
+                        // TODO: ensure the [user.name] below still works when we have DB connection
                     >
                         Welcome [user.name]!
                     </Typography>
                 </Stack>
+                <Searchbox />
                 <Button
                     color="inherit"
                     href="/"
