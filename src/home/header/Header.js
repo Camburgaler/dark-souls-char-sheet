@@ -16,29 +16,11 @@ function Header(props) {
                     src={require("../../images/clipart_bonfire.png")}
                     alt=""
                 />
-                <Stack>
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1 }}
-                    >
-                        Dark Souls TTRPG Character Sheet
-                    </Typography>
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1 }}
-                        // TODO: ensure the [user.name] below still works when we have DB connection
-                    >
-                        Welcome [user.name]!
-                    </Typography>
-                </Stack>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    Dark Souls TTRPG Character Sheet Home Page
+                </Typography>
                 <Searchbox />
-                <Button
-                    color="inherit"
-                    href="/"
-                    sx={{ position: "fixed", right: 10, height: 80 }}
-                >
+                <Button color="inherit" href="/">
                     Logout
                 </Button>
             </Toolbar>

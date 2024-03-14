@@ -1,19 +1,34 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
-import Login from "./login/Login";
 import Home from "./home/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App";
+import NoMatch from "./NoMatch";
+import Login from "./login/Login";
+
+const router = createBrowserRouter([
+    {
+        path: "*",
+        element: <NoMatch />,
+    },
+    {
+        path: "/",
+        element: <App />,
+    },
+    {
+        path: "/login",
+        element: <Login />,
+    },
+    {
+        path: "/home",
+        element: <Home />,
+    },
+]);
 
 ReactDOM.render(
-  <BrowserRouter future={{ v7_startTransition: true }}>
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/home" element={<Home />} />
-    </Routes>
-  </BrowserRouter>,
-  document.getElementById("root")
+    <RouterProvider router={router} />,
+    document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

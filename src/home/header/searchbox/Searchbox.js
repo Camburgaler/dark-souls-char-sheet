@@ -1,55 +1,40 @@
-import { Typography } from "@mui/material";
-import Turnstone from "turnstone";
+import { useEffect, useState } from "react";
 import UserCard from "./UserCard";
+import { Input, Typography } from "@mui/material";
+import { data } from "autoprefixer";
 
 function Searchbox(props) {
-    const listbox = [
-        {
-            id: "users",
-            name: "USERS",
-            displayField: "name",
-            data: require("../../../data/users.json"), // TODO: update when we have API connection
-            searchType: "contains",
-        },
-        {
-            id: "characters",
-            name: "CHARACTERS",
-            displayField: "name",
-            data: require("../../../data/characters.json"), // TODO: update when we have API connection
-            searchType: "contains",
-        },
-    ];
+    const [query, setQuery] = useState("");
+    const userData = require("../../../data/users.json").map((user) => {
+        return <UserCard user={user} />;
+    });
+    const characterData = require("../../../data/characters.json").map(
+        (character) => {
+            return <Typography>{character.name}</Typography>;
+        }
+    );
 
     return (
-        <Turnstone
-            id="search"
-            name="search"
-            typeahead
-            clearButton
-            maxItems={20}
-            noItemsMessage="No matches :("
-            placeholder="Search for users or characters..."
-            listbox={listbox}
-            listboxIsImmutable
-            defaultListbox={listbox}
-            defaultListboxIsImmutable
-            debounceWait={250}
-            matchText
-            Item={(props) => {
-                if (props.groupId === "users") {
-                    return (
-                        <UserCard
-                            text={
-                                listbox[props.groupIndex].data[props.index]
-                                    .username
-                            }
-                        />
-                    );
-                } else if (props.groupId === "characters") {
-                    return <Typography>character</Typography>;
-                }
-            }}
-        />
+        <div>
+            <Input
+                placeholder="Search for a user or character..."
+                onChange={(event) => setQuery(event.target.value)}
+                fullWidth
+            />
+            {require("../../../data/users.json")
+                .filter((user) => {
+                    if (query === "") {
+                        return;
+                    } else if (
+                        user.name.toLowerCase().includes(query.toLowerCase())
+                    ) {
+                        return user;
+                    }
+                })
+                .map((user) => {
+                    return <UserCard user={user} />;
+                })}
+        </div>
     );
 }
 
