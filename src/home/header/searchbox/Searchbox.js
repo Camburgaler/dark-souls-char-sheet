@@ -12,7 +12,7 @@ function App() {
     const filterResults = (query) => {
         const filteredResults = jsonData.filter((entry) => {
             if (query === "") {
-                return;
+                return null;
             } else {
                 return entry.username
                     .toLowerCase()
