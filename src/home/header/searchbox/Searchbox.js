@@ -5,8 +5,21 @@ function App() {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
 
-    // Simulated JSON data (replace with your actual data)
-    const jsonData = require("../../../data/users.json");
+    const userData = require("../../../data/users.json");
+    const characterData = require("../../../data/characters.json");
+    userData.forEach((user) => {
+        user.recordType = "user";
+    });
+    characterData.forEach((character) => {
+        character.recordType = "character";
+    });
+    const jsonData = [
+        ...userData.map((entry) => ({ ...entry, recordType: "user" })),
+        ...characterData.map((entry) => ({
+            ...entry,
+            recordType: "character",
+        })),
+    ];
 
     // Function to filter search results based on input
     const filterResults = (query) => {
@@ -14,9 +27,16 @@ function App() {
             if (query === "") {
                 return null;
             } else {
-                return entry.username
-                    .toLowerCase()
-                    .includes(query.toLowerCase());
+                if (entry.recordType === "user") {
+                    return entry.username
+                        .toLowerCase()
+                        .includes(query.toLowerCase());
+                }
+                if (entry.recordType === "character") {
+                    return entry.name
+                        .toLowerCase()
+                        .includes(query.toLowerCase());
+                }
             }
         });
         setSearchResults(filteredResults);
@@ -35,9 +55,41 @@ function App() {
     };
 
     // Event handler for visiting page
-    const visitPage = (id) => {
+    const visitUserPage = (id) => {
         // Visit page logic goes here
-        console.log(`Visiting page for entry with ID ${id}`);
+        console.log(`Visiting user page for entry with ID ${id}`);
+    };
+
+    // Event handler for visiting page
+    const visitCharacterPage = (id) => {
+        // Visit page logic goes here
+        console.log(`Visiting character page for entry with ID ${id}`);
+    };
+
+    const renderResults = (entry, index) => {
+        switch (entry.recordType) {
+            case "user":
+                return (
+                    <>
+                        <span>{entry.username}</span>
+                        <button onClick={() => sendFriendRequest(index)}>
+                            Send Friend Request
+                        </button>
+                        <button onClick={() => visitUserPage(index)}>
+                            Visit Page
+                        </button>
+                    </>
+                );
+            case "character":
+                return (
+                    <>
+                        <span>{entry.name}</span>
+                        <button onClick={() => visitCharacterPage(index)}>
+                            Visit Page
+                        </button>
+                    </>
+                );
+        }
     };
 
     return (
@@ -51,13 +103,7 @@ function App() {
             <div className="results-container">
                 {searchResults.map((entry, index) => (
                     <div key={index} className="entry">
-                        <span>{entry.username}</span>
-                        <button onClick={() => sendFriendRequest(index)}>
-                            Send Request
-                        </button>
-                        <button onClick={() => visitPage(index)}>
-                            Visit Page
-                        </button>
+                        {renderResults(entry, index)}
                     </div>
                 ))}
             </div>
