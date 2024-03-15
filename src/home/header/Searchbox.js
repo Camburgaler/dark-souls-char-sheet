@@ -5,8 +5,8 @@ function App() {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
 
-    const userData = require("../../../data/users.json");
-    const characterData = require("../../../data/characters.json");
+    const userData = require("../../data/users.json");
+    const characterData = require("../../data/characters.json");
     userData.forEach((user) => {
         user.recordType = "user";
     });
@@ -38,6 +38,7 @@ function App() {
                         .includes(query.toLowerCase());
                 }
             }
+            return null;
         });
         setSearchResults(filteredResults);
     };
@@ -89,6 +90,8 @@ function App() {
                         </button>
                     </>
                 );
+            default:
+                return;
         }
     };
 

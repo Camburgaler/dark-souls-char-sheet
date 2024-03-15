@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import Searchbox from "./searchbox/Searchbox";
+import Searchbox from "./Searchbox";
 
 function Header(props) {
     return (
