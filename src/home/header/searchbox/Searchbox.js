@@ -1,41 +1,68 @@
-import { useEffect, useState } from "react";
-import UserCard from "./UserCard";
-import { Input, Typography } from "@mui/material";
-import { data } from "autoprefixer";
+import React, { useState } from "react";
+import "./Searchbox.css";
 
-function Searchbox(props) {
-    const [query, setQuery] = useState("");
-    const userData = require("../../../data/users.json").map((user) => {
-        return <UserCard user={user} />;
-    });
-    const characterData = require("../../../data/characters.json").map(
-        (character) => {
-            return <Typography>{character.name}</Typography>;
-        }
-    );
+function App() {
+    const [searchTerm, setSearchTerm] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+
+    // Simulated JSON data (replace with your actual data)
+    const jsonData = require("../../../data/users.json");
+
+    // Function to filter search results based on input
+    const filterResults = (query) => {
+        const filteredResults = jsonData.filter((entry) => {
+            if (query === "") {
+                return;
+            } else {
+                return entry.username
+                    .toLowerCase()
+                    .includes(query.toLowerCase());
+            }
+        });
+        setSearchResults(filteredResults);
+    };
+
+    // Event handler for input changes
+    const handleInputChange = (event) => {
+        setSearchTerm(event.target.value);
+        filterResults(event.target.value);
+    };
+
+    // Event handler for sending friend request
+    const sendFriendRequest = (id) => {
+        // Send friend request logic goes here
+        console.log(`Sending friend request for entry with ID ${id}`);
+    };
+
+    // Event handler for visiting page
+    const visitPage = (id) => {
+        // Visit page logic goes here
+        console.log(`Visiting page for entry with ID ${id}`);
+    };
 
     return (
-        <div>
-            <Input
-                placeholder="Search for a user or character..."
-                onChange={(event) => setQuery(event.target.value)}
-                fullWidth
+        <div className="search-container">
+            <input
+                type="text"
+                placeholder="Search..."
+                value={searchTerm}
+                onChange={handleInputChange}
             />
-            {require("../../../data/users.json")
-                .filter((user) => {
-                    if (query === "") {
-                        return;
-                    } else if (
-                        user.name.toLowerCase().includes(query.toLowerCase())
-                    ) {
-                        return user;
-                    }
-                })
-                .map((user) => {
-                    return <UserCard user={user} />;
-                })}
+            <div className="results-container">
+                {searchResults.map((entry, index) => (
+                    <div key={index} className="entry">
+                        <span>{entry.username}</span>
+                        <button onClick={() => sendFriendRequest(index)}>
+                            Send Request
+                        </button>
+                        <button onClick={() => visitPage(index)}>
+                            Visit Page
+                        </button>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
 
-export default Searchbox;
+export default App;

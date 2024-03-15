@@ -1,0 +1,31 @@
+.search-container {
+    position: relative; /* Make the search container a reference for absolute positioning */
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.results-container {
+    position: absolute; /* Position the results container absolutely */
+    top: 100%; /* Position it below the search input */
+    left: 0;
+    width: 100%;
+    background-color: white; /* Set a background color */
+    border: 1px solid #ccc;
+    border-top: none; /* Remove top border to prevent double border */
+    max-height: 200px; /* Set a maximum height */
+    overflow-y: auto; /* Enable vertical scroll */
+    z-index: 1; /* Ensure it appears above other content */
+}
+
+.entry {
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Add border between entries */
+}
+
+.entry:last-child {
+    border-bottom: none; /* Remove border for last entry */
+}
+
+.entry button {
+    margin-left: 10px;
+}
