@@ -2,7 +2,7 @@ import {
     Grid, 
     Typography 
 } from "@mui/material";
-import { Item } from "./styles";
+import { Item } from "../../styles";
 
 function BloodiedAbility(props) {
     return(
