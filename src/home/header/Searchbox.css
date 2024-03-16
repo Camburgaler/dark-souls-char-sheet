@@ -12,7 +12,7 @@
     background-color: white; /* Set a background color */
     border: 1px solid #ccc;
     border-top: none; /* Remove top border to prevent double border */
-    max-height: 200px; /* Set a maximum height */
+    /* max-height: 400px; Set a maximum height */
     overflow-y: auto; /* Enable vertical scroll */
     z-index: 1; /* Ensure it appears above other content */
 }

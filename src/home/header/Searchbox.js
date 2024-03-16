@@ -5,16 +5,16 @@ function App() {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
 
-    const userData = require("../../data/users.json");
+    const accountData = require("../../data/accounts.json");
     const characterData = require("../../data/characters.json");
-    userData.forEach((user) => {
-        user.recordType = "user";
+    accountData.forEach((account) => {
+        account.recordType = "account";
     });
     characterData.forEach((character) => {
         character.recordType = "character";
     });
     const jsonData = [
-        ...userData.map((entry) => ({ ...entry, recordType: "user" })),
+        ...accountData.map((entry) => ({ ...entry, recordType: "account" })),
         ...characterData.map((entry) => ({
             ...entry,
             recordType: "character",
@@ -27,7 +27,7 @@ function App() {
             if (query === "") {
                 return null;
             } else {
-                if (entry.recordType === "user") {
+                if (entry.recordType === "account") {
                     return entry.username
                         .toLowerCase()
                         .includes(query.toLowerCase());
@@ -56,9 +56,9 @@ function App() {
     };
 
     // Event handler for visiting page
-    const visitUserPage = (id) => {
+    const visitaccountPage = (id) => {
         // Visit page logic goes here
-        console.log(`Visiting user page for entry with ID ${id}`);
+        console.log(`Visiting account page for entry with ID ${id}`);
     };
 
     // Event handler for visiting page
@@ -69,14 +69,14 @@ function App() {
 
     const renderResults = (entry, index) => {
         switch (entry.recordType) {
-            case "user":
+            case "account":
                 return (
                     <>
                         <span>{entry.username}</span>
                         <button onClick={() => sendFriendRequest(index)}>
                             Send Friend Request
                         </button>
-                        <button onClick={() => visitUserPage(index)}>
+                        <button onClick={() => visitaccountPage(index)}>
                             Visit Page
                         </button>
                     </>
