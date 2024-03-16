@@ -1,11 +1,11 @@
 import ReactDOM from "react-dom";
-import reportWebVitals from "./reportWebVitals";
-import "./index.css";
-import Home from "./home/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
-import NoMatch from "./NoMatch";
+import Home from "./home/Home";
+import "./index.css";
 import Login from "./login/Login";
+import NoMatch from "./NoMatch";
+import reportWebVitals from "./reportWebVitals";
 
 const router = createBrowserRouter([
     {
