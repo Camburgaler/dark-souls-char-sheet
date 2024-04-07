@@ -56,7 +56,7 @@ function App() {
     };
 
     // Event handler for visiting page
-    const visitaccountPage = (id) => {
+    const visitAccountPage = (id) => {
         // Visit page logic goes here
         console.log(`Visiting account page for entry with ID ${id}`);
     };
@@ -76,7 +76,7 @@ function App() {
                         <button onClick={() => sendFriendRequest(index)}>
                             Send Friend Request
                         </button>
-                        <button onClick={() => visitaccountPage(index)}>
+                        <button onClick={() => visitAccountPage(index)}>
                             Visit Page
                         </button>
                     </>
