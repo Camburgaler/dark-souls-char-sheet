@@ -1,7 +1,13 @@
 import ReactDOM from "react-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CharacterSheet from "./character-sheet/CharacterSheet";
-import { BASE_PATH, CHARACTER_PATH, HOME_PATH, LOGIN_PATH } from "./constants";
+import {
+    BASE_PATH,
+    CHARACTER_PATH,
+    FRIEND_PATH,
+    HOME_PATH,
+    LOGIN_PATH,
+} from "./constants";
 import Home from "./home/Home";
 import "./index.css";
 import Login from "./login/Login";
@@ -29,6 +35,10 @@ const router = createBrowserRouter(
         {
             path: CHARACTER_PATH + "/:uuid",
             element: <CharacterSheet />,
+        },
+        {
+            path: FRIEND_PATH + "/:uuid",
+            element: <Home />,
         },
     ],
     {
