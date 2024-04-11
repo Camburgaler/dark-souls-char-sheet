@@ -9,8 +9,6 @@
         "@babel/traverse": ">=7.23.2",
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.0",
-        "@material-ui/core": "^4.12.4",
-        "@material-ui/icons": "^4.11.2",
         "@mui/icons-material": "^5.15.12",
         "@mui/lab": "^5.0.0-alpha.170",
         "@mui/material": "^5.15.12",
@@ -43,6 +41,7 @@
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
         "start": "react-scripts start",
+        "thoroughStart": "rm -rf build && react-scripts build && react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"

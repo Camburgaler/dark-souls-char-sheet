@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import Body from "./Body";
 import Footer from "./Footer";
+import Body from "./body/Body";
 import Header from "./header/Header";
 
 function Home(props) {

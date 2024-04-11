@@ -1,30 +1,41 @@
 import ReactDOM from "react-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import CharacterSheet from "./character-sheet/CharacterSheet";
+import { BASE_PATH, CHARACTER_PATH, HOME_PATH, LOGIN_PATH } from "./constants";
 import Home from "./home/Home";
 import "./index.css";
 import Login from "./login/Login";
 import NoMatch from "./NoMatch";
 import reportWebVitals from "./reportWebVitals";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+    [
+        {
+            path: "*",
+            element: <NoMatch />,
+        },
+        {
+            path: "/",
+            element: <App />,
+        },
+        {
+            path: LOGIN_PATH,
+            element: <Login />,
+        },
+        {
+            path: HOME_PATH,
+            element: <Home />,
+        },
+        {
+            path: CHARACTER_PATH + "/:uuid",
+            element: <CharacterSheet />,
+        },
+    ],
     {
-        path: "*",
-        element: <NoMatch />,
-    },
-    {
-        path: "/",
-        element: <App />,
-    },
-    {
-        path: "/login",
-        element: <Login />,
-    },
-    {
-        path: "/home",
-        element: <Home />,
-    },
-]);
+        basename: BASE_PATH,
+    }
+);
 
 ReactDOM.render(
     <RouterProvider router={router} />,

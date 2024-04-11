@@ -1,4 +1,6 @@
+import { Button } from "@mui/material";
 import React, { useState } from "react";
+import { BASE_PATH, CHARACTER_PATH } from "../../constants";
 import "./Searchbox.css";
 
 function App() {
@@ -88,6 +90,11 @@ function App() {
                         <button onClick={() => visitCharacterPage(index)}>
                             Visit Page
                         </button>
+                        <Button
+                            href={BASE_PATH + CHARACTER_PATH + "/" + entry.uuid}
+                        >
+                            Visit Page
+                        </Button>
                     </>
                 );
             default:
