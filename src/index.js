@@ -1,6 +1,5 @@
 import ReactDOM from "react-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App";
 import CharacterSheet from "./character-sheet/CharacterSheet";
 import { BASE_PATH, CHARACTER_PATH, HOME_PATH, LOGIN_PATH } from "./constants";
 import Home from "./home/Home";
@@ -17,7 +16,7 @@ const router = createBrowserRouter(
         },
         {
             path: "/",
-            element: <App />,
+            element: <Login />,
         },
         {
             path: LOGIN_PATH,
