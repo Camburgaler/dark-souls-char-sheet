@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { BASE_PATH } from "../../constants";
 import Searchbox from "./Searchbox";
 
 function Header(props) {
@@ -19,7 +20,7 @@ function Header(props) {
                     Dark Souls TTRPG Character Sheet Home Page
                 </Typography>
                 <Searchbox />
-                <Button color="inherit" href="/">
+                <Button color="inherit" href={BASE_PATH}>
                     Logout
                 </Button>
             </Toolbar>
