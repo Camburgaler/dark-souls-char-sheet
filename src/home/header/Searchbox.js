@@ -1,6 +1,6 @@
-import { Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import React, { useState } from "react";
-import { BASE_PATH, CHARACTER_PATH } from "../../constants";
+import { BASE_PATH, CHARACTER_PATH, FRIEND_PATH } from "../../constants";
 import "./Searchbox.css";
 
 function App() {
@@ -57,39 +57,26 @@ function App() {
         console.log(`Sending friend request for entry with ID ${id}`);
     };
 
-    // Event handler for visiting page
-    const visitAccountPage = (id) => {
-        // Visit page logic goes here
-        console.log(`Visiting account page for entry with ID ${id}`);
-    };
-
-    // Event handler for visiting page
-    const visitCharacterPage = (id) => {
-        // Visit page logic goes here
-        console.log(`Visiting character page for entry with ID ${id}`);
-    };
-
     const renderResults = (entry, index) => {
         switch (entry.recordType) {
             case "account":
                 return (
                     <>
-                        <span>{entry.username}</span>
-                        <button onClick={() => sendFriendRequest(index)}>
+                        <Typography>{entry.username}</Typography>
+                        <Button onClick={() => sendFriendRequest(index)}>
                             Send Friend Request
-                        </button>
-                        <button onClick={() => visitAccountPage(index)}>
+                        </Button>
+                        <Button
+                            href={BASE_PATH + FRIEND_PATH + "/" + entry.uuid}
+                        >
                             Visit Page
-                        </button>
+                        </Button>
                     </>
                 );
             case "character":
                 return (
                     <>
-                        <span>{entry.name}</span>
-                        <button onClick={() => visitCharacterPage(index)}>
-                            Visit Page
-                        </button>
+                        <Typography>{entry.name}</Typography>
                         <Button
                             href={BASE_PATH + CHARACTER_PATH + "/" + entry.uuid}
                         >
@@ -112,9 +99,9 @@ function App() {
             />
             <div className="results-container">
                 {searchResults.map((entry, index) => (
-                    <div key={index} className="entry">
+                    <Box key={index} className="entry">
                         {renderResults(entry, index)}
-                    </div>
+                    </Box>
                 ))}
             </div>
         </div>
