@@ -1,8 +1,10 @@
 import { Add } from "@mui/icons-material";
 import { Box, Grid, Typography } from "@mui/material";
+import { useParams } from "react-router-dom";
 import CharacterCard from "./CharacterCard";
 
 function CharacterList(props) {
+    const params = useParams();
     const accountId = require("../../../data/accounts.json").filter(
         (account) => {
             if (account.username === "camburgaler") {
@@ -47,6 +49,7 @@ function CharacterList(props) {
                                 bgcolor: "darkgray",
                             },
                         }}
+                        visibility={params.uuid ? "hidden" : "visible"}
                     >
                         <Grid container direction={"column"}>
                             <Grid item xs={9}>
