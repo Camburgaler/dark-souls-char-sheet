@@ -28,7 +28,12 @@ function CharacterList(props) {
                 </Grid>
                 <Grid container>
                     {characters.map((character) => {
-                        return <CharacterCard character={character} />;
+                        return (
+                            <CharacterCard
+                                key={character.uuid}
+                                character={character}
+                            />
+                        );
                     })}
                     <Grid
                         item
@@ -43,7 +48,7 @@ function CharacterList(props) {
                             },
                         }}
                     >
-                        <Grid container xs={12} direction={"column"}>
+                        <Grid container direction={"column"}>
                             <Grid item xs={9}>
                                 <Add sx={{ height: 200, width: 200 }} />
                             </Grid>

@@ -1,5 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
+import { useParams } from "react-router-dom";
 import BasicInformation from "./BasicInformation";
 import Dialogs from "./Dialogs";
 import {
@@ -40,6 +41,8 @@ function CharacterSheet() {
     const [combatPositionDialogOpen, setCombatPositionDialogOpen] =
         React.useState(false);
     const appVersion = require("../../package.json").version;
+    const params = useParams();
+    console.log(params.uuid);
 
     const handleChange = (event) => {
         const name = event.target.name;

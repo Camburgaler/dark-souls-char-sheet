@@ -16,7 +16,7 @@ function CharacterCard(props) {
                     },
                 }}
             >
-                <Grid container xs={12} direction={"column"}>
+                <Grid container direction={"column"}>
                     <Grid item xs={9}>
                         <Box
                             component="img"
