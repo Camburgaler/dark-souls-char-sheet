@@ -1,8 +1,13 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
+import { BASE_PATH, CHARACTER_PATH } from "../../../constants";
 
 function CharacterCard(props) {
     return (
-        <Box>
+        <Button
+            color="inherit"
+            sx={{ textTransform: "none" }}
+            href={BASE_PATH + CHARACTER_PATH + "/" + props.character.uuid}
+        >
             <Grid
                 item
                 padding={1}
@@ -38,7 +43,7 @@ function CharacterCard(props) {
                     </Grid>
                 </Grid>
             </Grid>
-        </Box>
+        </Button>
     );
 }
 

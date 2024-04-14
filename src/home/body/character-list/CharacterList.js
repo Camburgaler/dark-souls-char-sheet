@@ -1,6 +1,7 @@
 import { Add } from "@mui/icons-material";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
+import { BASE_PATH, CREATE_PATH } from "../../../constants";
 import CharacterCard from "./CharacterCard";
 
 function CharacterList(props) {
@@ -37,29 +38,35 @@ function CharacterList(props) {
                             />
                         );
                     })}
-                    <Grid
-                        item
-                        padding={1}
-                        margin={1}
-                        xs={"auto"}
-                        sx={{
-                            bgcolor: "gray",
-                            ":hover": {
-                                border: "1px solid #000000",
-                                bgcolor: "darkgray",
-                            },
-                        }}
-                        visibility={params.uuid ? "hidden" : "visible"}
+                    <Button
+                        color="inherit"
+                        sx={{ textTransform: "none" }}
+                        href={BASE_PATH + CREATE_PATH}
                     >
-                        <Grid container direction={"column"}>
-                            <Grid item xs={9}>
-                                <Add sx={{ height: 200, width: 200 }} />
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Typography>New Character</Typography>
+                        <Grid
+                            item
+                            padding={1}
+                            margin={1}
+                            xs={"auto"}
+                            sx={{
+                                bgcolor: "gray",
+                                ":hover": {
+                                    border: "1px solid #000000",
+                                    bgcolor: "darkgray",
+                                },
+                            }}
+                            visibility={params.uuid ? "hidden" : "visible"}
+                        >
+                            <Grid container direction={"column"}>
+                                <Grid item xs={9}>
+                                    <Add sx={{ height: 200, width: 200 }} />
+                                </Grid>
+                                <Grid item xs={3}>
+                                    <Typography>New Character</Typography>
+                                </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
+                    </Button>
                 </Grid>
             </Grid>
         </Box>
