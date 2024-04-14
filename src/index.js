@@ -1,9 +1,11 @@
 import ReactDOM from "react-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import CharacterCreation from "./character-creation/CharacterCreation";
 import CharacterSheet from "./character-sheet/CharacterSheet";
 import {
     BASE_PATH,
     CHARACTER_PATH,
+    CREATE_PATH,
     FRIEND_PATH,
     HOME_PATH,
     LOGIN_PATH,
@@ -39,6 +41,10 @@ const router = createBrowserRouter(
         {
             path: FRIEND_PATH + "/:uuid",
             element: <Home />,
+        },
+        {
+            path: CREATE_PATH,
+            element: <CharacterCreation />,
         },
     ],
     {
