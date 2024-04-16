@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Input, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { BASE_PATH, CHARACTER_PATH, FRIEND_PATH } from "../../constants";
 import "./Searchbox.css";
@@ -61,7 +61,7 @@ function App() {
         switch (entry.recordType) {
             case "account":
                 return (
-                    <>
+                    <Box>
                         <Typography>{entry.username}</Typography>
                         <Button onClick={() => sendFriendRequest(index)}>
                             Send Friend Request
@@ -71,18 +71,18 @@ function App() {
                         >
                             Visit Page
                         </Button>
-                    </>
+                    </Box>
                 );
             case "character":
                 return (
-                    <>
+                    <Box>
                         <Typography>{entry.name}</Typography>
                         <Button
                             href={BASE_PATH + CHARACTER_PATH + "/" + entry.uuid}
                         >
                             Visit Page
                         </Button>
-                    </>
+                    </Box>
                 );
             default:
                 return;
@@ -90,21 +90,21 @@ function App() {
     };
 
     return (
-        <div className="search-container">
-            <input
+        <Box className="search-container">
+            <Input
                 type="text"
                 placeholder="Search..."
                 value={searchTerm}
                 onChange={handleInputChange}
             />
-            <div className="results-container">
+            <Box className="results-container">
                 {searchResults.map((entry, index) => (
                     <Box key={index} className="entry">
                         {renderResults(entry, index)}
                     </Box>
                 ))}
-            </div>
-        </div>
+            </Box>
+        </Box>
     );
 }
 
