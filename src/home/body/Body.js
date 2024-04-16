@@ -1,7 +1,7 @@
 import { Box, Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
-import FriendsActivity from "./FriendsActivity";
 import CharacterList from "./character-list/CharacterList";
+import FriendsActivity from "./friends-activity/FriendsActivity";
 
 function Body(props) {
     const params = useParams();
