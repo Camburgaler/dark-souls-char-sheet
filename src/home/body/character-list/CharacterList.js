@@ -1,22 +1,16 @@
 import { Add } from "@mui/icons-material";
 import { Box, Button, Grid, Typography } from "@mui/material";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { BASE_PATH, CREATE_PATH } from "../../../constants";
 import CharacterCard from "./CharacterCard";
 
 function CharacterList(props) {
     const params = useParams();
-    const accountId = require("../../../data/accounts.json").filter(
-        (account) => {
-            if (account.username === "camburgaler") {
-                return account;
-            }
-            return null;
-        }
-    )[0].uuid;
+    const user = useSelector((state) => state.user);
     const characters = require("../../../data/characters.json").filter(
         (character) => {
-            if (character.account === accountId) {
+            if (character.account === user.uuid) {
                 return character;
             }
             return null;
@@ -24,8 +18,8 @@ function CharacterList(props) {
     );
 
     return (
-        <Box>
-            <Grid container sx={{ bgcolor: "lightgray" }} minHeight={"100%"}>
+        <Box sx={{ bgcolor: "lightgray" }} height={"100%"}>
+            <Grid container>
                 <Grid item xs={12}>
                     <Typography variant="h3">Characters</Typography>
                 </Grid>
