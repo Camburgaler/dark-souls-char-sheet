@@ -2,11 +2,22 @@ import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import * as React from "react";
-import { BASE_PATH } from "../../constants";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { LOGIN_PATH } from "../../constants";
+import { clearUser } from "../../redux/userSlice";
 import Searchbox from "./Searchbox";
 
 function Header(props) {
+    const user = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        dispatch(clearUser());
+        navigate(LOGIN_PATH);
+    };
+
     return (
         <AppBar position="static" color="inherit">
             <Toolbar>
@@ -18,9 +29,11 @@ function Header(props) {
                 />
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Dark Souls TTRPG Character Sheet Home Page
+                    <br />
+                    Welcome, {user.username}!
                 </Typography>
                 <Searchbox />
-                <Button color="inherit" href={BASE_PATH}>
+                <Button color="inherit" onClick={handleLogout}>
                     Logout
                 </Button>
             </Toolbar>
