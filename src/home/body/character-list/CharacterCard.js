@@ -36,7 +36,7 @@ function CharacterCard(props) {
                         />
                     </Grid>
                     <Grid item xs={3}>
-                        <Typography wrap>
+                        <Typography>
                             {props.character.name} | {props.character.class}{" "}
                             {props.character.level}
                         </Typography>
