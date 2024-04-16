@@ -43,6 +43,7 @@ function FriendRequests(props) {
                                 </Box>
                             );
                         }
+                        return null;
                     })}
                     <Box visibility={incomingRequests.length === 0}>
                         <Grid container>
