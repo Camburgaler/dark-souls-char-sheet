@@ -1,5 +1,8 @@
+import { configureStore } from "@reduxjs/toolkit";
 import ReactDOM from "react-dom";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import NoMatch from "./NoMatch";
 import CharacterCreation from "./character-creation/CharacterCreation";
 import CharacterSheet from "./character-sheet/CharacterSheet";
 import {
@@ -13,8 +16,12 @@ import {
 import Home from "./home/Home";
 import "./index.css";
 import Login from "./login/Login";
-import NoMatch from "./NoMatch";
+import rootReducer from "./redux/reducers";
 import reportWebVitals from "./reportWebVitals";
+
+const store = configureStore({
+    reducer: rootReducer,
+});
 
 const router = createBrowserRouter(
     [
@@ -32,7 +39,11 @@ const router = createBrowserRouter(
         },
         {
             path: HOME_PATH,
-            element: <Home />,
+            element: (
+                <Provider store={store}>
+                    <Home />
+                </Provider>
+            ),
         },
         {
             path: CHARACTER_PATH + "/:uuid",
@@ -52,8 +63,14 @@ const router = createBrowserRouter(
     }
 );
 
+function Index(props) {
+    return <RouterProvider router={router} />;
+}
+
 ReactDOM.render(
-    <RouterProvider router={router} />,
+    <Provider store={store}>
+        <Index />
+    </Provider>,
     document.getElementById("root")
 );
 
