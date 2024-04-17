@@ -45,7 +45,7 @@ function FriendRequests(props) {
                 <Grid item xs={12}>
                     {incomingRequests.map((entry, index) => {
                         return (
-                            <Box key={index}>
+                            <Box key={index} margin={2}>
                                 <Grid container>
                                     <Grid item xs={12}>
                                         <Typography>
@@ -103,7 +103,7 @@ function FriendRequests(props) {
                 <Grid item xs={12}>
                     {outgoingRequests.map((entry, index) => {
                         return (
-                            <Box key={index}>
+                            <Box key={index} margin={2}>
                                 <Grid container>
                                     <Grid item xs={12}>
                                         <Typography>
