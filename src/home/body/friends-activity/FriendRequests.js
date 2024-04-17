@@ -5,7 +5,15 @@ function FriendRequests(props) {
     const user = useSelector((state) => state.user);
     const incomingRequests =
         require("../../../data/account_friends.json").filter((entry) => {
-            return entry.recipient === user.uuid ? entry : null;
+            return entry.recipient === user.uuid && !entry.accepted
+                ? entry
+                : null;
+        });
+    const outgoingRequests =
+        require("../../../data/account_friends.json").filter((entry) => {
+            return entry.requestor === user.uuid && !entry.accepted
+                ? entry
+                : null;
         });
 
     const findUsername = (uuid) => {
@@ -36,48 +44,45 @@ function FriendRequests(props) {
                 </Grid>
                 <Grid item xs={12}>
                     {incomingRequests.map((entry, index) => {
-                        if (!entry.accepted) {
-                            return (
-                                <Box key={index}>
-                                    <Grid container>
-                                        <Grid item xs={12}>
-                                            <Typography>
-                                                {findUsername(entry.requestor)}
-                                            </Typography>
-                                        </Grid>
-                                        <Grid item xs={6}>
-                                            <Button
-                                                color="success"
-                                                onClickCapture={() => {
-                                                    handleFriendRequest(
-                                                        entry.requestor,
-                                                        true
-                                                    );
-                                                }}
-                                                fullWidth
-                                            >
-                                                Accept
-                                            </Button>
-                                        </Grid>
-                                        <Grid item xs={6}>
-                                            <Button
-                                                color="error"
-                                                onClick={() => {
-                                                    handleFriendRequest(
-                                                        entry.requestor,
-                                                        false
-                                                    );
-                                                }}
-                                                fullWidth
-                                            >
-                                                Deny
-                                            </Button>
-                                        </Grid>
+                        return (
+                            <Box key={index}>
+                                <Grid container>
+                                    <Grid item xs={12}>
+                                        <Typography>
+                                            {findUsername(entry.requestor)}
+                                        </Typography>
                                     </Grid>
-                                </Box>
-                            );
-                        }
-                        return null;
+                                    <Grid item xs={6}>
+                                        <Button
+                                            color="success"
+                                            onClickCapture={() => {
+                                                handleFriendRequest(
+                                                    entry.requestor,
+                                                    true
+                                                );
+                                            }}
+                                            fullWidth
+                                        >
+                                            Accept
+                                        </Button>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Button
+                                            color="error"
+                                            onClick={() => {
+                                                handleFriendRequest(
+                                                    entry.requestor,
+                                                    false
+                                                );
+                                            }}
+                                            fullWidth
+                                        >
+                                            Deny
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Box>
+                        );
                     })}
                     <Box
                         display={() => {
@@ -94,6 +99,26 @@ function FriendRequests(props) {
                             </Grid>
                         </Grid>
                     </Box>
+                </Grid>
+                <Grid item xs={12}>
+                    {outgoingRequests.map((entry, index) => {
+                        return (
+                            <Box key={index}>
+                                <Grid container>
+                                    <Grid item xs={12}>
+                                        <Typography>
+                                            {findUsername(entry.recipient)}
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <Typography color={"gray"}>
+                                            Pending...
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                            </Box>
+                        );
+                    })}
                 </Grid>
             </Grid>
         </Box>
