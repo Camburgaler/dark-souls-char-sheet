@@ -2,7 +2,11 @@ import { Add } from "@mui/icons-material";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { BASE_PATH, CREATE_PATH } from "../../../constants";
+import {
+    BASE_PATH,
+    CHARACTER_IMG_DIMENSIONS,
+    CREATE_PATH,
+} from "../../../constants";
 import CharacterCard from "./CharacterCard";
 
 function CharacterList(props) {
@@ -53,10 +57,19 @@ function CharacterList(props) {
                         >
                             <Grid container direction={"column"}>
                                 <Grid item xs={9}>
-                                    <Add sx={{ height: 200, width: 200 }} />
+                                    <Add
+                                        sx={{
+                                            height: CHARACTER_IMG_DIMENSIONS,
+                                            width: CHARACTER_IMG_DIMENSIONS,
+                                        }}
+                                    />
                                 </Grid>
                                 <Grid item xs={3}>
-                                    <Typography>New Character</Typography>
+                                    <Typography
+                                        maxWidth={CHARACTER_IMG_DIMENSIONS}
+                                    >
+                                        New Character
+                                    </Typography>
                                 </Grid>
                             </Grid>
                         </Grid>
