@@ -39,11 +39,7 @@ const router = createBrowserRouter(
         },
         {
             path: HOME_PATH,
-            element: (
-                <Provider store={store}>
-                    <Home />
-                </Provider>
-            ),
+            element: <Home />,
         },
         {
             path: CHARACTER_PATH + "/:uuid",
@@ -63,13 +59,9 @@ const router = createBrowserRouter(
     }
 );
 
-function Index(props) {
-    return <RouterProvider router={router} />;
-}
-
 ReactDOM.render(
     <Provider store={store}>
-        <Index />
+        <RouterProvider router={router} />
     </Provider>,
     document.getElementById("root")
 );
