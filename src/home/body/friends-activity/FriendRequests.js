@@ -14,6 +14,20 @@ function FriendRequests(props) {
         }).username;
     };
 
+    const handleFriendRequest = (requestor, accepted) => {
+        if (accepted) {
+            console.log(
+                "Accepted friend request from " + findUsername(requestor)
+            );
+            // "TODO: record.accepted = true"
+        } else {
+            console.log(
+                "Rejected friend request from " + findUsername(requestor)
+            );
+            // TODO: delete record
+        }
+    };
+
     return (
         <Box>
             <Grid container>
@@ -32,12 +46,32 @@ function FriendRequests(props) {
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={6}>
-                                            <Button color="success">
+                                            <Button
+                                                color="success"
+                                                onClickCapture={() => {
+                                                    handleFriendRequest(
+                                                        entry.requestor,
+                                                        true
+                                                    );
+                                                }}
+                                                fullWidth
+                                            >
                                                 Accept
                                             </Button>
                                         </Grid>
                                         <Grid item xs={6}>
-                                            <Button color="error">Deny</Button>
+                                            <Button
+                                                color="error"
+                                                onClick={() => {
+                                                    handleFriendRequest(
+                                                        entry.requestor,
+                                                        false
+                                                    );
+                                                }}
+                                                fullWidth
+                                            >
+                                                Deny
+                                            </Button>
                                         </Grid>
                                     </Grid>
                                 </Box>
