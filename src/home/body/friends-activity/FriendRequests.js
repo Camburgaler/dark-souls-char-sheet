@@ -79,7 +79,13 @@ function FriendRequests(props) {
                         }
                         return null;
                     })}
-                    <Box visibility={incomingRequests.length === 0}>
+                    <Box
+                        display={() => {
+                            return incomingRequests.length === 0
+                                ? "flex"
+                                : "none";
+                        }}
+                    >
                         <Grid container>
                             <Grid item xs={12}>
                                 <Typography color={"gray"}>
