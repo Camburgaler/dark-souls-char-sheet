@@ -19,7 +19,7 @@ import Login from "./login/Login";
 import rootReducer from "./redux/reducers";
 import reportWebVitals from "./reportWebVitals";
 
-export const store = configureStore({
+const store = configureStore({
     reducer: rootReducer,
 });
 
