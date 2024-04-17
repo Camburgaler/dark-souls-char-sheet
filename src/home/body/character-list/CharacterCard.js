@@ -1,5 +1,9 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
-import { BASE_PATH, CHARACTER_PATH } from "../../../constants";
+import {
+    BASE_PATH,
+    CHARACTER_IMG_DIMENSIONS,
+    CHARACTER_PATH,
+} from "../../../constants";
 
 function CharacterCard(props) {
     return (
@@ -27,8 +31,8 @@ function CharacterCard(props) {
                             component="img"
                             alt={props.character.name + " icon"}
                             sx={{
-                                height: 200,
-                                width: 200,
+                                height: CHARACTER_IMG_DIMENSIONS,
+                                width: CHARACTER_IMG_DIMENSIONS,
                             }}
                             src={require("../../../images/" +
                                 props.character.uuid +
@@ -36,7 +40,7 @@ function CharacterCard(props) {
                         />
                     </Grid>
                     <Grid item xs={3}>
-                        <Typography>
+                        <Typography maxWidth={CHARACTER_IMG_DIMENSIONS}>
                             {props.character.name} | {props.character.class}{" "}
                             {props.character.level}
                         </Typography>
