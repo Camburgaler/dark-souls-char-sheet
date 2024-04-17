@@ -14,10 +14,10 @@ function Login(props) {
         dispatch(
             setUser(
                 require("../data/accounts.json").find((user) => {
-                    return user.uuid === "126112c3-79d2-43a4-bdaf-179926817396";
+                    return user.uuid === "126112c3-79d2-43a4-bdaf-179926817396"; // temporary dummy login
                 })
             )
-        ); // dummy login
+        );
         navigate(HOME_PATH);
     };
 
