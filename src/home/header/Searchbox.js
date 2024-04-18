@@ -1,14 +1,18 @@
-import { Box, Button, Input, Typography } from "@mui/material";
+import { Box, Button, Grid, Input, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { BASE_PATH, CHARACTER_PATH, FRIEND_PATH } from "../../constants";
+import { findAcceptedFriendUuid, findUsername } from "../../utilities";
 import "./Searchbox.css";
 
 function App() {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
+    const user = useSelector((state) => state.user);
 
     const accountData = require("../../data/accounts.json");
     const characterData = require("../../data/characters.json");
+    const friendsData = require("../../data/account_friends.json");
     accountData.forEach((account) => {
         account.recordType = "account";
     });
@@ -29,12 +33,20 @@ function App() {
             if (query === "") {
                 return null;
             } else {
-                if (entry.recordType === "account") {
+                if (
+                    entry.recordType === "account" &&
+                    entry.uuid !== user.uuid
+                ) {
                     return entry.username
                         .toLowerCase()
                         .includes(query.toLowerCase());
                 }
-                if (entry.recordType === "character") {
+                if (
+                    entry.recordType === "character" &&
+                    (entry.account === user.uuid ||
+                        entry.account ===
+                            findAcceptedFriendUuid(user.uuid, entry.account))
+                ) {
                     return entry.name
                         .toLowerCase()
                         .includes(query.toLowerCase());
@@ -62,25 +74,63 @@ function App() {
             case "account":
                 return (
                     <Box>
-                        <Typography>{entry.username}</Typography>
-                        <Button onClick={() => sendFriendRequest(index)}>
-                            Send Friend Request
-                        </Button>
-                        <Button
-                            href={BASE_PATH + FRIEND_PATH + "/" + entry.uuid}
-                        >
-                            Visit Page
-                        </Button>
+                        <Grid container>
+                            <Grid item xs={12}>
+                                <Typography>{entry.username}</Typography>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={6}
+                                visibility={
+                                    friendsData.find((request) => {
+                                        return (
+                                            (request.recipient === entry.uuid &&
+                                                request.requestor ===
+                                                    user.uuid) ||
+                                            (request.requestor === entry.uuid &&
+                                                request.recipient === user.uuid)
+                                        );
+                                    })
+                                        ? "hidden"
+                                        : "visible"
+                                }
+                            >
+                                <Button
+                                    fullWidth
+                                    onClick={() => sendFriendRequest(index)}
+                                >
+                                    Send Friend Request
+                                </Button>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Button
+                                    fullWidth
+                                    href={
+                                        BASE_PATH +
+                                        FRIEND_PATH +
+                                        "/" +
+                                        entry.uuid
+                                    }
+                                >
+                                    Visit Homepage
+                                </Button>
+                            </Grid>
+                        </Grid>
                     </Box>
                 );
             case "character":
                 return (
                     <Box>
-                        <Typography>{entry.name}</Typography>
+                        <Typography>
+                            {entry.name}
+                            <Typography color={"lightgray"}>
+                                {findUsername(entry.account)}
+                            </Typography>
+                        </Typography>
                         <Button
                             href={BASE_PATH + CHARACTER_PATH + "/" + entry.uuid}
                         >
-                            Visit Page
+                            See Character
                         </Button>
                     </Box>
                 );
