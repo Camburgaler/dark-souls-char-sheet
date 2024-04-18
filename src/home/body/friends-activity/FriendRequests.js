@@ -1,5 +1,6 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
+import { findUsername } from "../../../utilities";
 
 function FriendRequests(props) {
     const user = useSelector((state) => state.user);
@@ -15,12 +16,6 @@ function FriendRequests(props) {
                 ? entry
                 : null;
         });
-
-    const findUsername = (uuid) => {
-        return require("../../../data/accounts.json").find((entry) => {
-            return entry.uuid === uuid;
-        }).username;
-    };
 
     const handleFriendRequest = (requestor, accepted) => {
         if (accepted) {
