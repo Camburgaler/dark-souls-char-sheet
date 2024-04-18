@@ -28,12 +28,14 @@ function CharacterList(props) {
     );
 
     return (
-        <Box sx={{ bgcolor: "lightgray" }} height={"100%"}>
-            <Grid container>
-                <Grid item xs={12}>
-                    <Typography variant="h3">Characters</Typography>
+        <Box sx={{ bgcolor: "lightgray" }} flex={1} id="characterList-box">
+            <Grid container id="characterList-grid-container">
+                <Grid item xs={12} id="characterListTitle-grid-item">
+                    <Typography variant="h3" id="characterListTitle">
+                        Characters
+                    </Typography>
                 </Grid>
-                <Grid container>
+                <Grid item xs={12} id="characterCard-grid-container">
                     {characters.map((character) => {
                         return (
                             <CharacterCard
