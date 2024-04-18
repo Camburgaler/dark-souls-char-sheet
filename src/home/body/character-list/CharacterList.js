@@ -44,53 +44,49 @@ function CharacterList(props) {
                             />
                         );
                     })}
-                    <Grid
-                        item
-                        visibility={
-                            user.uuid &&
-                            window.location.href.indexOf("home") > -1
-                                ? "visible"
-                                : "hidden"
-                        }
+                    <Button
+                        color="inherit"
+                        sx={{
+                            textTransform: "none",
+                            display:
+                                user.uuid &&
+                                window.location.href.indexOf("home") > -1
+                                    ? "content"
+                                    : "none",
+                        }}
+                        href={BASE_PATH + CREATE_PATH}
                     >
-                        <Button
-                            color="inherit"
-                            sx={{ textTransform: "none" }}
-                            href={BASE_PATH + CREATE_PATH}
+                        <Grid
+                            item
+                            padding={1}
+                            margin={1}
+                            sx={{
+                                bgcolor: "gray",
+                                ":hover": {
+                                    border: "1px solid #000000",
+                                    bgcolor: "darkgray",
+                                },
+                            }}
                         >
-                            <Grid
-                                item
-                                padding={1}
-                                margin={1}
-                                xs={"auto"}
-                                sx={{
-                                    bgcolor: "gray",
-                                    ":hover": {
-                                        border: "1px solid #000000",
-                                        bgcolor: "darkgray",
-                                    },
-                                }}
-                            >
-                                <Grid container direction={"column"}>
-                                    <Grid item xs={9}>
-                                        <Add
-                                            sx={{
-                                                height: CHARACTER_IMG_DIMENSIONS,
-                                                width: CHARACTER_IMG_DIMENSIONS,
-                                            }}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={3}>
-                                        <Typography
-                                            maxWidth={CHARACTER_IMG_DIMENSIONS}
-                                        >
-                                            New Character
-                                        </Typography>
-                                    </Grid>
+                            <Grid container direction={"column"}>
+                                <Grid item xs={9}>
+                                    <Add
+                                        sx={{
+                                            height: CHARACTER_IMG_DIMENSIONS,
+                                            width: CHARACTER_IMG_DIMENSIONS,
+                                        }}
+                                    />
+                                </Grid>
+                                <Grid item xs={3}>
+                                    <Typography
+                                        maxWidth={CHARACTER_IMG_DIMENSIONS}
+                                    >
+                                        New Character
+                                    </Typography>
                                 </Grid>
                             </Grid>
-                        </Button>
-                    </Grid>
+                        </Grid>
+                    </Button>
                 </Grid>
             </Grid>
         </Box>
