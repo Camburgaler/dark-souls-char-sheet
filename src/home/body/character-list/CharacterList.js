@@ -14,8 +14,14 @@ function CharacterList(props) {
     const user = useSelector((state) => state.user);
     const characters = require("../../../data/characters.json").filter(
         (character) => {
-            if (character.account === user.uuid) {
-                return character;
+            if (window.location.href.indexOf("friend") > -1) {
+                if (character.account === params.uuid) {
+                    return character;
+                }
+            } else if (window.location.href.indexOf("home") > -1) {
+                if (character.account === user.uuid) {
+                    return character;
+                }
             }
             return null;
         }
@@ -36,7 +42,15 @@ function CharacterList(props) {
                             />
                         );
                     })}
-                    <Grid item visibility={user.uuid ? "visible" : "hidden"}>
+                    <Grid
+                        item
+                        visibility={
+                            user.uuid &&
+                            window.location.href.indexOf("home") > -1
+                                ? "visible"
+                                : "hidden"
+                        }
+                    >
                         <Button
                             color="inherit"
                             sx={{ textTransform: "none" }}
