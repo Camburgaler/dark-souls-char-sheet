@@ -6,9 +6,15 @@ import FriendsActivity from "./friends-activity/FriendsActivity";
 function Body(props) {
     const params = useParams();
     return (
-        <Box margin={0} padding={0}>
-            <Grid container>
-                <Grid item xs={9}>
+        <Box id="body-box" margin={0} padding={0} display={"flex"} flex={1}>
+            <Grid container display={"flex"} flex={1} id="body-grid-container">
+                <Grid
+                    item
+                    xs={9}
+                    display={"flex"}
+                    flex={1}
+                    id="characterList-grid-item"
+                >
                     <CharacterList />
                 </Grid>
                 <Grid
