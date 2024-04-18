@@ -68,5 +68,19 @@
         "name": "Penis Breath",
         "class": "Mercenary",
         "level": 7
+    },
+    {
+        "uuid": "d35ff964-d2cc-4327-a503-0aa738880fd6",
+        "account": "4074339f-6409-4c1f-93ec-c121e24b2d0d",
+        "name": "Ovii's Character",
+        "class": "Mercenary",
+        "level": 7
+    },
+    {
+        "uuid": "4bc58177-c04a-4ff4-9eb4-59f3a685057c",
+        "account": "a242cd92-49c5-40f4-96bd-a7fb2e0a37fc",
+        "name": "Sylva's Character",
+        "class": "Mercenary",
+        "level": 7
     }
 ]
