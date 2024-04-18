@@ -34,9 +34,12 @@ function CharacterCard(props) {
                                 height: CHARACTER_IMG_DIMENSIONS,
                                 width: CHARACTER_IMG_DIMENSIONS,
                             }}
-                            src={require("../../../images/" +
+                            // TODO: below src should point to where we end up actually storing our images when we get to the DB
+                            src={
+                                "https://raw.githubusercontent.com/Camburgaler/dark-souls-char-sheet/home-page/src/images/" +
                                 props.character.uuid +
-                                ".jpeg")}
+                                ".jpeg"
+                            }
                         />
                     </Grid>
                     <Grid item xs={3}>
