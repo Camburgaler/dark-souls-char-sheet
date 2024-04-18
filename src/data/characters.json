@@ -40,5 +40,33 @@
         "name": "Balasar",
         "class": "Pyromancer",
         "level": 3
+    },
+    {
+        "uuid": "20e2db71-4cd9-4f00-8f14-131147036b7b",
+        "account": "48003837-c36b-4d14-bc38-5c6d22544362",
+        "name": "Herword the Gay",
+        "class": "Mercenary",
+        "level": 7
+    },
+    {
+        "uuid": "9118461a-9dc5-4e3a-aab5-1beba705437e",
+        "account": "48003837-c36b-4d14-bc38-5c6d22544362",
+        "name": "Bepis",
+        "class": "Mercenary",
+        "level": 7
+    },
+    {
+        "uuid": "020c7d48-61f5-4eec-9d21-f92bc63a8316",
+        "account": "e33f088f-8d77-422b-bb2a-98889654e848",
+        "name": "Duzunri Cockhand",
+        "class": "Mercenary",
+        "level": 7
+    },
+    {
+        "uuid": "e4b4970b-005c-47e7-b73e-e765b032e32a",
+        "account": "e33f088f-8d77-422b-bb2a-98889654e848",
+        "name": "Penis Breath",
+        "class": "Mercenary",
+        "level": 7
     }
 ]
