@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import NoMatch from "./NoMatch";
@@ -59,11 +59,11 @@ const router = createBrowserRouter(
     }
 );
 
-ReactDOM.render(
+const root = createRoot(document.getElementById("root"));
+root.render(
     <Provider store={store}>
         <RouterProvider router={router} />
-    </Provider>,
-    document.getElementById("root")
+    </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
