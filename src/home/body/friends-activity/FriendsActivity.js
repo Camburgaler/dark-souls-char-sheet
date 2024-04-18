@@ -1,5 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import FriendRequests from "./FriendRequests";
+import QuickLook from "./QuickLook";
 
 function FriendsActivity(props) {
     return (
@@ -12,7 +13,7 @@ function FriendsActivity(props) {
                     <FriendRequests />
                 </Grid>
                 <Grid item xs={12}>
-                    <Typography>Quick Look</Typography>
+                    <QuickLook />
                 </Grid>
             </Grid>
         </Box>
