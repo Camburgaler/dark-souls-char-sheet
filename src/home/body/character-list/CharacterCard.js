@@ -11,6 +11,7 @@ function CharacterCard(props) {
             color="inherit"
             sx={{ textTransform: "none" }}
             href={BASE_PATH + CHARACTER_PATH + "/" + props.character.uuid}
+            id={props.character.uuid + "-button"}
         >
             <Grid
                 item
