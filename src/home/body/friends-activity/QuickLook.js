@@ -31,9 +31,17 @@ function QuickLook(props) {
                         <Box key={index}>
                             <Grid container>
                                 <Grid item xs={12}>
-                                    <Typography>
+                                    <Button
+                                        fullWidth
+                                        style={{ justifyContent: "flex-start" }}
+                                        sx={{
+                                            textTransform: "none",
+                                            typography: "subtitle1",
+                                            fontWeight: "bold",
+                                        }}
+                                    >
                                         {findUsername(uuid)}
-                                    </Typography>
+                                    </Button>
                                 </Grid>
                                 <Grid item xs={12}>
                                     {require("../../../data/characters.json")
