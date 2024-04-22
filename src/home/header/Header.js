@@ -33,6 +33,12 @@ function Header(props) {
                     Welcome, {user.username}!
                 </Typography>
                 <Searchbox />
+                <Button
+                    href={require("../../data/Dark_Souls_The_Roleplaying_Game.PDF")}
+                    target="_blank"
+                >
+                    Rules
+                </Button>
                 <Button color="inherit" onClick={handleLogout}>
                     Logout
                 </Button>
