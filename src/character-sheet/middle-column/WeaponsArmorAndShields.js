@@ -6,7 +6,7 @@ import {
     Select,
     Typography,
 } from "@mui/material";
-import { default as React } from "react";
+import React from "react";
 import { Item } from "../../styles";
 const weapons = require("../../data/weapons.json");
 const armors = require("../../data/armors.json");
