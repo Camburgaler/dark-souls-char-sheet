@@ -3,8 +3,8 @@ import {
     Switch, 
     Typography 
 } from "@mui/material";
-import { SKILL_NAMES } from "./constants";
-import { Item } from "./styles";
+import { SKILL_NAMES } from "../../constants";
+import { Item } from "../../styles";
 
 function SkillsList(props) {
 

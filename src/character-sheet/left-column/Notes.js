@@ -1,5 +1,5 @@
 import { TextField } from "@mui/material";
-import { Item } from "./styles";
+import { Item } from "../../styles";
 
 function Notes(props) {
 

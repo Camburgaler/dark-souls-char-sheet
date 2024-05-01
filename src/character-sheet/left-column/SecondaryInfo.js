@@ -7,7 +7,7 @@ import {
   TextField
 }
 from "@mui/material";
-import { Item } from './styles';
+import { Item } from '../../styles';
 
 function SecondaryInfo(props) {
     return(
