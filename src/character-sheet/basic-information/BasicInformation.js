@@ -1,4 +1,3 @@
-import { makeStyles } from "@material-ui/core/styles";
 import {
     Button,
     FormControl,
@@ -10,22 +9,16 @@ import {
     Typography,
 } from "@mui/material";
 import React from "react";
+import { Item } from "../../styles";
 import {
     BACKSTORIES,
     CLASSES,
     DRIVES,
     MEMORIES,
     ORIGINS,
-} from "../../constants";
-import { Item } from "../../styles";
+} from "../char-sheet-constants";
 
 function BasicInformation(props) {
-    const useStyles = makeStyles(() => ({
-        root: {
-            whiteSpace: "unset",
-            wordBreak: "break-all",
-        },
-    }));
     const classes = useStyles();
 
     const handleChange = (event) => {

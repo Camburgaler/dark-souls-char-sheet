@@ -17,7 +17,7 @@ import {
     CLASS_PROFICIENCIES,
     PROFICIENCY_SELECTION,
     SKILL_NAMES,
-} from "../constants";
+} from "./char-sheet-constants";
 
 function Dialogs(props) {
     const [combatPositionText, setCombatPositionText] = React.useState(0);
