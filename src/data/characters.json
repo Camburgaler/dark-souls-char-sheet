@@ -1,0 +1,86 @@
+[
+    {
+        "uuid": "978203d5-b528-45fe-89d1-43a4b1bf86f1",
+        "account": "126112c3-79d2-43a4-bdaf-179926817396",
+        "name": "Chousokabe Munemasa",
+        "class": "Mercenary",
+        "level": 7
+    },
+    {
+        "uuid": "68b2ff5e-9f4e-4a91-960e-89c73da3b81b",
+        "account": "126112c3-79d2-43a4-bdaf-179926817396",
+        "name": "Saamee ibn Khiy'ad al-Sutahi",
+        "class": "Cleric",
+        "level": 3
+    },
+    {
+        "uuid": "45ca7b70-a413-4988-a3d0-d22253a0b2b0",
+        "account": "126112c3-79d2-43a4-bdaf-179926817396",
+        "name": "Sarzumin Xiloscient",
+        "class": "Sorcerer",
+        "level": 1
+    },
+    {
+        "uuid": "1935eace-fa86-4dde-b171-7ffe80888dc5",
+        "account": "126112c3-79d2-43a4-bdaf-179926817396",
+        "name": "Slack",
+        "class": "Assassin",
+        "level": 5
+    },
+    {
+        "uuid": "960aa8b4-77d9-4e8e-abbe-482159c82ff9",
+        "account": "126112c3-79d2-43a4-bdaf-179926817396",
+        "name": "Ankha",
+        "class": "Sorcerer",
+        "level": 3
+    },
+    {
+        "uuid": "2b1e1288-1eaf-480d-92da-757ff9e903b5",
+        "account": "126112c3-79d2-43a4-bdaf-179926817396",
+        "name": "Balasar",
+        "class": "Pyromancer",
+        "level": 3
+    },
+    {
+        "uuid": "20e2db71-4cd9-4f00-8f14-131147036b7b",
+        "account": "48003837-c36b-4d14-bc38-5c6d22544362",
+        "name": "Herword the Gay",
+        "class": "Mercenary",
+        "level": 7
+    },
+    {
+        "uuid": "9118461a-9dc5-4e3a-aab5-1beba705437e",
+        "account": "48003837-c36b-4d14-bc38-5c6d22544362",
+        "name": "Bepis",
+        "class": "Mercenary",
+        "level": 7
+    },
+    {
+        "uuid": "020c7d48-61f5-4eec-9d21-f92bc63a8316",
+        "account": "e33f088f-8d77-422b-bb2a-98889654e848",
+        "name": "Duzunri Cockhand",
+        "class": "Mercenary",
+        "level": 7
+    },
+    {
+        "uuid": "e4b4970b-005c-47e7-b73e-e765b032e32a",
+        "account": "e33f088f-8d77-422b-bb2a-98889654e848",
+        "name": "Penis Breath",
+        "class": "Mercenary",
+        "level": 7
+    },
+    {
+        "uuid": "d35ff964-d2cc-4327-a503-0aa738880fd6",
+        "account": "4074339f-6409-4c1f-93ec-c121e24b2d0d",
+        "name": "Ovii's Character",
+        "class": "Mercenary",
+        "level": 7
+    },
+    {
+        "uuid": "4bc58177-c04a-4ff4-9eb4-59f3a685057c",
+        "account": "a242cd92-49c5-40f4-96bd-a7fb2e0a37fc",
+        "name": "Sylva's Character",
+        "class": "Mercenary",
+        "level": 7
+    }
+]

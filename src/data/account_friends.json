@@ -1,0 +1,27 @@
+[
+    {
+        "requestor": "126112c3-79d2-43a4-bdaf-179926817396",
+        "recipient": "48003837-c36b-4d14-bc38-5c6d22544362",
+        "accepted": true
+    },
+    {
+        "requestor": "126112c3-79d2-43a4-bdaf-179926817396",
+        "recipient": "e33f088f-8d77-422b-bb2a-98889654e848",
+        "accepted": true
+    },
+    {
+        "requestor": "126112c3-79d2-43a4-bdaf-179926817396",
+        "recipient": "4074339f-6409-4c1f-93ec-c121e24b2d0d",
+        "accepted": false
+    },
+    {
+        "requestor": "a242cd92-49c5-40f4-96bd-a7fb2e0a37fc",
+        "recipient": "126112c3-79d2-43a4-bdaf-179926817396",
+        "accepted": false
+    },
+    {
+        "requestor": "ec3eb284-ec5f-4937-88a5-82790fd82df9",
+        "recipient": "126112c3-79d2-43a4-bdaf-179926817396",
+        "accepted": false
+    }
+]

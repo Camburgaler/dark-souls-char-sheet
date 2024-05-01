@@ -9,17 +9,23 @@ import {
     Typography,
 } from "@mui/material";
 import React from "react";
-import { Item } from "../../styles";
+import { Item } from "../styles";
 import {
     BACKSTORIES,
     CLASSES,
     DRIVES,
     MEMORIES,
     ORIGINS,
-} from "../char-sheet-constants";
+} from "./char-sheet-constants";
 
 function BasicInformation(props) {
-    const classes = useStyles();
+    // const useStyles = makeStyles(() => ({
+    //     root: {
+    //         whiteSpace: "unset",
+    //         wordBreak: "break-all",
+    //     },
+    // }));
+    // const classes = useStyles();
 
     const handleChange = (event) => {
         props.onChange(event);
@@ -83,7 +89,7 @@ function BasicInformation(props) {
                                     {CLASSES.map((story) => {
                                         return (
                                             <MenuItem
-                                                classes={{ root: classes.root }}
+                                                // classes={{ root: classes.root }}
                                                 key={story}
                                                 value={story}
                                                 divider
@@ -157,7 +163,7 @@ function BasicInformation(props) {
                                     {BACKSTORIES.map((story) => {
                                         return (
                                             <MenuItem
-                                                classes={{ root: classes.root }}
+                                                // classes={{ root: classes.root }}
                                                 key={story}
                                                 value={story}
                                                 divider
@@ -198,7 +204,7 @@ function BasicInformation(props) {
                             {ORIGINS.map((story) => {
                                 return (
                                     <MenuItem
-                                        classes={{ root: classes.root }}
+                                        // classes={{ root: classes.root }}
                                         key={story}
                                         value={story}
                                         divider
@@ -225,7 +231,7 @@ function BasicInformation(props) {
                             {MEMORIES.map((story) => {
                                 return (
                                     <MenuItem
-                                        classes={{ root: classes.root }}
+                                        // classes={{ root: classes.root }}
                                         key={story}
                                         value={story}
                                         divider
@@ -271,7 +277,7 @@ function BasicInformation(props) {
                             {DRIVES.map((story) => {
                                 return (
                                     <MenuItem
-                                        classes={{ root: classes.root }}
+                                        // classes={{ root: classes.root }}
                                         key={story}
                                         value={story}
                                         divider
