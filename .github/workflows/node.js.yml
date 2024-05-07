@@ -13,6 +13,15 @@ on:
         - cron: "0 0 * * 0"
 
 jobs:
+    dependencies:
+        name: Check Dependencies
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - run: npm i
+            - name: Check Dependencies
+              run: npm run dependencies
+
     build:
         name: Build and Test
         runs-on: ubuntu-latest
@@ -24,13 +33,12 @@ jobs:
 
         steps:
             - uses: actions/checkout@v3
+            - run: npm i
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v3
               with:
                   node-version: ${{ matrix.node-version }}
                   cache: "npm"
-            - run: rm -rf node_modules package-lock.json
-            - run: npm i
             - run: npm run build
             - run: npm test
 
