@@ -4,7 +4,22 @@
         "account": "126112c3-79d2-43a4-bdaf-179926817396",
         "name": "Chousokabe Munemasa",
         "class": "Mercenary",
-        "level": 7
+        "level": 7,
+        "backstory": "You sought to become a lord by any means. You failed.",
+        "origin": "Brute",
+        "memory": "A man stands over you with a bloody knife, laughing. Laughing and laughing.",
+        "drive": "To become a lord--no matter the cost to you, or the world.",
+        "inspiration": false,
+        "notes": "",
+        "armor_class": 10,
+        "is_in_combat": false,
+        "max_base_position": 10,
+        "combat_position_pool": 0,
+        "current_position": 10,
+        "current_position_dice": 7,
+        "souls": 0,
+        "spent_souls": 1000,
+        "inventory": []
     },
     {
         "uuid": "68b2ff5e-9f4e-4a91-960e-89c73da3b81b",
