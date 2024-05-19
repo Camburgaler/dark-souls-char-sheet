@@ -1,12 +1,17 @@
-import { TextField } from "@material-ui/core";
+import { TextField } from "@mui/material";
 import { Item } from "../../styles";
 
 function FeaturesAndTraits() {
-    return(
+    return (
         <Item>
-            <TextField label={"Features & Traits"} fullWidth multiline variant={"outlined"}></TextField>
+            <TextField
+                label={"Features & Traits"}
+                fullWidth
+                multiline
+                variant={"outlined"}
+            ></TextField>
         </Item>
     );
-};
+}
 
 export default FeaturesAndTraits;
