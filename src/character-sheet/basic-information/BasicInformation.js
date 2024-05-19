@@ -13,7 +13,9 @@ import {
     DRIVES,
     MEMORIES,
     ORIGINS,
-} from "./char-sheet-constants";
+} from "../char-sheet-constants";
+import NameDisplay from "./NameDisplay";
+import AbilityScores from "./ability-scores/AbilityScores";
 
 /**
  * Renders a form for basic character information.
@@ -22,11 +24,8 @@ import {
  * @return {JSX.Element} A form with fields for character name, class, level, backstory, origin, memory, drive, and player name.
  */
 function BasicInformation(props) {
-    const [characterName, setCharacterName] = React.useState(
-        props.character.characterName
-    );
     const [selectedClass, setSelectedClass] = React.useState(
-        props.character.selectedClass
+        props.character.class
     );
     const [level, setLevel] = React.useState(props.character.level);
     const [origin, setOrigin] = React.useState(props.character.origin);
@@ -42,13 +41,6 @@ function BasicInformation(props) {
      */
     const handleChange = (event) => {
         switch (event.target.name) {
-            case "characterName":
-                setCharacterName(event.target.value);
-                props.setCharacter({
-                    ...props.character,
-                    characterName: event.target.value,
-                });
-                break;
             case "level":
                 setLevel(event.target.value);
                 props.setCharacter({
@@ -60,7 +52,7 @@ function BasicInformation(props) {
                 setSelectedClass(event.target.value);
                 props.setCharacter({
                     ...props.character,
-                    selectedClass: event.target.value,
+                    class: event.target.value,
                 });
                 break;
             case "origin":
@@ -95,26 +87,6 @@ function BasicInformation(props) {
                 console.log("error");
                 break;
         }
-    };
-
-    /**
-     * Renders a form control with a text field for the character name.
-     *
-     * @return {JSX.Element} A form control containing a text field for the character name.
-     */
-    const CharacterName = () => {
-        return (
-            <FormControl fullWidth>
-                <TextField
-                    value={characterName}
-                    onChange={handleChange}
-                    name="characterName"
-                    helperText="Character Name"
-                    required
-                    variant="filled"
-                />
-            </FormControl>
-        );
     };
 
     /**
@@ -310,7 +282,11 @@ function BasicInformation(props) {
         return (
             <FormControl fullWidth>
                 <TextField
-                    value={props.character.playerName}
+                    value={
+                        require("../../data/accounts.json").find((user) => {
+                            return user.uuid === props.character.account;
+                        })?.name
+                    }
                     onChange={handleChange}
                     name="playerName"
                     required
@@ -363,7 +339,21 @@ function BasicInformation(props) {
     return (
         <Grid container direction="row" id="basicInformation">
             <Grid item xs={4} id="characterName">
-                <CharacterName />
+                <Grid
+                    container
+                    direction={"column"}
+                    id="characterNameContainer"
+                >
+                    <Grid item xs={6} id="characterName">
+                        <NameDisplay
+                            objectName="Character Name"
+                            value={props.character.name}
+                        />
+                    </Grid>
+                    <Grid item xs={6} id="abilityScores">
+                        <AbilityScores character={props.character} />
+                    </Grid>
+                </Grid>
             </Grid>
             <Grid item xs={8} id="characterInfo">
                 <Grid container direction={"row"} id="characterInfoContainer">
@@ -413,7 +403,19 @@ function BasicInformation(props) {
                             id="characterInfoRightContainer"
                         >
                             <Grid item xs={6} id="playerName">
-                                <PlayerName />
+                                <NameDisplay
+                                    objectName="Player Name"
+                                    value={
+                                        require("../../data/accounts.json").find(
+                                            (user) => {
+                                                return (
+                                                    user.uuid ===
+                                                    props.character.account
+                                                );
+                                            }
+                                        )?.name
+                                    }
+                                />
                             </Grid>
                             <Grid item xs={6} id="characterDrive">
                                 <CharacterDrive />
