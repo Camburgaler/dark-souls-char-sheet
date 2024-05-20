@@ -100,7 +100,10 @@ function BasicInformation(props) {
                     </Grid>
                 </Grid>
                 <Grid item xs={3}>
-                    <InfoDisplay objectName="Origin" value={origin} />
+                    <InfoDisplay
+                        objectName="Origin"
+                        value={props.character.origin}
+                    />
                 </Grid>
                 <Grid item xs={3}>
                     <InfoDisplay
