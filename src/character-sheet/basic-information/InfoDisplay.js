@@ -9,7 +9,7 @@ import React from "react";
  * @param {string} props.character.name - The character's name.
  * @return {JSX.Element} A form control with a text field for the character's name.
  */
-function NameDisplay(props) {
+function InfoDisplay(props) {
     return (
         <FormControl fullWidth>
             <TextField
@@ -23,4 +23,4 @@ function NameDisplay(props) {
     );
 }
 
-export default NameDisplay;
+export default InfoDisplay;
