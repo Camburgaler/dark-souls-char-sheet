@@ -4,7 +4,6 @@ import {
     Grid,
     MenuItem,
     Select,
-    TextField,
 } from "@mui/material";
 import React from "react";
 import {
@@ -179,7 +178,7 @@ function BasicInformation(props) {
                     sx={{
                         overflow: "hidden",
                         textOverflow: "ellipsis",
-                        maxWidth: "22vw",
+                        maxWidth: "25vw",
                     }}
                 >
                     {BACKSTORIES.map((story) => {
@@ -252,7 +251,7 @@ function BasicInformation(props) {
                     sx={{
                         overflow: "hidden",
                         textOverflow: "ellipsis",
-                        maxWidth: "22vw",
+                        maxWidth: "25vw",
                     }}
                 >
                     {MEMORIES.map((story) => {
@@ -274,31 +273,6 @@ function BasicInformation(props) {
     };
 
     /**
-     * Renders a form control with a text field for the player name. The text field is disabled and cannot be edited.
-     *
-     * @return {JSX.Element} A form control containing a text field for the player name.
-     */
-    const PlayerName = () => {
-        return (
-            <FormControl fullWidth>
-                <TextField
-                    value={
-                        require("../../data/accounts.json").find((user) => {
-                            return user.uuid === props.character.account;
-                        })?.name
-                    }
-                    onChange={handleChange}
-                    name="playerName"
-                    required
-                    variant="filled"
-                    helperText="Player Name"
-                    disabled
-                />
-            </FormControl>
-        );
-    };
-
-    /**
      * Renders a form control with a select dropdown for the character drive.
      *
      * @return {JSX.Element} A form control containing a select dropdown for the character drive.
@@ -315,7 +289,7 @@ function BasicInformation(props) {
                     sx={{
                         overflow: "hidden",
                         textOverflow: "ellipsis",
-                        maxWidth: "22vw",
+                        maxWidth: "25vw",
                     }}
                 >
                     {DRIVES.map((story) => {
@@ -337,91 +311,54 @@ function BasicInformation(props) {
     };
 
     return (
-        <Grid container direction="row" id="basicInformation">
-            <Grid item xs={4} id="characterName">
-                <Grid
-                    container
-                    direction={"column"}
-                    id="characterNameContainer"
-                >
-                    <Grid item xs={6} id="characterName">
-                        <NameDisplay
-                            objectName="Character Name"
-                            value={props.character.name}
-                        />
-                    </Grid>
-                    <Grid item xs={6} id="abilityScores">
-                        <AbilityScores character={props.character} />
+        <Grid container direction="column" id="basicInformationContainer">
+            <Grid container direction="row">
+                <Grid item xs={3}>
+                    <NameDisplay
+                        objectName="Character Name"
+                        value={props.character.name}
+                    />
+                </Grid>
+                <Grid item xs={3}>
+                    <Grid
+                        container
+                        direction={"row"}
+                        id="characterClassLevelContainer"
+                    >
+                        <Grid item xs={8} id="characterClass">
+                            <CharacterClass />
+                        </Grid>
+                        <Grid item xs={4} id="characterLevel">
+                            <CharacterLevel />
+                        </Grid>
                     </Grid>
                 </Grid>
+                <Grid item xs={3}>
+                    <CharacterOrigin />
+                </Grid>
+                <Grid item xs={3}>
+                    <NameDisplay
+                        objectName="Player Name"
+                        value={
+                            require("../../data/accounts.json").find((user) => {
+                                return user.uuid === props.character.account;
+                            })?.name
+                        }
+                    />
+                </Grid>
             </Grid>
-            <Grid item xs={8} id="characterInfo">
-                <Grid container direction={"row"} id="characterInfoContainer">
-                    <Grid item xs={4} id="characterInfoLeft">
-                        <Grid
-                            container
-                            direction={"column"}
-                            id="characterInfoLeftContainer"
-                        >
-                            <Grid item xs={6} id="characterClassLevel">
-                                <Grid
-                                    container
-                                    direction={"row"}
-                                    id="characterClassLevelContainer"
-                                >
-                                    <Grid item xs={8} id="characterClass">
-                                        <CharacterClass />
-                                    </Grid>
-                                    <Grid item xs={4} id="characterLevel">
-                                        <CharacterLevel />
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                            <Grid item xs={6} id="characterBackstory">
-                                <CharacterBackstory />
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={4} id="characterInfoMiddle">
-                        <Grid
-                            container
-                            direction={"column"}
-                            id="characterInfoMiddleContainer"
-                        >
-                            <Grid item xs={6} id="characterOrigin">
-                                <CharacterOrigin />
-                            </Grid>
-                            <Grid item xs={6} id="characterMemory">
-                                <CharacterMemory />
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={4} id="characterInfoRight">
-                        <Grid
-                            container
-                            direction={"column"}
-                            id="characterInfoRightContainer"
-                        >
-                            <Grid item xs={6} id="playerName">
-                                <NameDisplay
-                                    objectName="Player Name"
-                                    value={
-                                        require("../../data/accounts.json").find(
-                                            (user) => {
-                                                return (
-                                                    user.uuid ===
-                                                    props.character.account
-                                                );
-                                            }
-                                        )?.name
-                                    }
-                                />
-                            </Grid>
-                            <Grid item xs={6} id="characterDrive">
-                                <CharacterDrive />
-                            </Grid>
-                        </Grid>
-                    </Grid>
+            <Grid container direction="row">
+                <Grid item xs={3}>
+                    <AbilityScores character={props.character} />
+                </Grid>
+                <Grid item xs={3}>
+                    <CharacterBackstory />
+                </Grid>
+                <Grid item xs={3}>
+                    <CharacterMemory />
+                </Grid>
+                <Grid item xs={3}>
+                    <CharacterDrive />
                 </Grid>
             </Grid>
         </Grid>
