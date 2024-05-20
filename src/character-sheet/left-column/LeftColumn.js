@@ -1,33 +1,35 @@
-import {
-    Grid
-}
-from "@mui/material";
-import AbilityScores from "./AbilityScores";
+import { Box, Grid } from "@mui/material";
+import SavingThrows from "./SavingThrows";
 import SecondaryInfo from "./SecondaryInfo";
-import SavingThrows from "./SavingThrows"
-import SkillsList from "./SkillsList"
+import SkillsList from "./SkillsList";
 // import SpecialAbility from "./SpecialAbility"
-import BloodiedAbility from "./BloodiedAbility"
-import Notes from "./Notes"
+import BloodiedAbility from "./BloodiedAbility";
+import Notes from "./Notes";
 
 function LeftColumn(props) {
     return (
-        <>
+        <Box>
             <Grid container direction="column">
                 <Grid container direction="row">
-                    <Grid item xs={3}>
-                        <AbilityScores character={props.character} onChange={props.changeHandler} />
-                    </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={12}>
                         <Grid container direction="column">
                             <Grid item xs={12}>
-                                <SecondaryInfo character={props.character} onChange={props.changeHandler} />
+                                <SecondaryInfo
+                                    character={props.character}
+                                    onChange={props.changeHandler}
+                                />
                             </Grid>
                             <Grid item xs={12}>
-                                <SavingThrows character={props.character} onChange={props.changeHandler} />
+                                <SavingThrows
+                                    character={props.character}
+                                    onChange={props.changeHandler}
+                                />
                             </Grid>
                             <Grid item xs={12}>
-                                <SkillsList character={props.character} onChange={props.changeHandler} />
+                                <SkillsList
+                                    character={props.character}
+                                    onChange={props.changeHandler}
+                                />
                             </Grid>
                         </Grid>
                     </Grid>
@@ -39,17 +41,23 @@ function LeftColumn(props) {
                 </Grid> */}
                 <Grid container direction="row">
                     <Grid item xs={12}>
-                        <BloodiedAbility character={props.character} onChange={props.changeHandler} />
+                        <BloodiedAbility
+                            character={props.character}
+                            onChange={props.changeHandler}
+                        />
                     </Grid>
                 </Grid>
                 <Grid container direction="row">
                     <Grid item xs={12}>
-                        <Notes character={props.character} onChange={props.changeHandler} />
+                        <Notes
+                            character={props.character}
+                            onChange={props.changeHandler}
+                        />
                     </Grid>
                 </Grid>
             </Grid>
-        </>
+        </Box>
     );
-  }
-  
-  export default LeftColumn;
+}
+
+export default LeftColumn;

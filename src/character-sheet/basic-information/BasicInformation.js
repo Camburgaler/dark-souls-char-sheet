@@ -1,289 +1,143 @@
 import {
-    Button,
     FormControl,
     FormHelperText,
     Grid,
     MenuItem,
     Select,
-    TextField,
-    Typography,
 } from "@mui/material";
 import React from "react";
-import { Item } from "../../styles";
-import {
-    BACKSTORIES,
-    CLASSES,
-    DRIVES,
-    MEMORIES,
-    ORIGINS,
-} from "../char-sheet-constants";
+import InfoDisplay from "./InfoDisplay";
+import AbilityScores from "./ability-scores/AbilityScores";
 
+/**
+ * Renders a form for basic character information.
+ *
+ * @param {Object} props - The props object containing character data.
+ * @return {JSX.Element} A form with fields for character name, class, level, backstory, origin, memory, drive, and player name.
+ */
 function BasicInformation(props) {
-    const classes = useStyles();
+    const [level, setLevel] = React.useState(props.character.level);
 
+    /**
+     * Handles the change event for the input fields in the BasicInformation component.
+     *
+     * @param {Object} event - The event object containing information about the event.
+     * @return {void} This function does not return anything.
+     */
     const handleChange = (event) => {
-        props.onChange(event);
+        switch (event.target.name) {
+            case "level":
+                setLevel(event.target.value);
+                props.setCharacter({
+                    ...props.character,
+                    level: event.target.value,
+                });
+                break;
+            default:
+                console.log("error");
+                break;
+        }
     };
 
-    const handleLevelButton = (event) => {
-        let newLevel = props.character.level;
-        if (event.target.name === "lvlUp") {
-            if (props.character.level < 20) {
-                newLevel++;
-            }
-        } else if (event.target.name === "lvlDown") {
-            if (props.character.level > 1) {
-                newLevel--;
-            }
-        }
-
-        props.setCharacter({
-            ...props.character,
-            level: newLevel,
-        });
+    /**
+     * Renders a form control with a select dropdown for the character level. The dropdown is disabled
+     * if any of the selectedClass, backstory, memory, or drive values are empty. The onChange event
+     * handler updates the level state variable and calls the handleChange function.
+     *
+     * @return {JSX.Element} A form control containing a select dropdown for the character level.
+     */
+    const CharacterLevel = () => {
+        return (
+            <FormControl fullWidth>
+                <Select
+                    name="level"
+                    value={level}
+                    fullWidth
+                    onChange={handleChange}
+                >
+                    {[...Array(20).keys()].map((level) => {
+                        return (
+                            <MenuItem
+                                // classes={{ root: classes.root }}
+                                key={level}
+                                value={level + 1}
+                                divider
+                            >
+                                {level + 1}
+                            </MenuItem>
+                        );
+                    })}
+                </Select>
+                <FormHelperText>Level</FormHelperText>
+            </FormControl>
+        );
     };
 
     return (
-        <Grid container direction="row" spacing="2" columnSpacing={"5"}>
-            <Grid item xs={4} sx={{ border: "1px solid black" }}>
-                <Item>
-                    <TextField
-                        fullWidth
-                        name="characterName"
-                        helperText="Character Name"
-                        variant="standard"
-                        onChange={handleChange}
+        <Grid container direction="column" id="basicInformationContainer">
+            <Grid container direction="row">
+                <Grid item xs={3}>
+                    <InfoDisplay
+                        objectName="Character Name"
+                        value={props.character.name}
                     />
-                </Item>
-            </Grid>
-            <Grid
-                item
-                xs={4}
-                sx={{
-                    borderBottom: "1px solid black",
-                    borderLeft: "1px solid black",
-                    borderTop: "1px solid black",
-                }}
-            >
-                <Grid container direction="row">
-                    <Grid item xs={7}>
-                        <Item>
-                            <FormControl fullWidth>
-                                <Select
-                                    name="selectedClass"
-                                    defaultValue={""}
-                                    disabled={props.character.level > 1}
-                                    fullWidth
-                                    style={{
-                                        overflow: "hidden",
-                                        textOverflow: "ellipsis",
-                                    }}
-                                    onChange={handleChange}
-                                >
-                                    {CLASSES.map((story) => {
-                                        return (
-                                            <MenuItem
-                                                classes={{ root: classes.root }}
-                                                key={story}
-                                                value={story}
-                                                divider
-                                            >
-                                                {story}
-                                            </MenuItem>
-                                        );
-                                    })}
-                                </Select>
-                                <FormHelperText>Class</FormHelperText>
-                            </FormControl>
-                        </Item>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Item>
-                            <Typography name="level" sx={{ fontSize: 40 }}>
-                                {props.character.level}
-                            </Typography>
-                            <FormHelperText>Level</FormHelperText>
-                        </Item>
-                    </Grid>
-                    <Grid item xs={2}>
-                        <Grid container direction="column">
-                            <Grid item xs={12}>
-                                <Item>
-                                    <Button
-                                        onClick={handleLevelButton}
-                                        name="lvlUp"
-                                        disabled={
-                                            props.character.selectedClass ===
-                                                "" ||
-                                            props.character.origin === ""
-                                        }
-                                    >
-                                        LV. Up
-                                    </Button>
-                                </Item>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Item>
-                                    <Button
-                                        onClick={handleLevelButton}
-                                        name="lvlDown"
-                                        disabled={
-                                            props.character.selectedClass ===
-                                                "" ||
-                                            props.character.origin === ""
-                                        }
-                                    >
-                                        LV. DN
-                                    </Button>
-                                </Item>
-                            </Grid>
+                </Grid>
+                <Grid item xs={3}>
+                    <Grid
+                        container
+                        direction={"row"}
+                        id="characterClassLevelContainer"
+                    >
+                        <Grid item xs={8} id="characterClass">
+                            <InfoDisplay
+                                objectName="Class"
+                                value={props.character.class}
+                            />
+                        </Grid>
+                        <Grid item xs={4} id="characterLevel">
+                            <CharacterLevel />
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid container direction="row">
-                    <Grid item xs={12}>
-                        <Item>
-                            <FormControl fullWidth>
-                                <Select
-                                    fullWidth
-                                    defaultValue={""}
-                                    name="backstory"
-                                    style={{
-                                        overflow: "hidden",
-                                        textOverflow: "ellipsis",
-                                    }}
-                                    onChange={handleChange}
-                                >
-                                    {BACKSTORIES.map((story) => {
-                                        return (
-                                            <MenuItem
-                                                classes={{ root: classes.root }}
-                                                key={story}
-                                                value={story}
-                                                divider
-                                            >
-                                                {story}
-                                            </MenuItem>
-                                        );
-                                    })}
-                                </Select>
-                                <FormHelperText>Backstory</FormHelperText>
-                            </FormControl>
-                        </Item>
-                    </Grid>
+                <Grid item xs={3}>
+                    <InfoDisplay
+                        objectName="Origin"
+                        value={props.character.origin}
+                    />
+                </Grid>
+                <Grid item xs={3}>
+                    <InfoDisplay
+                        objectName="Player Name"
+                        value={
+                            require("../../data/accounts.json").find((user) => {
+                                return user.uuid === props.character.account;
+                            })?.name
+                        }
+                    />
                 </Grid>
             </Grid>
-            <Grid
-                item
-                xs={2}
-                sx={{
-                    borderBottom: "1px solid black",
-                    borderTop: "1px solid black",
-                }}
-            >
-                <Item>
-                    <FormControl fullWidth>
-                        <Select
-                            name="origin"
-                            defaultValue={""}
-                            disabled={props.character.level > 1}
-                            fullWidth
-                            style={{
-                                overflow: "hidden",
-                                textOverflow: "ellipsis",
-                                maxWidth: "15vw",
-                            }}
-                            onChange={handleChange}
-                        >
-                            {ORIGINS.map((story) => {
-                                return (
-                                    <MenuItem
-                                        classes={{ root: classes.root }}
-                                        key={story}
-                                        value={story}
-                                        divider
-                                    >
-                                        {story}
-                                    </MenuItem>
-                                );
-                            })}
-                        </Select>
-                        <FormHelperText>Origins</FormHelperText>
-                    </FormControl>
-                    <FormControl fullWidth>
-                        <Select
-                            name="memory"
-                            defaultValue={""}
-                            fullWidth
-                            style={{
-                                overflow: "hidden",
-                                textOverflow: "ellipsis",
-                                maxWidth: "15vw",
-                            }}
-                            onChange={handleChange}
-                        >
-                            {MEMORIES.map((story) => {
-                                return (
-                                    <MenuItem
-                                        classes={{ root: classes.root }}
-                                        key={story}
-                                        value={story}
-                                        divider
-                                    >
-                                        {story}
-                                    </MenuItem>
-                                );
-                            })}
-                        </Select>
-                        <FormHelperText>Memory</FormHelperText>
-                    </FormControl>
-                </Item>
-            </Grid>
-            <Grid
-                item
-                xs={2}
-                sx={{
-                    borderBottom: "1px solid black",
-                    borderRight: "1px solid black",
-                    borderTop: "1px solid black",
-                }}
-            >
-                <Item>
-                    <TextField
-                        name="playerName"
-                        fullWidth
-                        helperText="Player Name"
-                        variant="standard"
-                        onChange={handleChange}
+            <Grid container direction="row">
+                <Grid item xs={3}>
+                    <AbilityScores character={props.character} />
+                </Grid>
+                <Grid item xs={3}>
+                    <InfoDisplay
+                        objectName="Backstory"
+                        value={props.character.backstory}
                     />
-                    <FormControl fullWidth>
-                        <Select
-                            fullWidth
-                            defaultValue={""}
-                            name="drive"
-                            style={{
-                                overflow: "hidden",
-                                textOverflow: "ellipsis",
-                                maxWidth: "15vw",
-                            }}
-                            onChange={handleChange}
-                        >
-                            {DRIVES.map((story) => {
-                                return (
-                                    <MenuItem
-                                        classes={{ root: classes.root }}
-                                        key={story}
-                                        value={story}
-                                        divider
-                                    >
-                                        {story}
-                                    </MenuItem>
-                                );
-                            })}
-                        </Select>
-                        <FormHelperText>Drive</FormHelperText>
-                    </FormControl>
-                </Item>
+                </Grid>
+                <Grid item xs={3}>
+                    <InfoDisplay
+                        objectName="Memory"
+                        value={props.character.memory}
+                    />
+                </Grid>
+                <Grid item xs={3}>
+                    <InfoDisplay
+                        objectName="Drive"
+                        value={props.character.drive}
+                    />
+                </Grid>
             </Grid>
         </Grid>
     );

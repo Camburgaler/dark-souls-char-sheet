@@ -167,7 +167,6 @@ export const DEFAULT_CHARACTER = {
 };
 
 export const CLASSES = [
-    "",
     "Knight",
     "Mercenary",
     "Assassin",
@@ -180,7 +179,6 @@ export const CLASSES = [
     "Deprived",
 ];
 export const BACKSTORIES = [
-    "",
     "You sought to become a lord by any means. You failed.",
     "You're a lowly murderer, hanged in ages past and forgotten about.",
     "You were a poet, writing the tales of knights and damsels, singing them to the court.",
@@ -203,9 +201,8 @@ export const BACKSTORIES = [
     "A knight. You're certain. One of those who rode steeds and sought quests to prove your virtue. Definitely. That was you.",
     // <TextField fullWidth autoFocus defaultValue="For custom backstory, select me then tab into me."></TextField>
 ];
-export const ORIGINS = ["", "Brute", "Fencer", "Jack of All Trades", "Caster"];
+export const ORIGINS = ["Brute", "Fencer", "Jack of All Trades", "Caster"];
 export const MEMORIES = [
-    "",
     "A man stands over you with a bloody knife, laughing. Laughing and laughing.",
     "The scent of earth in your nose as it fell onto your face. Were you buried alive?",
     "The grasping, clawing hands of hollows everywhere.",
@@ -229,7 +226,6 @@ export const MEMORIES = [
     // <TextField fullWidth autoFocus defaultValue="For custom memory, select me then tab into me."></TextField>
 ];
 export const DRIVES = [
-    "",
     "To become a lord--no matter the cost to you, or the world.",
     "To return the sun to this stygian world.",
     "To know everything. Everything. No matter how obscure.",

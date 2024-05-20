@@ -1,0 +1,38 @@
+[
+    {
+        "uuid": "14c899d6-2c12-4990-a8c8-5c65b39db08d",
+        "name": "Brute",
+        "description": "",
+        "good_at": "",
+        "position_dice": "d10",
+        "speed": 30,
+        "ability_scores": [15, 10, 14, 10, 12, 13]
+    },
+    {
+        "uuid": "c6e655f3-b2ab-47c1-b100-9e98d36e69f0",
+        "name": "Fencer",
+        "description": "",
+        "good_at": "",
+        "position_dice": "d8",
+        "speed": 30,
+        "ability_scores": [12, 15, 14, 13, 10, 10]
+    },
+    {
+        "uuid": "4829ca4d-8b46-4dfa-adcc-981de31bd326",
+        "name": "Jack of All Trades",
+        "description": "",
+        "good_at": "",
+        "position_dice": "d8",
+        "speed": 30,
+        "ability_scores": [13, 13, 12, 12, 13, 12]
+    },
+    {
+        "uuid": "b22e2974-a8e1-40b3-85e3-5f86649b3857",
+        "name": "Caster",
+        "description": "",
+        "good_at": "",
+        "position_dice": "d6",
+        "speed": 30,
+        "ability_scores": [10, 12, 10, 14, 13, 15]
+    }
+]
