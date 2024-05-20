@@ -2,45 +2,24 @@ import { Box, Grid } from "@mui/material";
 import ScoreDisplay from "./ScoreDisplay";
 
 function AbilityScores(props) {
+    const originData = require("../../../data/origin.json");
+    const abilities = originData.find((origin) => {
+        return origin.name === props.character.origin;
+    }).ability_scores;
+    const abilityNames = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
     return (
         <Box>
             <Grid container>
-                <Grid item xs={2}>
-                    <ScoreDisplay
-                        ability={props.character.abilities.strScore}
-                        abilityName="STR"
-                    />
-                </Grid>
-                <Grid item xs={2}>
-                    <ScoreDisplay
-                        ability={props.character.abilities.dexScore}
-                        abilityName="DEX"
-                    />
-                </Grid>
-                <Grid item xs={2}>
-                    <ScoreDisplay
-                        ability={props.character.abilities.conScore}
-                        abilityName="CON"
-                    />
-                </Grid>
-                <Grid item xs={2}>
-                    <ScoreDisplay
-                        ability={props.character.abilities.intScore}
-                        abilityName="INT"
-                    />
-                </Grid>
-                <Grid item xs={2}>
-                    <ScoreDisplay
-                        ability={props.character.abilities.wisScore}
-                        abilityName="WIS"
-                    />
-                </Grid>
-                <Grid item xs={2}>
-                    <ScoreDisplay
-                        ability={props.character.abilities.chaScore}
-                        abilityName="CHA"
-                    />
-                </Grid>
+                {abilities.map((ability, index) => {
+                    return (
+                        <Grid item xs={2} key={index}>
+                            <ScoreDisplay
+                                ability={ability}
+                                abilityName={abilityNames[index]}
+                            />
+                        </Grid>
+                    );
+                })}
             </Grid>
         </Box>
     );

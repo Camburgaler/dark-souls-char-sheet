@@ -7,7 +7,11 @@ function ScoreDisplay(props) {
             name={props.abilityName}
             label={props.abilityName}
             helperText={props.ability}
-            value={abilityMod >= 0 ? "+" + abilityMod : abilityMod}
+            value={
+                abilityMod >= 0
+                    ? "+" + Math.floor(abilityMod)
+                    : Math.floor(abilityMod)
+            }
             fullWidth
             margin="dense"
             variant="outlined"
