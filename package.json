@@ -25,7 +25,7 @@
         "react-scripts": "^5.0.1",
         "react-search-box": "^3.0.0",
         "realm-web": "^2.0.0",
-        "redux": "^4.2.1"
+        "redux": "^5.0.1"
     },
     "devDependencies": {
         "@testing-library/jest-dom": "^5.16.5",
