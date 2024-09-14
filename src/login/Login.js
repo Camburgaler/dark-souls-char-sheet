@@ -1,7 +1,7 @@
-import { Box, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import './css/Login.css'
 import { HOME_PATH } from "../constants";
 import { setUser } from "../redux/userSlice";
 
@@ -22,13 +22,13 @@ function Login(props) {
     };
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <Grid container>
-                <Grid item xs={12}>
-                    <Button onClick={handleLogin}>LOGIN</Button>
-                </Grid>
-            </Grid>
-        </Box>
+        <div id="button-container-1" className="button-container">
+            <div id="button-container-2" className="button-container-center">
+                <Button id="login-button-1">
+                    Centered Button LMAO
+                </Button>
+            </div>
+        </div>
     );
 }
 
