@@ -5,6 +5,7 @@ import './css/Login.css'
 import { HOME_PATH } from "../constants";
 import { setUser } from "../redux/userSlice";
 import FadeIn from "react-fade-in";
+import {Box, Grid, Table, TextField} from "@mui/material";
 
 function Login(props) {
     const navigate = useNavigate();
@@ -25,7 +26,28 @@ function Login(props) {
     return (
         <div id="button-container-1" className="button-container">
             <div id="button-container-2" className="button-container-center">
-                <FadeIn>
+                <FadeIn delay={100}>
+                    <Box component="form" noValidate sx={{ mt: 1 }}>
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Email Address"
+                            name="email"
+                            autoComplete="email"
+                            autoFocus
+                        />
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="password"
+                            label="Password"
+                            name="password"
+                            autoComplete="password"
+                        />
+                    </Box>
                     <Button id="login-button-1">
                         Centered Button LMAO
                     </Button>
