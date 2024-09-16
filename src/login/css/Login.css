@@ -20,12 +20,18 @@
 }
 
 @keyframes fade-inout {
-    0%{ opacity: 1;}
-    100%{ opacity: 0;}
+    0%,100%{ opacity: 0;}
+    50%{ opacity: 1;}
+}
+
+@-webkit-keyframes fade-inout {
+    0%,100%{ opacity: 0;}
+    50%{ opacity: 1;}
 }
 
 .man{
-    animation: fade-inout 5s alternate-reverse;
-    animation-iteration-count: 2;
+    animation: fade-inout 10s linear forwards;
+    -webkit-animation: fade-inout 10s linear forwards;
+
 }
 
