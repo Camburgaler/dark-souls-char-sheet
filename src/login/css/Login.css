@@ -1,7 +1,10 @@
 .button-container {
     height: 200px;
-    position: relative;
+    position: absolute;
     border: 3px solid green;
+    top: 50%;
+    left: 50%;
+    background-size: 10em;
 }
 
 .button-container-center{
@@ -29,9 +32,10 @@
     50%{ opacity: 1;}
 }
 
-.man{
+.prequel-text{
     animation: fade-inout 10s linear forwards;
     -webkit-animation: fade-inout 10s linear forwards;
-
+    font-family: "Garamond", serif;
+    font-size: 7em;
 }
 

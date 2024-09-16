@@ -26,8 +26,8 @@ function Login(props) {
     return (
         <div id="button-container-1" className="button-container">
             <div id="button-container-2" className="button-container-center">
-                <div className={"man"}>Seek Strength</div>
-                <div className={"man"}>The Rest Will Follow</div>
+                <div className={"prequel-text"}>Seek Strength</div>
+                <div className={"prequel-text"}>The Rest Will Follow</div>
                 {/*<FadeIn delay={2000}>*/}
                 {/*    <Box component="form" noValidate sx={{ mt: 1 }}>*/}
                 {/*        <TextField*/}
