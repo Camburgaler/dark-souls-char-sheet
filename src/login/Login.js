@@ -26,32 +26,34 @@ function Login(props) {
     return (
         <div id="button-container-1" className="button-container">
             <div id="button-container-2" className="button-container-center">
-                <FadeIn delay={100}>
-                    <Box component="form" noValidate sx={{ mt: 1 }}>
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
-                            autoFocus
-                        />
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="password"
-                            label="Password"
-                            name="password"
-                            autoComplete="password"
-                        />
-                    </Box>
-                    <Button id="login-button-1">
-                        Centered Button LMAO
-                    </Button>
-                </FadeIn>
+                <div className={"man"}>Seek Strength</div>
+                <div className={"man"}>The Rest Will Follow</div>
+                {/*<FadeIn delay={2000}>*/}
+                {/*    <Box component="form" noValidate sx={{ mt: 1 }}>*/}
+                {/*        <TextField*/}
+                {/*            margin="normal"*/}
+                {/*            required*/}
+                {/*            fullWidth*/}
+                {/*            id="email"*/}
+                {/*            name="email"*/}
+                {/*            autoComplete="email"*/}
+                {/*            defaultValue="email@email.com"*/}
+                {/*            autoFocus*/}
+                {/*        />*/}
+                {/*        <TextField*/}
+                {/*            margin="normal"*/}
+                {/*            required*/}
+                {/*            fullWidth*/}
+                {/*            id="password"*/}
+                {/*            label="Password"*/}
+                {/*            name="password"*/}
+                {/*            autoComplete="password"*/}
+                {/*        />*/}
+                {/*    </Box>*/}
+                {/*    <Button id="login-button-1">*/}
+                {/*        Centered Button LMAO*/}
+                {/*    </Button>*/}
+                {/*</FadeIn>*/}
             </div>
         </div>
     );

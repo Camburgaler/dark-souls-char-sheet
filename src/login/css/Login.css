@@ -19,7 +19,13 @@
     font-family: "Garamond", serif;
 }
 
-#email{
-    font-family: "Garamond", serif;
+@keyframes fade-inout {
+    0%{ opacity: 1;}
+    100%{ opacity: 0;}
+}
+
+.man{
+    animation: fade-inout 5s alternate-reverse;
+    animation-iteration-count: 2;
 }
 
