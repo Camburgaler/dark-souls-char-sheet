@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import './css/Login.css'
 import { HOME_PATH } from "../constants";
 import { setUser } from "../redux/userSlice";
+import FadeIn from "react-fade-in";
 
 function Login(props) {
     const navigate = useNavigate();
@@ -24,9 +25,11 @@ function Login(props) {
     return (
         <div id="button-container-1" className="button-container">
             <div id="button-container-2" className="button-container-center">
-                <Button id="login-button-1">
-                    Centered Button LMAO
-                </Button>
+                <FadeIn>
+                    <Button id="login-button-1">
+                        Centered Button LMAO
+                    </Button>
+                </FadeIn>
             </div>
         </div>
     );
