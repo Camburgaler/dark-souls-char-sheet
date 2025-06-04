@@ -9,15 +9,9 @@ import {
     FormGroup,
     Grid,
     TextField,
-    Typography,
 } from "@mui/material";
 import React from "react";
-import {
-    ABILITY_NAMES,
-    CLASS_PROFICIENCIES,
-    PROFICIENCY_SELECTION,
-    SKILL_NAMES,
-} from "./char-sheet-constants";
+import { ABILITY_NAMES, PROFICIENCY_SELECTION } from "./char-sheet-constants";
 
 function Dialogs(props) {
     const [combatPositionText, setCombatPositionText] = React.useState(0);
@@ -25,8 +19,8 @@ function Dialogs(props) {
     const proficiencySelectionDialogError =
         Object.values(props.proficiencySelections).filter((v) => v).length !==
         PROFICIENCY_SELECTION[props.character.selectedClass];
-    const deprivedSavingThrowDialogError =
-        Object.values(props.deprivedSavingThrows).filter((v) => v).length !== 2;
+    // const deprivedSavingThrowDialogError =
+    //     Object.values(props.deprivedSavingThrows).filter((v) => v).length !== 2;
 
     const handleProficiencySelectionDialogClose = () => {
         props.setProficiencySelectionDialogOpen(false);
@@ -100,7 +94,8 @@ function Dialogs(props) {
     };
 
     const handleDeprivedSavingThrowSubmit = () => {
-        if (deprivedSavingThrowDialogError) {
+        // if (deprivedSavingThrowDialogError) {
+        if (false) {
             //do nothing
         } else {
             props.setCharacter({
@@ -228,7 +223,7 @@ function Dialogs(props) {
                     error={proficiencySelectionDialogError}
                     component={"fieldset"}
                 >
-                    <FormGroup>
+                    {/* <FormGroup>
                         {CLASS_PROFICIENCIES[props.character.selectedClass].map(
                             (proficiency) => {
                                 return (
@@ -251,7 +246,7 @@ function Dialogs(props) {
                                 );
                             }
                         )}
-                    </FormGroup>
+                    </FormGroup> */}
                 </FormControl>
                 <DialogActions>
                     <Button
@@ -270,7 +265,7 @@ function Dialogs(props) {
                 <DialogTitle>Select Two Saving Throws</DialogTitle>
                 <FormControl
                     required
-                    error={deprivedSavingThrowDialogError}
+                    // error={deprivedSavingThrowDialogError}
                     component="fieldset"
                 >
                     <FormGroup>
@@ -280,11 +275,11 @@ function Dialogs(props) {
                                     key={ability[0]}
                                     control={
                                         <Checkbox
-                                            checked={
-                                                props.deprivedSavingThrows[
-                                                    ability[0]
-                                                ]
-                                            }
+                                            // checked={
+                                            //     props.deprivedSavingThrows[
+                                            //         ability[0]
+                                            //     ]
+                                            // }
                                             onClick={
                                                 handleDeprivedSavingThrowClick
                                             }
@@ -315,11 +310,11 @@ function Dialogs(props) {
                 <DialogTitle>Roll for Combat Position Pool!</DialogTitle>
                 <Grid container direction="column">
                     <Grid item xs={12}>
-                        <Typography>
+                        {/* <Typography>
                             Roll {props.character.level}d
                             {props.character.positionDice.diceType} position
                             dice and enter the result below.
-                        </Typography>
+                        </Typography> */}
                     </Grid>
                     <Grid container direction="row">
                         <Grid item xs={9}>
@@ -359,10 +354,10 @@ function Dialogs(props) {
                 <DialogTitle>Roll for Position Recovery</DialogTitle>
                 <Grid container direction="column">
                     <Grid item xs={12}>
-                        <Typography>
+                        {/* <Typography>
                             Roll 1d{props.character.positionDice.diceType}{" "}
                             position dice and enter the result below.
-                        </Typography>
+                        </Typography> */}
                     </Grid>
                     <Grid container direction="row">
                         <Grid item xs={9}>
