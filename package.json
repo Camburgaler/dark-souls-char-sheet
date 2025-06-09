@@ -28,7 +28,7 @@
         "redux": "^5.0.1"
     },
     "devDependencies": {
-        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^15.0.2",
         "@testing-library/user-event": "^14.4.3",
         "autoprefixer": "^10.4.18",
